@@ -1,0 +1,709 @@
+<!-- adapted Crumps recognition memory task: Bradley Smith (BCS) Feb 2020-->
+
+
+<!--
+
+Code important to SONA is tagged with #SONA
+Code important to Firebase is tagged with #FIREBASE
+Code that needs to be commented out in order to test locally is tagged with #TESTING
+Written in Javascript and HTML, using the jsPsych library
+
+Experiment is Hosted on GitHub Pages https://melsod.github.io/OCSWinter2020/
+Experiment is explain on GitHub https://github.com/melsod/OCSWinter2020
+Our OSF page can be found at: https://osf.io/2a6b4/
+
+-->
+
+
+<!-- some preamble to set everything up. No major changes from Matt Crump's https://github.com/CrumpLab/jspsychrexamples-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- set meta data with author. Also set title of the file-->
+<meta name="author" content="Bradley Smith" />
+<title>Open Science Experiment</title>
+
+<!-- more set up for the experiment. not changed from Matt Crump https://github.com/CrumpLab/jspsychrexamples-->
+<style type="text/css">@font-face {
+font-family: 'Open Sans';
+font-style: italic;
+font-weight: 400;
+src: local('Open Sans Italic'), local('OpenSans-Italic'), format('truetype');
+}
+@font-face {
+font-family: 'Open Sans';
+font-style: italic;
+font-weight: 700;
+src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), format('truetype');
+}
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+src: local('Open Sans Regular'), local('OpenSans-Regular'), format('truetype');
+}
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
+}
+
+/*Font-family changed to verdana and sizes increased for accessibility*/
+.jspsych-display-element {display: flex;flex-direction: column;overflow-y: auto;}.jspsych-display-element:focus {outline: none;}.jspsych-content-wrapper {display: flex;margin: auto;flex: 1 1 100%;width: 100%;}.jspsych-content {max-width: 95%; text-align: center;margin: auto; }.jspsych-top {align-items: flex-start;}.jspsych-middle {align-items: center;}.jspsych-display-element {font-family: 'verdana', 'Arial', sans-serif;font-size: 38px;line-height: 1.6em;}.jspsych-display-element input[type="text"] {font-family: 'verdana', 'Arial', sans-serif;font-size: 34px;}.jspsych-btn {display: inline-block;padding: 6px 12px;margin: 0px;font-size: 30px;font-weight: 400;font-family: 'verdana', 'Arial', sans-serif;cursor: pointer;line-height: 1.4;text-align: center;white-space: nowrap;vertical-align: middle;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #333;background-color: #fff;border-color: #ccc;}.jspsych-btn:hover {background-color: #ddd;border-color: #aaa;}.jspsych-btn:disabled {background-color: #eee;color: #aaa;border-color: #ccc;cursor: not-allowed;}#jspsych-progressbar-container {color: #555;border-bottom: 1px solid #dedede;background-color: #f9f9f9;margin-bottom: 1em;text-align: center;padding: 8px 0px;width: 100%;line-height: 1em;}#jspsych-progressbar-container span {font-size: 34px;padding-right: 14px;}#jspsych-progressbar-outer {background-color: #eee;width: 50%;margin: auto;height: 14px;display: inline-block;vertical-align: middle;box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);}#jspsych-progressbar-inner {background-color: #aaa;width: 0%;height: 100%;}#jspsych-data-display {text-align: left;}
+</style>
+
+</head>
+
+<body style = "background-color:#F5F5F5">
+  
+<!-- set title and author, these appear briefly while file loads -->
+<h1 class="title toc-ignore">Open Science Experiment</h1> <!--BCS Feb2020-->
+<h4 class="author">BCS</h4> <!--BCS Feb2020-->
+
+
+
+<!-- Allow remote storage on Google Firebase -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script> <!-- #FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script> <!-- #FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script> <!-- #FIREBASE -->
+
+<!-- enter some javascript code-->
+<script type="text/javascript">
+// Firebase set up
+
+ // Your web app's Firebase configuration (given to us by firebase)
+  var firebaseConfig = { // #FIREBASE
+    apiKey: "AIzaSyDmLWE-6w-BA7T4YS_yPMRk3fmCuRE4zqc", // #FIREBASE
+    authDomain: "ocswinter2020.firebaseapp.com", // #FIREBASE
+    databaseURL: "https://ocswinter2020.firebaseio.com", // #FIREBASE
+    projectId: "ocswinter2020", // #FIREBASE
+    storageBucket: "ocswinter2020.appspot.com", // #FIREBASE
+    messagingSenderId: "645854380261", // #FIREBASE
+    appId: "1:645854380261:web:593a537135d8851022140c" // #FIREBASE
+  }; // #FIREBASE
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig); // #FIREBASE
+  
+  // Get a reference to the database service
+  var database = firebase.database(); // #FIREBASE
+  
+  // login anonymous user
+  firebase.auth().signInAnonymously().catch(function(error) { // #FIREBASE
+  // Handle Errors here.
+  var errorCode = error.code; // #FIREBASE
+  var errorMessage = error.message; // #FIREBASE
+  // ...
+}); // #FIREBASE
+  
+  // check if user can sign on to firebase 
+  firebase.auth().onAuthStateChanged(function(user) { // #FIREBASE
+  if (user) { // #FIREBASE
+    // User is signed in.
+    var isAnonymous = user.isAnonymous; // #FIREBASE
+    var uid = user.uid; // #FIREBASE
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+  // ...
+});
+</script>
+
+<!-- load the jsPsych plugins needed -->
+<script src="jspsych-6-2/jspsych.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-html-keyboard-response.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-html-button-response.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-external-html.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-text.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-multi-choice.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-multi-select.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-html-form.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-fullscreen.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-audio-keyboard-response.js"></script>
+<!-- load the stimuli needed -->
+<script src='stimuli/exp_text.js'></script>
+<script src='stimuli/sex_test_stimuli.js'></script>
+<script src='stimuli/age_language_test_stimuli.js'></script>
+
+
+<!-- enter javascript code -->
+<script type="text/javascript">
+/* Note this is a js (javascript) code chunk */
+
+// function to turn stimulus buttons back on when they've been disabled
+  function RestartButtons(btns){
+      for(var i=0; i<btns.length; i++){
+        btns[i].disabled=false;
+      }
+  }
+
+// function called by pressing stimulus button
+  function PlaySound(play_stim) {
+    // finds appropriate soundclip and plays it
+    document.getElementById(play_stim);
+    play_stim.play();
+    // disable all buttons immediately following an audio element 
+    // (ie all stimulus buttons) so that participants have to listen to entire clip
+    var btns = document.querySelectorAll('audio + button')
+    for(var i=0; i<btns.length; i++){
+      btns[i].disabled=true;
+    }
+    // wait 500 ms and then enable all stimulus buttons again
+    setTimeout(() => {RestartButtons(btns);},500);
+  }
+
+// function to change the buttons from white to grey when pressed
+  function ChangeColour(button) {
+    document.getElementById(button);
+    button.style.backgroundColor = "#A9A9A9";
+  }
+
+// track which buttons have been pressed
+  function UpdateClicked(button_name, list) {
+    
+    // true/false if the button pressed has been pressed previously
+    n = list.includes(button_name);
+    
+    // if not pressed previously then add to list of buttons that have been pressed
+    if (!n){
+      list.push(button_name)
+    }
+    // return the updated list of pressed buttons
+    return list
+  }
+
+// funciton to disable the response buttons
+	function DisableButtons(){
+	  // find all jspsych-html-buttons and disable them
+	  var btns = document.querySelectorAll('.jspsych-html-button-response-button button');
+      for(var i=0; i<btns.length; i++){
+        btns[i].disabled = true;
+      }
+	}
+
+// function to enable the response buttons once all 10 clips have been played
+  function EnableButtons(array){
+    // if 10 unique buttons have been pressed then find all jspych-html-buttons
+    if (array.length == 10){ //should be 10
+      var btns = document.querySelectorAll('.jspsych-html-button-response-button button');
+      // enable all found buttons
+      for(var i=0; i<btns.length; i++){
+        btns[i].disabled = false;
+      }
+    }
+    return array;
+  }
+
+
+// function to check if in fullscreen mode
+  function is_fullscreen(){
+  // check if in fullscreen mode
+  if(window.innerWidth == screen.width && window.innerHeight == screen.height){
+    return true;
+  }else{return false}
+  }
+
+// function to extract data from URL variables
+  function getUrlVars() { // #SONA
+    var vars = {}; // #SONA
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) { // #SONA
+        vars[key] = value; // #SONA
+    }); // #SONA
+    return vars; // #SONA
+  } // #SONA
+
+// function to go find data in the URL
+// should be provided a defualt (e.g., "") so that there will be no errors thrown
+  function getUrlParam(parameter, defaultvalue){ // #SONA
+    var urlparameter = defaultvalue; // #SONA
+    if(window.location.href.indexOf(parameter) > -1){ // #SONA
+        urlparameter = getUrlVars()[parameter]; // #SONA
+        } // #SONA
+    return urlparameter; // #SONA
+  }
+
+/* experiment parameters */
+
+// variable tracking which stimulus buttons have been pressed
+var which_clicked = [];
+
+// Create unique identifier for subject (random string of letters/numbers X digits long)
+var subject_id = jsPsych.randomization.randomID(15);
+
+// to check for consent
+var consent_check = false;
+
+// get the id number for the SONA participant so that we can grant credits automatically
+var SONA_ID = getUrlParam('id','Empty'); // #SONA
+
+// Get the time that the experiment began (ms since 1 January 1970)
+var start_time = new Date().getTime();
+
+// record this data to all trials
+jsPsych.data.addProperties({
+  subject: subject_id,
+  StartTime: start_time,
+});
+
+// set up consent procedure
+var consent = {
+  type: "external-html",
+  url: "forms/consent.html",
+  cont_btn: "consent-btns",
+  data: {"phase": "Consent"},
+};
+
+// set up welcome screen 
+var welcome = {
+  type: "html-keyboard-response",
+  stimulus: welcome_text, // from exp_text.js
+  data: {"phase": "Welcome",
+  },
+};
+
+// set up instructions screen (including attention check)
+var instructions = {
+  timeline: [
+    // first trial is displaying the experiment instructions
+    {
+      type: "html-keyboard-response",
+      stimulus: instruction_text, // from exp_text.js
+      data: {"phase": "Instructions"},
+    },
+    // second trial is displaying the instructions check
+    {
+      type: "survey-text",
+      questions: [
+        {
+          prompt: attention_check_text,  // from exp_text.js
+          columns: 20, 
+          rows: 1, 
+          required: true, 
+          name: "Attention_check"
+        },
+      ],
+      data: {"phase": "Attention_Check"},
+    },
+  ],
+  // wait 1 second after completion
+  post_trial_gap: 1000,
+  // record if in fullscreen
+  on_finish: function(data){
+    data.fullscreen = is_fullscreen(); // check if in fullscreen
+  },
+  // if the participant recorded anything except "puppy" then repeat
+  loop_function: function(data){
+    responses_data = JSON.parse(data.values()[1].responses); // get last response
+    if(responses_data.Attention_check == "puppy"){ // if they gave the right response then continue, otherwise repeat
+      return false
+    }else{
+      return true
+    }
+  },
+};
+
+
+// set up trials asking about the baby's sex 
+var sex_trials = {
+	timeline: [
+	{
+		type: 'html-button-response',
+		choices: sex_choices, // from exp_text.js
+		prompt: sex_prompt, // from exp_text.js
+		response_ends_trial: true,
+		stimulus: jsPsych.timelineVariable('stimulus'), 
+		data: jsPsych.timelineVariable('data'), 
+	}],
+	timeline_variables: sex_stim, // from sex_test_stimuli.js
+	randomize_order: true,
+	post_trial_gap: 0,
+	on_load: function(){
+    DisableButtons(); // disable response buttons
+    which_clicked = []; // track which response buttons pressed
+	},
+	// set up automatic coding of correct and incorrect responses
+	on_finish: function(data){
+    data.phase = "Sex";
+    if(data.button_pressed == "1" && data.gender == "F"){
+      data.correct = 1;
+    }else if(data.button_pressed == 0 && data.gender == "M"){
+      data.correct = 1;
+    }else{data.correct = 0;}
+    data.fullscreen = is_fullscreen(); // check if fullscreen
+	},
+};
+
+// set up trials asking about the language the baby is learning
+var language_trials = {
+	timeline: [
+	{
+		type: 'html-button-response',
+		choices: language_choices, // from exp_text.js
+		prompt: language_prompt, // from exp_text.js
+		response_ends_trial: true,
+		stimulus: jsPsych.timelineVariable('stimulus'), 
+		data: jsPsych.timelineVariable('data'), 
+	}],
+	timeline_variables: age_language_stim, // from age_language_test_stimuli.js
+	randomize_order: true,
+	post_trial_gap: 0,
+	on_load: function(){
+    DisableButtons(); // disable response buttons
+    which_clicked = []; // track which response buttons pressed
+	},
+	on_finish: function(data){
+    data.phase = "Language";
+    if(data.button_pressed == 0 && data.language == "English"){
+      data.correct = 1;
+    }else if(data.button_pressed == 1 && data.language == "Non-English"){
+      data.correct = 1;
+    }else{data.correct = 0;}
+    data.fullscreen = is_fullscreen(); // check if fullscreen
+	},
+};
+
+// set up trials asking about the baby's age 
+var age_trials = {
+	timeline: [
+	{
+		type: 'html-button-response',
+		choices: age_choices, // from exp_text.js
+		prompt: age_prompt, // from exp_text.js
+		response_ends_trial: true,
+		stimulus: jsPsych.timelineVariable('stimulus'),
+		data: jsPsych.timelineVariable('data'),
+	}],
+	timeline_variables: age_language_stim, // from age_language_test_stimuli.js
+	randomize_order: true,
+	post_trial_gap: 0,
+	on_load: function(){
+    DisableButtons(); // disable response buttons
+    which_clicked = []; // track which response buttons pressed
+	},
+	on_finish: function(data){
+    data.phase = "Age";
+    if(data.button_pressed == 0 && data.age_group == "0-7"){
+      data.correct = 1;
+    }else if(data.button_pressed == 1 && data.age_group == "8-18"){
+      data.correct = 1;
+    }else if(data.button_pressed == 2 && data.age_group == "19-36"){
+      data.correct = 1;
+    }else{
+      data.correct = 0;
+    }
+    data.fullscreen = is_fullscreen(); // check if fullscreen
+	},
+};
+
+// put all trial types together in one timeline 
+var testing = {
+	timeline: jsPsych.randomization.repeat([sex_trials, language_trials, age_trials],1),
+	// randomize_order doesn't seem to be working for these nested trials, therefore the code above
+	randomize_order: true,
+	repetitions: 1,
+};
+
+// set up childcare question
+var childcare_quest = {
+  timeline: [
+    {
+      type: "survey-text",
+      questions: [
+        {
+          prompt: childcare_text, // from exp_text.js
+          required: true,
+          name: "Childcare",
+          rows: 1,
+          columns: 4,
+        },
+      ],    
+    },
+  ],
+  // repeat if not an integer (will accept "12 months" so problematic)
+  loop_function: function(data){
+    // get response
+    responses_data = JSON.parse(data.values()[0].responses);
+    // check if it is an integer
+    is_int = Number.isInteger(parseInt(responses_data.Childcare));
+    data.is_integer = is_int;
+    // if not an integer then remind the participant that it needs to be one
+    if(!is_int){
+      alert(provide_number_txt); // from exp_text.js
+    }
+    // returns opposite because of the way that continuing the trials works
+    return !is_int
+  },
+};
+
+// set up caregiver question
+var caregiver_quest = {
+  timeline: [
+    {
+      type: "survey-text",
+      questions: [
+        {
+          prompt: caregiver_text, // from exp_text.js
+          required: true,
+          name: "Caregiver",
+          rows: 1,
+          columns: 4,
+        },
+      ],    
+    },
+  ],
+  // repeat if not an integer (will accept "2 years" so problematic) See above for explanation of the next few lines
+  loop_function: function(data){
+    responses_data = JSON.parse(data.values()[0].responses);
+    is_int = Number.isInteger(parseInt(responses_data.Caregiver));
+    data.is_integer = is_int;
+    if(!is_int){
+      alert(provide_number_txt); // from exp_text.js
+    }
+    return !is_int
+  },
+};
+
+// set up participant age question
+var par_age_quest = {
+  timeline: [
+    {
+      type: "survey-text",
+      questions: [
+        {
+          prompt: age_text, // from exp_text.js
+          required: true,
+          name: "Par_Age",
+          rows: 1,
+          columns: 4,
+        },
+      ],    
+    },
+  ],
+  // repeat if not an integer (will accept "20 years" so prolematic) See above for explanation of the next few lines
+  loop_function: function(data){
+    responses_data = JSON.parse(data.values()[0].responses);
+    is_int = Number.isInteger(parseInt(responses_data.Par_Age));
+    data.is_integer = is_int;
+    if(!is_int){
+      alert(provide_number_txt); // from exp_text.js
+    }
+    return !is_int
+  },
+};
+
+// set up gender question
+var gender_quest = {
+  type: 'survey-html-form',
+  preamble: gender_prompt, // from exp_text.js
+  html: "<input type='radio' id='Male' name='Gender_Q' value='Male', required><label for='Male'>Male</label> <input type='radio' id='Female' name='Gender_Q' value='Female', required><label for='Female'>Female</label> <input type='radio' id='Other_gender' name='Gender_Q' value='Other_gender', required><label for='Other'>Other</label> <input type='text', name='other_gender_fill_in'>",
+  
+};
+
+// set up country of origin question
+var country_quest = {
+  type: 'survey-html-form',
+  preamble: country_prompt, // from exp_text.js
+  html: "<label><input type='radio' id='Canada' name='Country_Q' value='Canada', required>Canada</label> <label><input type='radio' id='USA' name='Country_Q' value='USA', required>USA</label> <label><input type='radio' id='Other_country' name='Country_Q' value='Other_country', required>Other</label> <input type='text', name='other_country_fill_in'>",
+};
+
+// set up normal hearing question
+var hearing_quest = {
+  type: 'survey-multi-choice',
+  questions:[
+    {
+      prompt: normal_hearing_prompt, // from exp_text.js
+      name: 'Normal_hearing', 
+      options: normal_hearing_options,  // from exp_text.js
+      required: true, 
+      horizontal: true,
+    },
+  ],
+};
+
+// set up english as a first language question
+var first_lang_quest = {
+  type: 'survey-multi-choice',
+  questions:[
+    {
+      prompt: Engl_first_lang_prompt, // from exp_text.js
+      name: 'Engl_first_lang',
+      options: Engl_first_lang_opt, // from exp_text.js
+      required: true,
+      horizontal: true,
+    },
+  ],
+};
+
+// set up question asking about experience with corpus languages
+var exp_lang_quest = {
+  type: 'survey-multi-select',
+  questions:[
+    {
+      prompt: Know_corp_lang_prompt, // from exp_text.js
+      name: 'Know_corp_lang',
+      options: Know_corp_lang_opt, // from exp_text.js
+      required: false, 
+      horizontal: true,
+    },
+  ],
+};
+
+// set up monolinugual question
+var monolingual_quest = {
+  type: 'survey-multi-choice',
+  questions:[
+    {
+      prompt: monolingual_prompt, // from exp_text.js
+      name: 'monolingual', 
+      options: monolingual_opt, // from exp_text.js
+      required: true, 
+      horizontal: true,
+    },
+  ],
+};
+
+// set up demographic survey 
+var survey = {
+  data: {"phase": "Survey"},
+  timeline: [
+    childcare_quest,
+    caregiver_quest,
+    par_age_quest,
+    gender_quest,
+    country_quest,
+    hearing_quest,
+    first_lang_quest,
+    exp_lang_quest,
+    monolingual_quest,
+  ],
+  on_finish: function(data){
+    data.fullscreen = is_fullscreen(); // check if fullscreen
+  }
+};
+
+// set up debrief block
+var debrief = {
+  type: "html-keyboard-response",
+  stimulus: debrief_text, // from exp_text.js
+  //post_trial_gap: 1000
+};
+
+// set up full_screen mode
+var enter_full_screen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  message: fullscreen_prompt, // from exp_text.js
+  
+  // disable button for 15 seconds to force reading
+  on_load: function(data){
+    var test = document.querySelectorAll('button')[0];
+    test.disabled = true;
+    setTimeout(() => {test.disabled = false;},15000);
+  }
+};
+
+// prepare an end to full_screen mode 
+var exit_full_screen = {
+  type: 'fullscreen',
+  fullscreen_mode: false,
+  
+  // save data when going through exit full screen routine
+  // will still save data at this point if they have alrady exited full screen
+  on_finish: function() {
+    firebase.database().ref(subject_id).set({ // #FIREBASE
+      data: jsPsych.data.get().values() // #FIREBASE
+    }) // #FIREBASE
+  }
+};
+
+// set up audio check
+var audio_check = {
+  timeline: [
+    // first trial is looking for "b"
+    {
+      type: "audio-keyboard-response",
+      stimulus: 'jspsych-6-2/examples/sound/speech_blue.mp3',
+      prompt: blue_audio_check_prompt, // from exp_text.js
+      post_trial_gap: 500,
+      data: {"phase":"audio_check"},
+    },
+    // second trial is looking for "n"
+    {
+      type: "audio-keyboard-response",
+      stimulus: 'jspsych-6-2/examples/sound/speech_green.mp3',
+      prompt: green_audio_check_prompt, // from exp_text.js
+      post_trial_gap: 500,
+      data: {"phase":"audio_check"},
+    },
+  ],
+  // if they get either trial incorrect then repeat both trials
+  loop_function: function(data){
+    if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('b') == data.values()[0].key_press && jsPsych.pluginAPI.convertKeyCharacterToKeyCode('n') == data.values()[1].key_press){
+        return false
+      }else{
+      return true
+    }
+  },
+};
+
+var no_consent = {
+  timeline: [
+    {
+      type: "external-html",
+      url: "forms/no_consent_deb.html",
+      data: {"phase": "No_consent"},
+    },
+    ],
+  conditional_function: function(data){ // conditional trial
+    if(consent_check == false){ // if consent_check is still false (default is false but becomes true if they consent to participate) then do this trial (debrief with URL redirect to SONA)
+      return true
+    }else{ //Otherwise don't do this trial
+      return false
+    }
+  }
+};
+
+
+/*set up experiment structure*/
+var timeline = [];
+timeline.push(consent); // #TESTING
+timeline.push(no_consent); // #TESTING
+timeline.push(welcome);
+timeline.push(enter_full_screen);
+timeline.push(instructions);
+timeline.push(audio_check); // #TESTING
+timeline.push(testing);
+timeline.push(survey);
+timeline.push(exit_full_screen);
+timeline.push(debrief);
+
+/*start experiment*/
+jsPsych.init({
+    timeline: timeline,
+    on_finish: function() {
+      // redirect to sona on completion. Warning: give some final instruction to "press a key to end the experiment". It won't redirect unless they press a key. If they close the window before that then they won't be automatically granted credit.
+      window.location.href = "https://umanitobapsych.sona-systems.com/webstudy_credit.aspx?experiment_id=1298&credit_token=73b99a219f5e4c0aa3a73586083bf77e&survey_code="+SONA_ID; // #SONA
+      // display data at end:
+      //jsPsych.data.displayData(); //Uncomment this and comment out the SONA redirect if instead of redirecting people to SONA you want to display the data to the browser window 
+    }
+});
+</script>
+
+
+<!-- code folding -->
+
+</body>
+</html>
