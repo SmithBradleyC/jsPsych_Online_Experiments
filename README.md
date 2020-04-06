@@ -1,41 +1,64 @@
-# Open Collaborative Science PSYC 4540 T39/7310 T34 Winter 2020
+# jsPsych Online Experiments
 
-This is the repository for PSYC 4540 T39/7310 T34, a course on Open and Collaborative Science in the Psychology Department at the University of Manitoba, Winter 2020 (Instructor: Dr. Melanie Soderstrom). During the course, there was a class-wide group research project where Open and Collaborative Science tools and principles were applied.The objective was a fully open and pre-registered project that will be submitted for (possible peer review and) publication.
+This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: URL_FOR_EXPERIMENT_HERE. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time Firebase database to collect participant's responses. All of these services can be used completely free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
+- [Matt Cook](https://github.com/cookm346): #MC
+- [Jackie Spear](https://github.com/jackiespear): #JS
+- [Matt Crump](https://github.com/CrumpLab): #MJC
 
-## The Project
+Below you will find a [step-by-step explanation](#step-by-step-guide) of how you can host your own experiment. It will not describe how to program your own experiment except as it pertains to collecting data (and granted credit through the [SONA system](https://www.sona-systems.com/default.aspx)) but all of the examples will use the jsPsych JavaScript library. In theory, you should be able to switch this library out for your personal favourite and this guide should still work for you; but I have not tested this.
 
-### What can we perceive in infant vocalizations?
+## Where is this coming from?
 
-The purpose of this study is to determine whether or not English-speaking monolingual adults can identify the age, sex, or first language of an infant after listening to recorded snippets of infant vocalizations. The study will also determine if the adults’ gender or caregiving experience affect their abilities to discriminate between the vocalizations.
+I wrote this (April 2020) as a PhD student in Psychology at the University of Manitoba working in [The Cognitive Science Laboratory](https://umcognitivesciencelaboratory.weebly.com/).
 
-This research is valuable in that it lends to the study of human language development. There have been mixed results so far on whether humans can identify differences in infant vocalizations based on a infant’s first language and age. Furthermore, there appears to be no literature on adult participants identifying differences in vocalizations based on the sex of the infant, although there is evidence that sex hormones are linked to language development in infants as young as 5-months (Quast et al., 2016). Our research will contribute to these growing bodies of literature.
+At that time, I programmed an experiment for the class "Open and Collaborative Science" taught by [Dr. Melanie Soderstrom](https://home.cc.umanitoba.ca/~soderstr/)([GitHub](https://github.com/melsod)). That experiment can be found on the [Open Science Framework](https://osf.io/2a6b4/)([GitHub Repo](https://github.com/melsod/OCSWinter2020)). That project's GitHub repository includes a step-by-step guide for reproducing the experiment that will look a lot like the one included here. That's because I wrote that one and then adapted it here to be a somewhat more generalizable.
 
-### Our Procedure
+## The Goal
 
-In this experiment, adult participants heard a series of short audio clips of infant vocalizations, in batches of 10. Participants were asked a question about each clip. Their task was to answer the questions based on their best judgement. All answers were be collected by a computer. At the end of the study, some information was asked about the participant and their experience with infants.
+The goal of this repository is to document the method I used (and plan to continue using for the forseeable future) to run online experiments. I hope to offer this explanation at a level so that even a novice GitHub user and/or novice programmer could run their own experiment (unfortunately I must leave creating the actual experiment for another tutorial). It is also a way to promote open science because this method facilitates open and collaborative science practices (using GitHub pages requires that the repository is made public).
 
-### Our Results
-
-We found that participants were able to perform better than chance at judging a infant's age, and language that it was learning. Participants also misjudged a infant's sex more often than they were correct. We did not find that caregiving experience, childcare experience, or gender played a factor in peoples' accuracy when judging either the infant's age or language that it was learning.
-
-# Contributors
-
-Alanna Beyak, Olivia Cadieux, Matthew Cook, Carly Cressman, Barbie Jain, Jarod Joshi, Spenser Martin, Michael Mielniczek, Sara Montazeri, Essence Perera, Jolyn Sawatzky, Bradley Smith, Jackie Spear, Thomas Thompson, Derek Trudel, Jianjie Zeng, Melanie Soderstrom
+I'm indebted to the creators of the [jsPysch Library](https://www.jspsych.org/) and countless others have posted thier experiments using the library online. In particular I used code from [The Experiment Factory](https://www.expfactory.org/)([GitHub Pages](https://expfactory.github.io/)), and [Matt Crump](https://crumplab.github.io/)'s [jspsychrexamples](https://github.com/CrumpLab/jspsychrexamples) to help me learn how to structure and run my own jsPsych experiments. Thanks are also due to [Danielle Navarro](https://djnavarro.net/)'s [xprmntr package](https://github.com/djnavarro/xprmntr) and [Matt Crump](https://crumplab.github.io/)'s [vertical package](https://github.com/CrumpLab/vertical). Although I didn't end up using either of these packages, they greatly informed the method I describe here (in fact, the instructions for using Google's Firebase is almost directly lifted from [Crump's FirebaeDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html))
 
 # Getting Started
 
-A step by step guide in reproducing the experiment, and the results (based on our sample) can be found in the section [Step-by-Step Guide](#step-by-step-guide).
+First, I'll give a conceptual overview of what this guide will cover in the [Overall Summary](overall-summary) section. Then, I'll give a detailed explanation of how to host your own experiments online in the [Step-by-Step Guide](#step-by-step-guide).
 
 ## Overall Summary
 
-This repository will be used to store all of the code and data for this project. Other material regarding the project can be found at our open science page: https://osf.io/2a6b4/
+The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
+- Downloading important software:
+  - Download R
+  - Download rStudio
+  - Other potentially useful code editors
+- Copying this example experiment:
+  - Creating your own GitHub account
+  - Getting/forking your own copy of the repository
+  - Downloading the software used to easily transfer data between GitHub and a local machine
+  - Making a local copy of the repository
+  - General editing/testing of the experiment
+- Running this example experiment:
+  - Hosting the experiment
+  - Collecting data remotely
+  - Automatically granting SONA credits
+  - Saving and unpacking FireBase data
+- General Tips:
+  - Tips for testing code/debugging 
+  - Tips for data analysis
+  - Tips for experimental structure
+  - Tips for repository structure
+  - Tips for naming conventions
 
-The actual experiment can be viewed/tested at https://melsod.github.io/OCSWinter2020/
+Keep in mind that there are many methods to acomplish any one of these steps and I have only described one. Just because you do it differently does not make it wrong, as long as it works.
 
-The experiment is run using [jsPsych](https://www.jspsych.org/) (a JavaScript library for running behavioural experiments in a web browser) and is hosted on GitHub Pages. Data was collected by Google Firebase before being consolidated and saved into our [data folder](data). Our data analysis can be reproduced using the code found in our [analysis folder](R/analysis) (detailed steps [below](#reproduce-the-results)).
+Dependencies/things needed to for any step to work (packages/libraries/etc) will be described in the first section that they are important for. So, although I encourage you to skip to the sections relevant to you, if you skip a section it may include dependencies required for future steps. If it seems like you are missing something to get your experiment working I suggest backing up to make sure you have all of the software needed. In the future I may spend the time to include dependencies in all steps they are required for.
 
-Our selection of Babble Clips used in the experiment is found in the [Selected Audio Files Folder](audio/selected_audio_files). The clips found in the two folders were selected by an [R Script](R/pre_experiment/sample_clips.R). Three of the contributors then manually screened the clips for usability (e.g., non-infant noises). A copy of the excluded files are found [here](audio/Exclusion_files). Following the screening process, another [R Script](R/pre_experiment/narrow_sample.R) generated the list of files that were presented in the experiment (a copy of these files are found [here](audio/selected_audio_files/clips_to_use)).
+## Examples
 
+Here are several examples of experiments hosted on GitHub. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
+- [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS)
+- MORE EXAMPLES
+
+# DOWN TO HERE
 
 ## Step-by-Step Guide
 
