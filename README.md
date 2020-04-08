@@ -73,9 +73,9 @@ If you already have R and rStudio then skip to [Other Code Editors](#other-poten
       - Click on the link to "install R for the first time"
       - Click on "Download R ... for Windows"
       - Once the file is downloaded, open it and go through the installation process
-    -Mac:
+    - Mac:
       - **#HELP HERE**
-    -Linux:
+    - Linux:
       - **#HELP HERE**
   
   - You will not need or want to open this base program instead proceed to Downloading rStudio
