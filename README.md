@@ -11,13 +11,13 @@ Below you will find a [step-by-step explanation](#step-by-step-guide) of how you
 
 I wrote this (April 2020) as a PhD student in Psychology at the University of Manitoba working in [The Cognitive Science Laboratory](https://umcognitivesciencelaboratory.weebly.com/).
 
-At that time, I programmed an experiment for the class "Open and Collaborative Science" taught by [Dr. Melanie Soderstrom](https://home.cc.umanitoba.ca/~soderstr/)([GitHub](https://github.com/melsod)). That experiment can be found on the [Open Science Framework](https://osf.io/2a6b4/)([GitHub Repo](https://github.com/melsod/OCSWinter2020)). That project's GitHub repository includes a step-by-step guide for reproducing the experiment that will look a lot like the one included here. That's because I wrote that one and then adapted it here to be a somewhat more generalizable.
+At that time, I programmed an experiment for the class "Open and Collaborative Science" taught by [Dr. Melanie Soderstrom](https://home.cc.umanitoba.ca/~soderstr/) ([GitHub](https://github.com/melsod)). That experiment can be found on the [Open Science Framework](https://osf.io/2a6b4/) ([GitHub Repo](https://github.com/melsod/OCSWinter2020)). That project's GitHub repository includes a step-by-step guide for reproducing the experiment that will look a lot like the one included here. That's because I wrote that one and then adapted it here to be a somewhat more generalizable.
 
 ## The Goal
 
 The goal of this repository is to document the method I used (and plan to continue using for the forseeable future) to run online experiments. I hope to offer this explanation at a level so that even a novice GitHub user and/or novice programmer could run their own experiment (unfortunately I must leave creating the actual experiment for another tutorial). It is also a way to promote open science because this method facilitates open and collaborative science practices (using GitHub pages requires that the repository is made public).
 
-I'm indebted to the creators of the [jsPysch Library](https://www.jspsych.org/) and countless others have posted thier experiments using the library online. In particular I used code from [The Experiment Factory](https://www.expfactory.org/)([GitHub Pages](https://expfactory.github.io/)), and [Matt Crump](https://crumplab.github.io/)'s [jspsychrexamples](https://github.com/CrumpLab/jspsychrexamples) to help me learn how to structure and run my own jsPsych experiments. Thanks are also due to [Danielle Navarro](https://djnavarro.net/)'s [xprmntr package](https://github.com/djnavarro/xprmntr) and [Matt Crump](https://crumplab.github.io/)'s [vertical package](https://github.com/CrumpLab/vertical). Although I didn't end up using either of these packages, they greatly informed the method I describe here (in fact, the instructions for using Google's Firebase is almost directly lifted from [Crump's FirebaeDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html))
+I'm indebted to the creators of the [jsPysch Library](https://www.jspsych.org/) and countless others have posted thier experiments using the jsPsych library online. In particular, I used code from [The Experiment Factory](https://www.expfactory.org/) ([GitHub Pages](https://expfactory.github.io/)), and [Matt Crump](https://crumplab.github.io/)'s [jspsychrexamples](https://github.com/CrumpLab/jspsychrexamples) to help me learn how to structure and run my own jsPsych experiments. Thanks are also due to [Danielle Navarro](https://djnavarro.net/)'s [xprmntr package](https://github.com/djnavarro/xprmntr) and [Matt Crump](https://crumplab.github.io/)'s [vertical package](https://github.com/CrumpLab/vertical). Although I didn't end up using either of these packages, they greatly informed the method I describe here (in fact, the instructions for using Google's Firebase is almost directly lifted from [Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html))
 
 # Getting Started
 
@@ -56,13 +56,40 @@ Dependencies/things needed to for any step to work (packages/libraries/etc) will
 
 Here are several examples of experiments hosted on GitHub. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
 - [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS)
-- MORE EXAMPLES
-
-# DOWN TO HERE
+- MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
 
-### First Steps
+### Download Important Software:
+
+If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors)
+
+#### Download R:
+  - Go to https://www.r-project.org/
+  - In the first paragraph click [download R](https://cran.r-project.org/mirrors.html)
+  - Choose a CRAN mirror geographically close to you (For Manitoba choose [Manitoba Unix user Group](https://muug.ca/mirror/cran/))
+  - Click on the Download link near the top of the page for your operating system
+    - Windows: 
+      - Click on the link to "install R for the first time"
+      - Click on "Download R ... for Windows"
+      - Once the file is downloaded, open it and go through the installation process
+    -Mac:
+      - **#HELP HERE**
+    -Linux:
+      - **#HELP HERE**
+  
+  - You will not need or want to open this base program instead proceed to Downloading rStudio
+
+#### Download rStudio:
+
+  -**#HELP HERE**
+
+#### Other Potentially Useful Code Editors:
+
+  -**#HELP HERE**
+
+
+# GONE UP TO HERE SO FAR
 
 Although this experiment greatly deviates from the this source, we are indebted to [Matt Crump](https://github.com/CrumpLab) and particularly his example experiments found [here](https://github.com/CrumpLab/jspsychrexamples) for getting our experiment running.
 
@@ -116,13 +143,6 @@ If you already have the GitHub Desktop Client then skip to [Clone the Repository
 Now that you have a local copy of the experiment on your machine you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine. To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. You can also host the experiment there (using GitHub Pages, this will be explained  in [Hosting the Experiment](#hosting-the-experiment)).
 
 We'll leave it to you to learn how to push changes to your GitHub repository and work collaboratively with others from there (it's much the same way you are "working" on our experiment) but we will show you how to host the experiment in the section [Running the Experiment](#running-the-experiment).
-
-#### Download R and rStudio
-
-If you already have R and rStudio then skip to [Reproduce the Experiment](#reproduce-the-experiment)
-
-- Download and install the latest stable version of R (https://www.r-project.org/)
-- Download and install the latest stable version of rStudio (https://rstudio.com/products/rstudio/download/)
 
 #### Reproduce the Experiment
 
