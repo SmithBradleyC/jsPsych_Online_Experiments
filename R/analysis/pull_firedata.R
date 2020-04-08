@@ -5,11 +5,11 @@
 library(fireData) # https://github.com/Kohze/fireData
 
 
-# secret key = JTRER28zbNsqNrE0vZRoal74D3JujQaQHjrUG5FW
+# secret key = zVIDsa5nmGLKDD73ymLIKkrdoNpGDrTC4nKe2KKa
 
 # download all files from database
-dataBackup(projectURL = "https://ocswinter2020.firebaseio.com", #proper URL
-           secretKey = "JTRER28zbNsqNrE0vZRoal74D3JujQaQHjrUG5FW", #Secret Key of the database
+dataBackup(projectURL = "https://contingencypractice.firebaseio.com", #databaseURL
+           secretKey = "zVIDsa5nmGLKDD73ymLIKkrdoNpGDrTC4nKe2KKa", #Secret Key of the database
            "./data/data.json") # file path of where to save the data (out default assumes cloning the GitHub repo)
 
 
