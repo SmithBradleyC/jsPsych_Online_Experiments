@@ -87,16 +87,6 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
 // Firebase set up
 
  // Your web app's Firebase configuration (given to us by firebase)
-/*  var firebaseConfig = {
-    apiKey: "AIzaSyAzGClrvmRPuLr-FHAOtdY5vkMON-t9geQ",
-    authDomain: "contingencypractice.firebaseapp.com",
-    databaseURL: "https://contingencypractice.firebaseio.com",
-    projectId: "contingencypractice",
-    storageBucket: "contingencypractice.appspot.com",
-    messagingSenderId: "999696162491",
-    appId: "1:999696162491:web:5d5cbdcc07f4d48712d39e",
-  }; // #FIREBASE */
-  
   var firebaseConfig = {
     apiKey: "AIzaSyAzGClrvmRPuLr-FHAOtdY5vkMON-t9geQ",
     authDomain: "contingencypractice.firebaseapp.com",
@@ -104,8 +94,8 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
     projectId: "contingencypractice",
     storageBucket: "contingencypractice.appspot.com",
     messagingSenderId: "999696162491",
-    appId: "1:999696162491:web:6d5a0ecff4a2e30512d39e"
-  }; 
+    appId: "1:999696162491:web:5d5cbdcc07f4d48712d39e",
+  }; // #FIREBASE 
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig); // #FIREBASE
@@ -136,17 +126,17 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
 });
 </script>
 
-<!-- load the jsPsych plugins needed. Look in jspsych-6-2/plugins for more -->
-<script src="jspsych-6-2/jspsych.js"></script>
-<script src="jspsych-6-2/plugins/jspsych-html-keyboard-response.js"></script>
-<script src="jspsych-6-2/plugins/jspsych-html-button-response.js"></script>
+<!-- load the jsPsych plugins needed. -->
+<!-- base library. Needed for everything -->
+<script src="jspsych-6-2/jspsych.js"></script> 
+
+<!-- additional libraries needed for their specific trial type. Look in jspsych-6-2/plugins for more-->
+<script src="jspsych-6-2/plugins/jspsych-html-keyboard-response.js"></script> 
 <script src="jspsych-6-2/plugins/jspsych-external-html.js"></script>
 <script src="jspsych-6-2/plugins/jspsych-survey-text.js"></script>
-<script src="jspsych-6-2/plugins/jspsych-survey-multi-choice.js"></script>
-<script src="jspsych-6-2/plugins/jspsych-survey-multi-select.js"></script>
 <script src="jspsych-6-2/plugins/jspsych-survey-html-form.js"></script>
 <script src="jspsych-6-2/plugins/jspsych-fullscreen.js"></script>
-<script src="jspsych-6-2/plugins/jspsych-audio-keyboard-response.js"></script>
+
 <!-- load the stimuli needed, add your own files if you make new ones -->
 <script src='stimuli/exp_text.js'></script>
 <script src='stimuli/practice_stimuli.js'></script>
@@ -212,12 +202,43 @@ var consent = {
   data: {"phase": "Consent"}, // record the phase
 };
 
+var no_consent = {
+  timeline: [
+    {
+      type: "external-html",
+      url: "forms/no_consent_deb.html",
+      data: {"phase": "No_consent"},
+    },
+    ],
+  conditional_function: function(data){ // conditional trial
+    if(consent_check == false){ // if consent_check is still false (default is false but becomes true if they consent to participate) then do this trial (debrief with URL redirect to SONA)
+      return true
+    }else{ //Otherwise don't do this trial
+      return false
+    }
+  }
+};
+
 // set up welcome screen 
 var welcome = {
   type: "html-keyboard-response",
   stimulus: welcome_text, // from exp_text.js
   data: {"phase": "Welcome", // record the phase
   },
+};
+
+// set up full_screen mode
+var enter_full_screen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  message: fullscreen_prompt, // from exp_text.js
+  
+  // disable button for 15 seconds to force reading
+  on_load: function(data){
+    var test = document.querySelectorAll('button')[0];
+    test.disabled = true;
+    setTimeout(() => {test.disabled = false;},5000);
+  }
 };
 
 // set up instructions screen (including attention check)
@@ -361,27 +382,6 @@ var survey = {
   }
 };
 
-// set up debrief block
-var debrief = {
-  type: "html-keyboard-response",
-  stimulus: debrief_text, // from exp_text.js
-  //post_trial_gap: 1000
-};
-
-// set up full_screen mode
-var enter_full_screen = {
-  type: 'fullscreen',
-  fullscreen_mode: true,
-  message: fullscreen_prompt, // from exp_text.js
-  
-  // disable button for 15 seconds to force reading
-  on_load: function(data){
-    var test = document.querySelectorAll('button')[0];
-    test.disabled = true;
-    setTimeout(() => {test.disabled = false;},5000);
-  }
-};
-
 // prepare an end to full_screen mode 
 var exit_full_screen = {
   type: 'fullscreen',
@@ -396,23 +396,12 @@ var exit_full_screen = {
   }
 };
 
-var no_consent = {
-  timeline: [
-    {
-      type: "external-html",
-      url: "forms/no_consent_deb.html",
-      data: {"phase": "No_consent"},
-    },
-    ],
-  conditional_function: function(data){ // conditional trial
-    if(consent_check == false){ // if consent_check is still false (default is false but becomes true if they consent to participate) then do this trial (debrief with URL redirect to SONA)
-      return true
-    }else{ //Otherwise don't do this trial
-      return false
-    }
-  }
+// set up debrief block
+var debrief = {
+  type: "html-keyboard-response",
+  stimulus: debrief_text, // from exp_text.js
+  //post_trial_gap: 1000
 };
-
 
 /*set up experiment structure*/
 var timeline = [];

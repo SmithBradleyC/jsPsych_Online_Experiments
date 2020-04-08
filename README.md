@@ -1,6 +1,6 @@
 # jsPsych Online Experiments
 
-This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: URL_FOR_EXPERIMENT_HERE. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time Firebase database to collect participant's responses. All of these services can be used completely free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
+This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: https://smithbradleyc.github.io/jsPsych_Online_Experiments/. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time Firebase database to collect participant's responses. All of these services can be used completely free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
 - [Matt Cook](https://github.com/cookm346): #MC
 - [Jackie Spear](https://github.com/jackiespear): #JS
 - [Matt Crump](https://github.com/CrumpLab): #MJC
