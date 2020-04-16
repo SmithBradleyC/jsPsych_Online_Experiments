@@ -30,11 +30,11 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
   - [Download R](#download-r)
   - [Download rStudio](#download-rstudio)
   - Other potentially useful [code editors](#other-potentially-useful-code-editors)
-- [Copying this example experiment](#):
-  - Creating your own GitHub account
-  - Getting/forking your own copy of the repository
-  - Downloading the software used to easily transfer data between GitHub and a local machine
-  - Making a local copy of the repository
+- [Copying this example experiment](#copying-this-example-experiment):
+  - [Creating your own GitHub account](#sign-up-for-a-github-account)
+  - [Getting/forking your own copy of the repository](#fork-the-repository)
+  - [Downloading the software used to easily transfer data between GitHub and a local machine (GitHub Desktop)](#download-github-desktop)
+  - [Making a local copy of the repository](#clone-the-repository)
 - Running this example experiment:
   - General editing/testing of the experiment
   - Hosting the experiment
