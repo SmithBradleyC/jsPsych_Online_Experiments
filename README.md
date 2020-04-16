@@ -55,7 +55,14 @@ Dependencies/things needed to for any step to work (packages/libraries/etc) will
 ## Examples
 
 Here are several examples of experiments hosted on GitHub. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
-- [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS)
+- [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS
+- [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS) #FIREBASE
+- Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) #MJC
+  - [Flanker Demo](https://crumplab.github.io/jspsychrexamples/Flanker/experiment/index.html) #MJC
+  - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) #MJC
+  - [Stroop Demo that allows multiple responses](https://crumplab.github.io/jspsychrexamples/Stroop _multiple_response/experiment/index.html) #MJC
+  - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
+  - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC
 - MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
