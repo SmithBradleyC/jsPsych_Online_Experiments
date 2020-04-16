@@ -26,17 +26,17 @@ First, I'll give a conceptual overview of what this guide will cover in the [Ove
 ## Overall Summary
 
 The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
-- Downloading important software:
-  - Download R
-  - Download rStudio
-  - Other potentially useful code editors
-- Copying this example experiment:
+- [Downloading important software](#download-important-software):
+  - [Download R](#download-r)
+  - [Download rStudio](#download-rstudio)
+  - Other potentially useful [code editors](#other-potentially-useful-code-editors)
+- [Copying this example experiment](#):
   - Creating your own GitHub account
   - Getting/forking your own copy of the repository
   - Downloading the software used to easily transfer data between GitHub and a local machine
   - Making a local copy of the repository
-  - General editing/testing of the experiment
 - Running this example experiment:
+  - General editing/testing of the experiment
   - Hosting the experiment
   - Collecting data remotely
   - Automatically granting SONA credits
@@ -72,7 +72,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
 
 If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors)
 
-## Download R:
+#### Download R:
 
 - Go to https://www.r-project.org/
 - In the first paragraph click [download R](https://cran.r-project.org/mirrors.html)
@@ -108,11 +108,9 @@ Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Lat
 - **#HELP HERE**
 
 
-# GONE UP TO HERE SO FAR
+## Copying This Example Experiment:
 
-Although this experiment greatly deviates from the this source, we are indebted to [Matt Crump](https://github.com/CrumpLab) and particularly his example experiments found [here](https://github.com/CrumpLab/jspsychrexamples) for getting our experiment running.
-
-The easiest way to reproduce these results is to fork this repository into your own account and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Reproducibility](#reproducibility), otherwise we'll explain how to do that:
+The easiest way copy this experiment is to fork this repository into your own GitHub account, and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Running This Example Experiment](#running-this-example-experiment), otherwise we'll explain how to do that:
 
 #### Sign-Up For a GitHub Account
 
@@ -129,7 +127,7 @@ If you already have a GitHub Account then skip to [Fork the Repository](#fork-th
 
 #### Fork the Repository
 
-- Go to https://github.com/melsod/OCSWinter2020 (but you're already here)
+- Go to https://github.com/SmithBradleyC/jsPsych_Online_Experiments (but you're already here)
 - Click on the "Fork" button near the top, right hand side of the page
 - Wait for the repository to complete it's fork
 - You now own your very own copy of this repository!
@@ -140,10 +138,11 @@ If you already have the GitHub Desktop Client then skip to [Clone the Repository
 
 - Go to https://desktop.github.com/ and download the application
 - Install the application
+- Open application that you just installed
 - Sign in with your GitHub account
 - (Optional) you can learn about Git and GitHub with [this tutorial](https://help.github.com/en/desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop)
 
-- You can also avoid using the GitHub Desktop client by using the Git command line functions by downloading the program here https://git-scm.com/downloads, we will leave it up to you and Google to work through how to do it that way
+- You can also avoid using the GitHub Desktop client by using the Git command line functions by downloading the program here https://git-scm.com/downloads, I will leave it up to you and Google to work through how to do it that way. It is too difficult to explain in this tutorial.
 
 #### Clone the Repository
 
@@ -151,11 +150,13 @@ If you already have the GitHub Desktop Client then skip to [Clone the Repository
 - In the GitHub Desktop program, click on the File menu (in the top, left hand corner)
 - Click on Clone Repository
 - Select the "GitHub.com" tab if it is not already selected
-- Your repositories should be visible assuming that you successfully signed into GitHub on the Desktop Client
-- Select the YourGitHubUsername/OCSWinter2020 option
+- Your repositories should be visible, assuming that you successfully signed into GitHub on the Desktop Client
+- Select the YourGitHubUsername/jsPsych_Online_Experiments option
 - Choose the local path where you want to save the repository (just below the repository options)
 - Click the "Clone" button
 - This saves a local copy of the repository on your device
+
+# GONE UP TO HERE SO FAR
 
 ### Reproducibility
 
