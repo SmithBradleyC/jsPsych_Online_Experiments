@@ -63,6 +63,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
   - [Stroop Demo (multiple responses)](https://crumplab.github.io/jspsychrexamples/Stroop_multiple_response/experiment/index.html) #MJC
   - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
   - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
+- Jackie's Distinctiveness Experiment
 - MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
@@ -72,38 +73,38 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
 If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors)
 
 #### Download R:
-  - Go to https://www.r-project.org/
-  - In the first paragraph click [download R](https://cran.r-project.org/mirrors.html)
-  - Choose a CRAN mirror geographically close to you (For Manitoba choose [Manitoba Unix user Group](https://muug.ca/mirror/cran/))
-  - Click on the Download link near the top of the page for your operating system
-    - Windows: 
-      - Click on the link to "install R for the first time"
-      - Click on "Download R ... for Windows"
-      - Once the file is downloaded, open it and go through the installation process
-    - Mac:
-      - **#HELP HERE**
-    - Linux:
-      - **#HELP HERE**
+- Go to https://www.r-project.org/
+- In the first paragraph click [download R](https://cran.r-project.org/mirrors.html)
+- Choose a CRAN mirror geographically close to you (For Manitoba choose [Manitoba Unix user Group](https://muug.ca/mirror/cran/))
+- Click on the Download link near the top of the page for your operating system
+  - Windows: 
+    - Click on the link to "install R for the first time"
+    - Click on "Download R ... for Windows"
+    - Once the file is downloaded, open it and go through the installation process
+  - Mac:
+    - **#HELP HERE**
+  - Linux:
+    - **#HELP HERE**
   
-  - **You will not need or want to open this base program instead proceed to Downloading rStudio**
+- **You will not need or want to open this base program instead proceed to Downloading rStudio**
 
 #### Download rStudio:
-  - Go to https://rstudio.com/
-  - Near the top right hand side of the page, click [download](https://rstudio.com/products/rstudio/download/)
-  - Under the RStudio Desktop *Open Source License* option, click "Download"
-  - Download the appropriate software for your operating system. Normally the website will recognize the appropriate choice and offer it under "Recommended for your system:"
-  - Once the file is downloaded, open it and go through the installation process
+- Go to https://rstudio.com/
+- Near the top right hand side of the page, click [download](https://rstudio.com/products/rstudio/download/)
+- Under the RStudio Desktop *Open Source License* option, click "Download"
+- Download the appropriate software for your operating system. Normally the website will recognize the appropriate choice and offer it under "Recommended for your system:"
+- Once the file is downloaded, open it and go through the installation process
 
-  - Opening rStudio gives you access the R programming language, but in a nicer format than just opening the basic R program
-  - However, if you are just following through this Step-by-Step then you will not need to open rStudio yet.
+- Opening rStudio gives you access the R programming language, but in a nicer format than just opening the basic R program
+- However, if you are just following through this Step-by-Step then you will not need to open rStudio yet.
 
 #### Other Potentially Useful Code Editors:
 
 Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Latex and/or HTML), Javascript, Python, and even a little bit of C++. It is generally accepted as the best editor for R, but nothing else. So none of these extra code editors are needed for editing/coding your experiments or getting them online. However, some people will find them useful as code editors that are "better" than rStudio:
 
-  - [Visual Studio](https://code.visualstudio.com/)
-  - [NetBeans](https://netbeans.org/)
-  - **#HELP HERE**
+- [Visual Studio](https://code.visualstudio.com/)
+- [NetBeans](https://netbeans.org/)
+- **#HELP HERE**
 
 
 # GONE UP TO HERE SO FAR
