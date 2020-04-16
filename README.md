@@ -54,15 +54,15 @@ Dependencies/things needed to for any step to work (packages/libraries/etc) will
 
 ## Examples
 
-Here are several examples of experiments hosted on GitHub. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
-- [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS
+Here are several examples of experiments hosted on GitHub. These experiment's are officially "dead" meaning that you are free to test out the experiment without causing problems for the researchers hosting these experiments. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
+- [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS #FIREBASE
 - [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS) #FIREBASE
 - Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) #MJC
   - [Flanker Demo](https://crumplab.github.io/jspsychrexamples/Flanker/experiment/index.html) #MJC
   - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) #MJC
-  - [Stroop Demo that allows multiple responses](https://crumplab.github.io/jspsychrexamples/Stroop _multiple_response/experiment/index.html) #MJC
+  - [Stroop Demo (multiple responses)](https://crumplab.github.io/jspsychrexamples/Stroop_multiple_response/experiment/index.html) #MJC
   - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
-  - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC
+  - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
 - MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
@@ -85,15 +85,25 @@ If you already have R and rStudio then skip to [Other Code Editors](#other-poten
     - Linux:
       - **#HELP HERE**
   
-  - You will not need or want to open this base program instead proceed to Downloading rStudio
+  - **You will not need or want to open this base program instead proceed to Downloading rStudio**
 
 #### Download rStudio:
+  - Go to https://rstudio.com/
+  - Near the top right hand side of the page, click [download](https://rstudio.com/products/rstudio/download/)
+  - Under the RStudio Desktop *Open Source License* option, click "Download"
+  - Download the appropriate software for your operating system. Normally the website will recognize the appropriate choice and offer it under "Recommended for your system:"
+  - Once the file is downloaded, open it and go through the installation process
 
-  -**#HELP HERE**
+  - Opening rStudio gives you access the R programming language, but in a nicer format than just opening the basic R program
+  - However, if you are just following through this Step-by-Step then you will not need to open rStudio yet.
 
 #### Other Potentially Useful Code Editors:
 
-  -**#HELP HERE**
+Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Latex and/or HTML), Javascript, Python, and even a little bit of C++. It is generally accepted as the best editor for R, but nothing else. So none of these extra code editors are needed for editing/coding your experiments or getting them online. However, some people will find them useful as code editors that are "better" than rStudio:
+
+  - [Visual Studio](https://code.visualstudio.com/)
+  - [NetBeans](https://netbeans.org/)
+  - **#HELP HERE**
 
 
 # GONE UP TO HERE SO FAR
