@@ -72,7 +72,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
 
 If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors)
 
-#### Download R:
+## Download R:
 
 - Go to https://www.r-project.org/
 - In the first paragraph click [download R](https://cran.r-project.org/mirrors.html)
