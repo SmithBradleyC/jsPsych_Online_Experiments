@@ -37,6 +37,7 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
   - [Making a local copy of the repository](#clone-the-repository)
 - Running this example experiment:
   - General editing/testing of the experiment
+  - Saving your edits to GitHub
   - Hosting the experiment
   - Collecting data remotely
   - Automatically granting SONA credits
@@ -70,7 +71,9 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
 
 ### Download Important Software:
 
-If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors)
+If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors). If not then follow the instructions below. My goal is to make all of the instructions so that you can follow them with no-exposure/minimal-exposure to R or programming in general. However, if you want to learn programming in R (and you should) I can recommend a couple free resources to get you going:
+- [The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/) (Yes ... seriously, it is a good resource)
+- [Programming for Psychologists](https://crumplab.github.io/programmingforpsych/programming-in-r.html) #MJC
 
 #### Download R:
 
@@ -156,13 +159,67 @@ If you already have the GitHub Desktop Client then skip to [Clone the Repository
 - Click the "Clone" button
 - This saves a local copy of the repository on your device
 
+### Running This Example Experiment
+
+Now that you have a local copy of the example experiment on your machine you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine until you [push them back to GitHub](#saving-edits-to-github). You can use [any code editing software](#other-potentially-useful-code-editors) that you like, even Notepad, but I'll be describing how I use rStudio. This helps keep the experiment/repository tidy.
+
+#### Editing/Testing the Experiment
+
+The best way to keep organized in rStudio is to use R Projects. When you create an R Project in rStudio it creates a folder with the project name and every new file that you create and save within that rStudio session will be saved to the folder. The R Project also creates a .Rproj file. This is the core of the R Project. It will save data between sessions and is the pointer for your "working directory" (meaning that calls to other files will be in reference to the .Rproj file). For more information on R Projects see [here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) or one of the R resources I pointed out in the [Download Important Software](#download-important-software) section. **Many of the functions/files I have in my example repository rely on being run inside an R Project.**
+
+- Open the local repository folder (there should be a button in the middle of the screen in the GitHub Desktop application)
+- Open *jsPsych_Online_Experiments.Rproj* with rStudio
+- You will/may have 4 sections/quadrants to your screen:
+  - Top left: file open in rStudio (this may not open your first time meaning the console will take up the whole left side)
+  - Top right: the **Environment**/History/Connections tabs (Environment shows what data you have loaded, should be blank for now)
+  - Bottom left: the **Console**/Terminal/Jobs tabs (console is the most important)
+  - Bottom right: the **Files**/Plots/Package/Help/Viewer tabs (open the files tab)
+- In the Files tab, you should see a list from .gitattributes to a folder called stimuli (if you're organizing alphebetically)
+- These are all of the files/folders in the repository. Here's a quick explanation for all of them:
+  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
+  - *.gitignore*: does some work for your git repository. This specifies files/folders that your repository should ignore. These files are made by rStudio and I didn't need/want them backed up to GitHub
+  - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
+  - *data*: this is the folder where data is saved by default when you pull it from FireBase
+    - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by R/analysis/pull_firedata.R
+    - *data.json*: this is the raw data file for 2 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (R/analysis/pull_firedata.R)
+    - *summarized_data.csv*: this is a .csv with data summarized to a percent correct for each participant (and with extracted survey data)
+  - *forms*: this is where I store the HTML code for the consent and debriefing forms
+    - *consent.html*: the code for the consent form. It is called by the index.html file
+    - *no_consent_deb.html*: this is the debreifing form for those who decline to participate in the experiment. It is called by the index.html file
+  - *img*: this is where I expect images that are important to the experiment would be saved
+    - *UM_Logo.png*: this is the University of Manitoba Logo. It is called by the consent and debreifing forms
+  - *index.html*: this is the main part of the experiment. It will be explained in greater detail
+  - *jspsych-6-2*: this is the jsPsych Library
+    - *css*: the folder containing the default jspsych .css file
+    - *examples*: the folder containing examples of all the default jsPsych plugins. Open any of them in a web browser to see how it works, or open them in rStudio/code editor to see how they are programmed. Good for learning how to program your own experiments
+    - *jspsych.js*: the main file for the jsPsych library. Needs to be called in index.html
+    - *license.txt*: the license relevant to the jsPsych library
+    - *plugins*: the folder containing the jsPsych library plugins. Examples of how to use these are in the examples folder. These files will need to be called by the index.html file if you want to use those plugins
+  - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
+  - *R*: the folder containing all of my R code
+    - *analysis*: the folder containing all of the code used in analyzing the data
+      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data
+      - *figures*: the folder where I save my figures (empty in this repository)
+      - *pull_firedata.R*: the file used to download the data from FireBase and save a .csv version of the data
+    - *pre_experiment*: the folder containing all the R code used in setting up the experiment
+      - *create_stimuli.R*: the file used to create all of the stimuli used in the example experiment
+      - *functions_to_create_stimuli.R*: a file containing the functions used in create_stimuli.R
+  - *README.md*: the file that GitHub uses to create the ReadMe (the document you are currently reading)
+  - *stimuli*: the folder containing all of the experimental stimuli
+    - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
+    - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
+
+
+# MORE HERE
+
 # GONE UP TO HERE SO FAR
 
-### Reproducibility
+#### Saving Edits to GitHub
 
-Now that you have a local copy of the experiment on your machine you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine. To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. You can also host the experiment there (using GitHub Pages, this will be explained  in [Hosting the Experiment](#hosting-the-experiment)).
+To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. You can also host the experiment there (using GitHub Pages, this will be explained  in [Hosting the Experiment](#hosting-the-experiment)).
 
 We'll leave it to you to learn how to push changes to your GitHub repository and work collaboratively with others from there (it's much the same way you are "working" on our experiment) but we will show you how to host the experiment in the section [Running the Experiment](#running-the-experiment).
+
 
 #### Reproduce the Experiment
 
