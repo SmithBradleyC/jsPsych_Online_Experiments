@@ -10,6 +10,12 @@ var green_audio_check_prompt = "<p><b>Audio Check</b></p> <p>Using the keyboard,
 
 var fullscreen_prompt = "<p><b>Please turn off all background audio</b> (or not, I don't actually care for this experiment)."+"<p><b>Remain in fullscreen mode for the entire experiment</b> (again, or not, I'm not actually analyzing this data). The experiment will switch to full screen mode when you press the button below. It will also record if you exit fullscreen mode at any point during the experiment.</p> <p> You will be able to push the button below in 5 seconds </p>";
 
+var fixation_stim = "<p id = 'fixation_stim', style = 'color: black; font-size: 60pt;'>+</p>";
+
+var feedback_stim_wrong = "<p id = 'fixation_stim', style = 'color: black; font-size: 60pt;'>XXX</p>";
+
+var feedback_stim_correct = "<p id = 'fixation_stim', style = 'color: white; font-size: 60pt;'>BLANK</p>"; // white text to blend into background. Essentially I don't want feedback if they were correct
+
 var keypress_choices = ["j","k","l"];
 
 var keypress_prompt = "Press J(Red), K(Yellow), or L(Green)";

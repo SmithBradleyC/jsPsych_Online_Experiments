@@ -1,12 +1,7 @@
-<!-- adapted Crumps recognition memory task: Bradley Smith (BCS) Feb 2020-->
-
 <!--
-update analysis folder files
-update readme stuff
--->
 
-
-<!--
+delete old data and make new ones
+make paper folder and example paper
 
 Code important to SONA is tagged with #SONA
 Code important to Firebase is tagged with #FIREBASE
@@ -18,64 +13,63 @@ Experiment is explain on GitHub https://github.com/SmithBradleyC/jsPsych_Online_
 
 -->
 
+<!-- ################################## -->
+<!-- some preamble to set everything up.-->
+<!-- ################################## -->
 
-<!-- some preamble to set everything up. No major changes from Matt Crump's https://github.com/CrumpLab/jspsychrexamples-->
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
+<!-- Set up character set. This is default so this line isn't needed but good practice -->
 <meta charset="utf-8" />
+
+<!-- Possibly important for older browsers -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
+<!-- adapts how the window displays to fit the screen size -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- set meta data with author. Also set title of the file-->
 <meta name="author" content="Bradley Smith" />
-<title>Open Science Experiment</title>
+<title>Contingency Practice</title>
 
-<!-- more set up for the experiment. not changed from Matt Crump https://github.com/CrumpLab/jspsychrexamples-->
-<style type="text/css">@font-face {
-font-family: 'Open Sans';
-font-style: italic;
-font-weight: 400;
-src: local('Open Sans Italic'), local('OpenSans-Italic'), format('truetype');
-}
-@font-face {
-font-family: 'Open Sans';
-font-style: italic;
-font-weight: 700;
-src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), format('truetype');
-}
-@font-face {
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-src: local('Open Sans Regular'), local('OpenSans-Regular'), format('truetype');
-}
-@font-face {
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 700;
-src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
-}
+<!-- set up css rules. This allows us to set defualt display rules so we don't have to specify them everytime and can change everything at once. Not all of these objects are used in this experiment but I'm leaving them for examples -->
+<style type="text/css">
 
-/*Font-family changed to verdana and sizes increased for accessibility*/
-.jspsych-display-element {display: flex;flex-direction: column;overflow-y: auto;}.jspsych-display-element:focus {outline: none;}.jspsych-content-wrapper {display: flex;margin: auto;flex: 1 1 100%;width: 100%;}.jspsych-content {max-width: 95%; text-align: center;margin: auto; }.jspsych-top {align-items: flex-start;}.jspsych-middle {align-items: center;}.jspsych-display-element {font-family: 'verdana', 'Arial', sans-serif;font-size: 38px;line-height: 1.6em;}.jspsych-display-element input[type="text"] {font-family: 'verdana', 'Arial', sans-serif;font-size: 34px;}.jspsych-btn {display: inline-block;padding: 6px 12px;margin: 0px;font-size: 30px;font-weight: 400;font-family: 'verdana', 'Arial', sans-serif;cursor: pointer;line-height: 1.4;text-align: center;white-space: nowrap;vertical-align: middle;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #333;background-color: #fff;border-color: #ccc;}.jspsych-btn:hover {background-color: #ddd;border-color: #aaa;}.jspsych-btn:disabled {background-color: #eee;color: #aaa;border-color: #ccc;cursor: not-allowed;}#jspsych-progressbar-container {color: #555;border-bottom: 1px solid #dedede;background-color: #f9f9f9;margin-bottom: 1em;text-align: center;padding: 8px 0px;width: 100%;line-height: 1em;}#jspsych-progressbar-container span {font-size: 34px;padding-right: 14px;}#jspsych-progressbar-outer {background-color: #eee;width: 50%;margin: auto;height: 14px;display: inline-block;vertical-align: middle;box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);}#jspsych-progressbar-inner {background-color: #aaa;width: 0%;height: 100%;}#jspsych-data-display {text-align: left;}
+.jspsych-display-element {display: flex;flex-direction: column;overflow-y: auto;}
+.jspsych-display-element:focus {outline: none;}
+.jspsych-content-wrapper {display: flex;margin: auto;flex: 1 1 100%;width: 100%;}
+.jspsych-content {max-width: 95%; text-align: center;margin: auto; }
+.jspsych-top {align-items: flex-start;}
+.jspsych-middle {align-items: center;}
+.jspsych-display-element {font-family: 'verdana', 'Arial', sans-serif;font-size: 20px;line-height: 1.6em;}
+.jspsych-display-element input[type="text"] {font-family: 'verdana', 'Arial', sans-serif;font-size: 34px;}
+.jspsych-btn {display: inline-block;padding: 6px 12px;margin: 0px;font-size: 20px;font-weight: 400;font-family: 'verdana', 'Arial', sans-serif;cursor: pointer;line-height: 1.4;text-align: center;white-space: nowrap;vertical-align: middle;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #333;background-color: #fff;border-color: #ccc;}
+.jspsych-btn:hover {background-color: #ddd;border-color: #aaa;}
+.jspsych-btn:disabled {background-color: #eee;color: #aaa;border-color: #ccc;cursor: not-allowed;}
+#jspsych-progressbar-container {color: #555;border-bottom: 1px solid #dedede;background-color: #f9f9f9;margin-bottom: 1em;text-align: center;padding: 8px 0px;width: 100%;line-height: 1em;}
+#jspsych-progressbar-container span {font-size: 34px;padding-right: 14px;}
+#jspsych-progressbar-outer {background-color: #eee;width: 50%;margin: auto;height: 14px;display: inline-block;vertical-align: middle;box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);}
+#jspsych-progressbar-inner {background-color: #aaa;width: 0%;height: 100%;}
+#jspsych-data-display {text-align: left;}
 </style>
 
 </head>
 
-<body style = "background-color:#F5F5F5">
+<!-- Set the background for the entire experiment -->
+<body style = "background-color:white">
   
-<!-- set title and author, these appear briefly while file loads -->
-<h1 class="title toc-ignore">Example Online Experiment</h1> <!--BCS Feb2020-->
-<h4 class="author">BCS</h4> <!--BCS Feb2020-->
+<!-- set title and author, these appear briefly while file loads and remain if there is an error -->
+<h1 class="title toc-ignore">Example Online Experiment</h1>
+<h4 class="author">BCS</h4>
 
-
+<!-- ################################## -->
+<!--       Set up FireBase Stuff        -->
+<!-- ################################## -->
 
 <!-- Allow remote storage on Google Firebase -->
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script> <!-- #FIREBASE -->
@@ -87,14 +81,14 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
 // Firebase set up
 
  // Your web app's Firebase configuration (given to us by firebase)
-  var firebaseConfig = {
-    apiKey: "AIzaSyAzGClrvmRPuLr-FHAOtdY5vkMON-t9geQ",
-    authDomain: "contingencypractice.firebaseapp.com",
-    databaseURL: "https://contingencypractice.firebaseio.com",
-    projectId: "contingencypractice",
-    storageBucket: "contingencypractice.appspot.com",
-    messagingSenderId: "999696162491",
-    appId: "1:999696162491:web:5d5cbdcc07f4d48712d39e",
+  var firebaseConfig = { // #FIREBASE
+    apiKey: "AIzaSyAzGClrvmRPuLr-FHAOtdY5vkMON-t9geQ", // #FIREBASE
+    authDomain: "contingencypractice.firebaseapp.com", // #FIREBASE
+    databaseURL: "https://contingencypractice.firebaseio.com", // #FIREBASE
+    projectId: "contingencypractice", // #FIREBASE
+    storageBucket: "contingencypractice.appspot.com", // #FIREBASE
+    messagingSenderId: "999696162491", // #FIREBASE
+    appId: "1:999696162491:web:5d5cbdcc07f4d48712d39e", // #FIREBASE
   }; // #FIREBASE 
   
   // Initialize Firebase
@@ -126,7 +120,10 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
 });
 </script>
 
-<!-- load the jsPsych plugins needed. -->
+<!-- ################################## -->
+<!--  load the jsPsych plugins needed.  -->
+<!-- ################################## -->
+
 <!-- base library. Needed for everything -->
 <script src="jspsych-6-2/jspsych.js"></script> 
 
@@ -146,6 +143,10 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
 <script type="text/javascript">
 /* Note this is a js (javascript) code chunk */
 
+
+// #######################################
+//  set up custom functions for experiment
+// #######################################
 
 // function to check if in fullscreen mode
   function is_fullscreen(){
@@ -174,7 +175,9 @@ src: local('Open Sans Bold'), local('OpenSans-Bold'), format('truetype');
     return urlparameter; // #SONA
   }
 
-/* experiment parameters */
+// #######################################
+//  set up experiment parameters
+// #######################################
 
 // Create unique identifier for subject (random string of letters/numbers X digits long)
 var subject_id = jsPsych.randomization.randomID(15); // #FIREBASE
@@ -196,18 +199,19 @@ jsPsych.data.addProperties({
 
 // set up consent procedure
 var consent = {
-  type: "external-html",
-  url: "forms/consent.html",
-  cont_btn: "consent-btns",
+  type: "external-html", // specify jsPsych plugin
+  url: "forms/consent.html", // point to consent form
+  cont_btn: "consent-btns", // allow button group (specified in consent.html) to end the trial
   data: {"phase": "Consent"}, // record the phase
 };
 
+// set up the debreifing if they decline to participate
 var no_consent = {
-  timeline: [
+  timeline: [ // timeline is important for conditional functions
     {
-      type: "external-html",
-      url: "forms/no_consent_deb.html",
-      data: {"phase": "No_consent"},
+      type: "external-html", // specify jsPsych plugin
+      url: "forms/no_consent_deb.html", // point to debreif form
+      data: {"phase": "No_consent"}, // record the phase
     },
     ],
   conditional_function: function(data){ // conditional trial
@@ -221,7 +225,7 @@ var no_consent = {
 
 // set up welcome screen 
 var welcome = {
-  type: "html-keyboard-response",
+  type: "html-keyboard-response", // specify jsPsych plugin
   stimulus: welcome_text, // from exp_text.js
   data: {"phase": "Welcome", // record the phase
   },
@@ -229,15 +233,15 @@ var welcome = {
 
 // set up full_screen mode
 var enter_full_screen = {
-  type: 'fullscreen',
-  fullscreen_mode: true,
+  type: 'fullscreen', // specify jsPsych plugin
+  fullscreen_mode: true, // enter fullscreen
   message: fullscreen_prompt, // from exp_text.js
   
-  // disable button for 15 seconds to force reading
+  // disable button for 5 seconds to force reading
   on_load: function(data){
-    var test = document.querySelectorAll('button')[0];
-    test.disabled = true;
-    setTimeout(() => {test.disabled = false;},5000);
+    var test = document.querySelectorAll('button')[0]; // find the button
+    test.disabled = true; // disable the button
+    setTimeout(() => {test.disabled = false;},5000); // enable the button after waiting 5 seconds
   }
 };
 
@@ -246,20 +250,20 @@ var instructions = {
   timeline: [
     // first trial is displaying the experiment instructions
     {
-      type: "html-keyboard-response",
+      type: "html-keyboard-response", // specify jsPsych plugin
       stimulus: instruction_text, // from exp_text.js
       data: {"phase": "Instructions"}, // record the phase
     },
     // second trial is displaying the attention check
     {
-      type: "survey-text",
+      type: "survey-text", // specify jsPsych plugin
       questions: [
         {
           prompt: attention_check_text,  // from exp_text.js
-          columns: 20, 
-          rows: 1, 
-          required: true, 
-          name: "Attention_check"
+          columns: 20, // how wide is the response box
+          rows: 1, // how tall is the response box
+          required: true, // is a response required
+          name: "Attention_check" // give it a name
         },
       ],
       data: {"phase": "Attention_Check"}, // record the phase
@@ -282,15 +286,36 @@ var instructions = {
   },
 };
 
+// set up a longer fixation point for the beginning of the experiment
+var long_fixation = {
+  type: 'html-keyboard-response', // call for a keyboard response trial
+  choices: [], // give no choices for response
+  prompt: keypress_prompt,
+  trial_duration: 2750, // fixation cross lasts for 2750ms
+  stimulus: fixation_stim, // stimulus is defined by exp_text.js
+  data: {"phase": "Fixation"}, // record the phase
+}
 
+// set up "practice trials" (the main part of this example experiment)
 var practice_trials = {
+  //var correct = false;
+  // declare the timeline
   timeline: [
     {
-      type: 'html-keyboard-response',
-      choices: keypress_choices,
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      choices: [], // give no choices for response
       prompt: keypress_prompt,
-      trial_duration: 2000,
-      response_ends_trial: true,
+      trial_duration: 250, // fixation cross lasts for 250ms
+      stimulus: fixation_stim, // stimulus is defined by exp_text.js
+      data: {"phase": "Fixation"}, // record the phase
+    },
+    {
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      
+      choices: keypress_choices, // define the choices and prompt (from exp_text.js)
+      prompt: keypress_prompt, // always show this prompt
+      trial_duration: 2000, // force the trial to end after 2 seconds
+      response_ends_trial: true, // force the trial to end after a response
       stimulus: jsPsych.timelineVariable('stimulus'), // looks for "stimulus" tags in our timeline_variable
       data: jsPsych.timelineVariable('data'), // looks for "data" tags in our timeline_variable
       on_finish: function(data){
@@ -307,77 +332,105 @@ var practice_trials = {
       },
       post_trial_gap: 0, // add a gap between trials if you want
     },
+//    feedback_trial,
+    {
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      choices: [], // give no choices for response
+      trial_duration: function(){ // make this a dynamic parameter
+        var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; // check if the last response was correct
+        if(last_trial_correct){ // if it was correct then make this trial last for 0ms
+          return 0;
+        }else{ // otherwise make the trial last for 1000ms
+          return 1000;
+        }
+      },
+      stimulus: function(){ // make this a dynamic parameter
+        var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; // check if last response was correct
+        if(last_trial_correct){ // if it was correct then give correct feedback (white text on white background for 0ms)
+          return feedback_stim_correct;
+        }else{// if it was incorrect then give wrong feedback ("XXX" for 1000ms)
+          return feedback_stim_wrong;
+        }
+      }, // stimulus is defined by exp_text.js
+      prompt: keypress_prompt, // always show this prompt
+      data: {"phase": "Feedback"}, // record the phase
+    },
   ],
-  timeline_variables: practice_stimuli,
-  randomize_order: true,
-  repetitions: 1,
-}
+  timeline_variables: practice_stimuli, // call the stimuli from practice_stimuli.js
+  randomize_order: true, // present trials in a random order
+  repetitions: 1, // can add multiple repititions
+};
 
 // set up participant age question
 var par_age_quest = {
   timeline: [
     {
-      type: "survey-text",
+      type: "survey-text", // specify jsPsych plugin
       questions: [
         {
           prompt: age_text, // from exp_text.js
-          required: false,
-          name: "Par_Age",
-          rows: 1,
-          columns: 4,
+          required: false, // no response is required
+          name: "Par_Age", // give it a name
+          rows: 1, // response box height
+          columns: 4, // response box width
         },
       ],    
     },
   ],
-  // repeat if not an integer (will accept "20 years" so prolematic) See above for explanation of the next few lines
+  // repeat if not an integer (will accept "20 years" so prolematic)
   loop_function: function(data){
-    responses_data = JSON.parse(data.values()[0].responses);
-    is_int = Number.isInteger(parseInt(responses_data.Par_Age));
+    responses_data = JSON.parse(data.values()[0].responses); // get response
+    is_int = Number.isInteger(parseInt(responses_data.Par_Age)); // check if it is an integer
     data.is_integer = is_int;
-    if(!is_int){
+    if(!is_int){ // if it's not an integer then give a warning
       alert(provide_number_txt); // from exp_text.js
     }
-    return !is_int
+    return !is_int // will repeat if not an integer
   },
 };
 
 // set up gender question
 var gender_quest = {
-  type: 'survey-html-form',
+  type: 'survey-html-form', // specify jsPsych plugin
   preamble: gender_prompt, // from exp_text.js
+  // set up a required radio multiple choice question
   html: "<input type='radio' id='Male' name='Gender_Q' value='Male', required><label for='Male'>Male</label> <input type='radio' id='Female' name='Gender_Q' value='Female', required><label for='Female'>Female</label> <input type='radio' id='Other_gender' name='Gender_Q' value='Other_gender', required><label for='Other'>Other</label> <input type='text', name='other_gender_fill_in'>",
   
 };
 
 // set up country of origin question
 var country_quest = {
-  type: 'survey-html-form',
+  type: 'survey-html-form',// specify jsPsych plugin
   preamble: country_prompt, // from exp_text.js
+  // set up a required radio multiple choice question
   html: "<label><input type='radio' id='Canada' name='Country_Q' value='Canada', required>Canada</label> <label><input type='radio' id='USA' name='Country_Q' value='USA', required>USA</label> <label><input type='radio' id='Other_country' name='Country_Q' value='Other_country', required>Other</label> <input type='text', name='other_country_fill_in'>",
 };
 
 // set up ID so that people can identify thier data if they want to
+// ################################################################
+// THIS SHOULD NEVER BE USED IN A REAL EXPERIMENT!
+// ################################################################
 var ID_quest = {
-  type: "survey-text",
+  type: "survey-text", // specify jsPsych plugin
   questions: [
     {
-      prompt: ID_text,
-      required: false,
-      name: "Par_ID",
-      rows: 1,
-      columns: 10,
+      prompt: ID_text, // from exp_text.js
+      required: false, // not required
+      name: "Par_ID", // give it a name
+      rows: 1, // how tall is the text box
+      columns: 10, // how wide is the text box
     },
   ],
 };
 
 // set up demographic survey 
 var survey = {
-  data: {"phase": "Survey"},
+  data: {"phase": "Survey"}, // record same phase for all these trials
   timeline: [
-    par_age_quest,
-    gender_quest,
-    country_quest,
-    ID_quest,
+    par_age_quest, // ask age question
+    gender_quest, // ask gender question
+    country_quest, // ask country of origin question
+    ID_quest, // ask ID question NEVER USE IN A REAL EXPERIMENT
   ],
   on_finish: function(data){
     data.fullscreen = is_fullscreen(); // check if fullscreen
@@ -386,8 +439,8 @@ var survey = {
 
 // prepare an end to full_screen mode 
 var exit_full_screen = {
-  type: 'fullscreen',
-  fullscreen_mode: false,
+  type: 'fullscreen', // get jsPsych plugin
+  fullscreen_mode: false, // leave fullscreen
   
   // save data when going through exit full screen routine
   // will still save data at this point if they have alrady exited full screen
@@ -400,18 +453,18 @@ var exit_full_screen = {
 
 // set up debrief block
 var debrief = {
-  type: "html-keyboard-response",
+  type: "html-keyboard-response", // get jsPsych plugin
   stimulus: debrief_text, // from exp_text.js
-  //post_trial_gap: 1000
 };
 
 /*set up experiment structure*/
 var timeline = [];
-timeline.push(consent); // #TESTING
-timeline.push(no_consent); // #TESTING
-timeline.push(welcome);
-timeline.push(enter_full_screen);
-timeline.push(instructions);
+//timeline.push(consent); // #TESTING
+//timeline.push(no_consent); // #TESTING
+//timeline.push(welcome);
+//timeline.push(enter_full_screen);
+//timeline.push(instructions);
+timeline.push(long_fixation);
 timeline.push(practice_trials);
 timeline.push(survey);
 timeline.push(exit_full_screen);
