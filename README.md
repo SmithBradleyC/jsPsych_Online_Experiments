@@ -167,15 +167,20 @@ Now that you have a local copy of the example experiment on your machine you can
 
 The best way to keep organized in rStudio is to use R Projects. When you create an R Project in rStudio it creates a folder with the project name and every new file that you create and save within that rStudio session will be saved to the folder. The R Project also creates a .Rproj file. This is the core of the R Project. It will save data between sessions and is the pointer for your "working directory" (meaning that calls to other files will be in reference to the .Rproj file). For more information on R Projects see [here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) or one of the R resources I pointed out in the [Download Important Software](#download-important-software) section. **Many of the functions/files I have in my example repository rely on being run inside an R Project.**
 
+The next section will walk you through opening the local repository, describing the files within the repository, making a small change to the experiment and testing the experiment locally.
+
 - Open the local repository folder (there should be a button in the middle of the screen in the GitHub Desktop application)
 - Open *jsPsych_Online_Experiments.Rproj* with rStudio
-- You will/may have 4 sections/quadrants to your screen:
+- You will/may have 4 sections/quadrants to your screen when you open rStudio:
   - Top left: file open in rStudio (this may not open your first time meaning the console will take up the whole left side)
   - Top right: the **Environment**/History/Connections tabs (Environment shows what data you have loaded, should be blank for now)
   - Bottom left: the **Console**/Terminal/Jobs tabs (console is the most important)
   - Bottom right: the **Files**/Plots/Package/Help/Viewer tabs (open the files tab)
-- In the Files tab, you should see a list from .gitattributes to a folder called stimuli (if you're organizing alphebetically)
-- These are all of the files/folders in the repository. Here's a quick explanation for all of them:
+- Critically you should see "jsPsych_Online_Experiments" in the top right hand corner of the screen, meaning that you have opened the R Project
+
+- In the Files tab (bottom right quadrant), you should see a list of file/folder from .gitattributes to a folder called stimuli (if you're organizing alphebetically)
+- These are all of the files/folders in the repository. Here's a quick explanation for all of them (steps will continue below):
+
 >  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
 >  - *.gitignore*: does some work for your git repository. This specifies files/folders that your repository should ignore. These files are made by rStudio and I didn't need/want them backed up to GitHub
 >  - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
@@ -209,53 +214,53 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
 >    - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
 >    - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
 
-# MORE HERE
+- Open the index.html file by clicking on it and choosing "Open in Editor". This is the file that runs the experiment. It calls all the necessary packages and files
+- I hope that the index.html file (and all files) are commented well enough that people can follow what they do
+- There are some "tags" that I've added into the index.html file. You can find them by hiting ctrl+f and searching for the tags below:
+  - #FIREBASE - These lines of code are needed to make data [save to the FireBase database](#collecting-data-remotely) that I've set up
+  - #SONA - These lines of code are needed to [automatically credit SONA participants](#automatically-granting-sona-credits)
+  - #TESTING - These lines of code may need to be commented out in order to test the experiment locally (your web browser may raise security issues)
+  - Everything else is important for actually running the experiment and you can see my comments to understand what that code is doing
 
-# GONE UP TO HERE SO FAR
+- First off lets make sure that you can run the experiment locally:
+  - Try to open the experiment by opening index.html in rStudio and the clicking the "Preview" button near the top of the screen
+  - This should open a window that will run the experiment
+  - Next try to open the experiment in your prefered web browser (Safari will not enter fullscreen mode I think) by going to the repository in your file explorer and opening the index.html file directly
+  - If either method fails to load the experiment, try commenting out the lines of code tagged with #TESTING by adding "//" (without the quotation marks) at the beginning of the line
+  - You may be able to further diagnose problems in your web browser by opening up the developer tools (hot keys = ctrl+shift+i). This console will be useful for testing and debugging. It will also display the errors that are generated by your code
+
+- Once you can run the experiment locally lets explore some edits to the experiment that you could make:
+  - You can change how long participants have to respond to the stimuli by going to the index.html file, finding "var practice_trials", and changing the line of code that is described as forcing the trial to end after 2 seconds (in the comments). You can change the number value from 2000 to any number that you want. This will be the length of time that participants have to respond in milliseconds
+  - You can change the text presented in any of the instructions by opening the folder "stimuli", then opening exp_text.js (in rStudio). This file contains almost all of the text presented in the experiment. If you change it in this file, and save the file, the text in the experiment will change to match.
+  - You can change the stimuli presented by going to the folder "stimuli", then opening practice_stimuli.js (in rStudio). This file defines the stimuli that are presented in this experiment. Think of this as a list of stimuli. What is listed after "stimulus": is HTML code that causes the stimuli the be presented. What is listed after "word": or "cor_response": are saved to the dataframe but don't control what is actually presented. You could manually change each line that you wanted to but there is a better way in this case.
+    - Go to the folder "R", then the folder "pre_experiment", then open both create_stimuli.R
+    - This file uses the custom functions defined in functions_to_create_stimuli.R to create the practice_stimuli.js file you were just looking at
+    - Try changing the words (e.g., MONTH) to any other words that you want (e.g., HERB) and then running the whole .R file
+    - You run the whole .R file by selecting all of the code (hot keys = ctrl+a) and then clicking the "Run" button near the top middle of the screen (hotkeys to Run = ctrl+enter)
+    - If you then open the folder "stimuli", then open practice_stimuli.js (in rStudio) then you should see that it has been changed to reflect the new word that you chose
+  - You can change the contents of the ReadME file by opening README.md and editing any of the text that you want and saving it. Once you push this change to your GitHub repository (explained below) the changes will be reflected on your GitHub page ReadMe documentation.
+
+- If you learn how to use jsPsych then you can make any edits you want or program entirely different experiments (see above for [examples](#examples))
+- For now, try rerunning the experiment with your new edits
+- If you run it in your web browser and complete the experiment then the data will be saved to my Firebase database (you can change this as described [later](#collecting-data-remotely))
 
 #### Saving Edits to GitHub
 
-To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. You can also host the experiment there (using GitHub Pages, this will be explained  in [Hosting the Experiment](#hosting-the-experiment)).
+To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. If you understand this then you can probably safely skip to [Hosting the Experiment](#hosting-the-experiment)).
 
-We'll leave it to you to learn how to push changes to your GitHub repository and work collaboratively with others from there (it's much the same way you are "working" on our experiment) but we will show you how to host the experiment in the section [Running the Experiment](#running-the-experiment).
+- Confirm that you have saved all the files that you opened/made changes to in previous instructions. If you open files in rStudio you can tell which are unsaved because they will have an astricks (*) by their name.
+- Open the GitHub Desktop Application and confirm it is open to the correct repository (jsPsych_Online_Experiments in the top left hand corner)
+- You should see a list of files changed on the left hand side of the application
+- If you click on a particular file, it will show you what has been changed (unless there are too many changes)
+- At this point you may want to go back and uncomment the #TESTING lines of code unless you want to exclude them from the online version of your experiment
+- You can "commit" all changes by giving them a name and description in the boxes just below the list of changed files (name/summary is required)
+- I reccommend making a summary like "edit_experiment_words" and then describing the major changes you made to the experiment
+- Once you press the commit button, you have saved all of those file changes to you Git repository. You can revert back to any commit that you want but I'll leave it up to you to Google how.
+- After pressing the commit button and allowing the program to finish saving, there should be a tab at the top of the screen that says "Push origin". This means to save all the changes you just made locally onto your GitHub repository. Click on that tab and wait for the repository to be backed-up to GitHub
 
 
-#### Reproduce the Experiment
+# GONE UP TO HERE SO FAR
 
-- In your local repository (the folder that you downloaded/cloned the repo to), open OCSWinter2020.Rproj with rStudio. This will open rStudio project for the experiment. What that means is that it sets a working directory so that any file calls will be in reference to this file. If you work on a different task (other than related to this experiment) then you should create a new R project by using the drop down menu in the top right hand of the rStudio window.
-- Then in the bottom right panel of the rStudio screen select the files tab
-- Select the [index.html](index.html) file, and "Open in Editor"
-- This is the experiment file. It is written in JavaScript and HTML using the jsPsych library (found in the jspsych-6-2 folder in the repository). Hopefully it is documented well enough for you to follow. We'll leave it to you to learn jsPsych if you want to adapt the experiment for your own purposes.
-- If you open the [index.html](index.html) file in your web browser or with the rStudio Preview button it should open. Unfortunately, due to permissions settings you will probably be unable to run through the experiment on your web browser, and some features of the experiment may not work in the rStudio preview. There are ways around these problems to test the experiment (commenting out lines of code tagged with "#TESTING" in the [index.html](index.html) file) but it will all work when hosted online
-- Audio for the experiment is found in the [audio folder](audio) of the repository
-- Consent and Debriefing forms, written in HTML code, is found in the [forms folder](forms)
-- Images for the experiment are found in the [img folder](img)
-- Almost all of the text that appears in the experiment is found in the [stimuli folder](stimuli) in the [exp_text.js file](stimuli/exp_text.js)
-- The original sample of audio clips were selected using the [R/pre_experiment/sample_clips_2.r](R/pre_experiment/sample_clips_2.r) file but we suggest using [R/pre_experiment/sample_clips.r](R/pre_experiment/sample_clips.r) because it has been adapted to work better with the repositories organizational structure (this may mean a different original sample but have not tested it)
-- After being manually screened by 3 of the contributors (the files they decided to exclude can be found at [audio/Exclusion_files](audio/Exclusion_files) and [R/pre_experiment/files_to_exclude.RData](R/pre_experiment/files_to_exclude.RData)) the final selection of clips was done using the [R/pre_experiment/narrow_sample.R](R/pre_experiment/narrow_sample.R) file
-- The stimuli that are presented to the participants were also created with the [R/pre_experiment/narrow_sample.R](R/pre_experiment/narrow_sample.R) file and are found in [stimuli/age_language_test_stimuli.js](stimuli/age_language_test_stimuli.js) and [stimuli/sex_test_stimuli.js](stimuli/sex_test_stimuli.js)
-
-#### Reproduce the Results
-
-Our results should be reproduced by compiling/knitting the [data_analysis](R/analysis/data_analysis.Rmd) file and then by running the analyses found in the [followup_analysis](R/analysis/followup_analysis.R) file. For completeness, here is a description of the files relevant to our results:
-
-- All data collected were temporarily stored on a Google Firebase server
-- They were then downloaded using the [R/analysis/pull_firedata.R](R/analysis/pull_firedata.R) file
-- The downloaded data is stored in the [data](data) folder
-- Files in the [data](data) folder:
-  - [short_exp_test_data](data/short_exp_test_data.json): Data from contributors while proofing the experimental procedure. Only includes 1 trial in each block. Used to quickly test the experiment for obvious errors and remote database collection.
-  - [private_pilot_test_data](data/private_pilot_test_data.json): Data from contributors for testing a more finalized version of the task. Used to test whether we were collecting all the relevant data for our analysis
-  - [3_participant_pilot_data](data/3_participant_pilot_data.json) and [2_additional_part_pilot_data](data/2_additional_part_pilot_data.json): Data from a pilot test of 6 "real" participants (3 at a time). Data was used to confirm that automatic crediting for the online system worked. Only includes 5 data points because 1 participants declined to participate at the consent phase. Data is not included in the final sample.
-  - [final_data](data/final_data.json): The final data collected from 626 participants. File size is 105.5 MB so it uses [Git LFS](https://git-lfs.github.com/) in order to be uploaded to GitHub. It should work with the process described but may cause problems (we have very little experience with Git LFS). In any case, [final_data](data/final_data.json) has already been processed into the following files:
-    - [summarized_data](data/summarized_data.csv): A .csv file containing a single line for all 626 participants summarizing their performance and survey responses.
-    - [w_exclusions](data/w_exclusions.csv): A .csv file containing a single line for all 460 participants who were not excluded, summarizing their performance and survey responses.
-    - [trial_data](data/trial_data.csv): A .csv file containing a single line per trial for all 626 participants. Each line contains the participant's survey responses
-    - [w_exclusions_trial_data](data/w_exclusions_trial_data.csv): A .csv file containing a single line per trial for all 460 participants who were not excluded. Each line contains the participant's survey responses
-- Files in the [R/analysis](R/analysis) folder:
-  - [pull_firedata](R/analysis/pull_firedata.R): An .R file that pulls all data saved in the Firedata database and saves it in the [data](data) folder in a file called "data.json"
-  - [data_cleaning](R/analysis/data_cleaning.R): An .R file that reads in the final_data.json file, tidies the data, and summarizes individual participant's results. Saves csv files of the summarized data with and without exclusion criteria
-  - [data_analysis](R/analysis/data_analysis.Rmd): An .Rmd file (markdown) that reads in the csv produced by [data_cleaning](R/analysis/data_cleaning.R). When compiled/knitted, the resulting html document provides an informal explanation of the data, exclusions, and main analysis
-  - [followup_analysis](R/analysis/followup_analysis.R): An .R file that reads in the trial data and computes the results of our follow-up analyses
 
 ### Running the Experiment
 
