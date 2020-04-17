@@ -176,9 +176,8 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
   - Bottom right: the **Files**/Plots/Package/Help/Viewer tabs (open the files tab)
 - In the Files tab, you should see a list from .gitattributes to a folder called stimuli (if you're organizing alphebetically)
 - These are all of the files/folders in the repository. Here's a quick explanation for all of them:
-<pre>
-  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
-  - *.gitignore*: does some work for your git repository. This specifies files/folders that your repository should ignore. These files are made by rStudio and I didn't need/want them backed up to GitHub
+>  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
+>  - *.gitignore*: does some work for your git repository. This specifies files/folders that your repository should ignore. These files are made by rStudio and I didn't need/want them backed up to GitHub
   - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
   - *data*: this is the folder where data is saved by default when you pull it from FireBase
     - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by R/analysis/pull_firedata.R
@@ -209,7 +208,6 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
   - *stimuli*: the folder containing all of the experimental stimuli
     - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
     - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
-</pre>
 
 # MORE HERE
 
