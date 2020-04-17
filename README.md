@@ -181,7 +181,7 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
   - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
   - *data*: this is the folder where data is saved by default when you pull it from FireBase
     - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by R/analysis/pull_firedata.R
-    - *data.json*: this is the raw data file for 2 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (R/analysis/pull_firedata.R)
+    - *data.json*: this is the raw data file for 3 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (R/analysis/pull_firedata.R)
     - *summarized_data.csv*: this is a .csv with data summarized to a percent correct for each participant (and with extracted survey data)
   - *forms*: this is where I store the HTML code for the consent and debriefing forms
     - *consent.html*: the code for the consent form. It is called by the index.html file
