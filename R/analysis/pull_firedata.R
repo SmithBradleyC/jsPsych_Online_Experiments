@@ -1,6 +1,6 @@
 # require devtools and fireData packages
 if (!require("devtools")) install.packages("devtools")
-devtools::install_github("Kohze/fireData")
+if (!require("fireData")) devtools::install_github("Kohze/fireData")
 
 library(fireData) # https://github.com/Kohze/fireData
 
