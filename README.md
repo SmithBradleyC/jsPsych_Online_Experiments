@@ -178,36 +178,36 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
 - These are all of the files/folders in the repository. Here's a quick explanation for all of them:
 >  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
 >  - *.gitignore*: does some work for your git repository. This specifies files/folders that your repository should ignore. These files are made by rStudio and I didn't need/want them backed up to GitHub
-  - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
-  - *data*: this is the folder where data is saved by default when you pull it from FireBase
-    - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by R/analysis/pull_firedata.R
-    - *data.json*: this is the raw data file for 3 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (R/analysis/pull_firedata.R)
-    - *summarized_data.csv*: this is a .csv with data summarized to a percent correct for each participant (and with extracted survey data)
-  - *forms*: this is where I store the HTML code for the consent and debriefing forms
-    - *consent.html*: the code for the consent form. It is called by the index.html file
-    - *no_consent_deb.html*: this is the debreifing form for those who decline to participate in the experiment. It is called by the index.html file
-  - *img*: this is where I expect images that are important to the experiment would be saved
-    - *UM_Logo.png*: this is the University of Manitoba Logo. It is called by the consent and debreifing forms
-  - *index.html*: this is the main part of the experiment. It will be explained in greater detail
-  - *jspsych-6-2*: this is the jsPsych Library
-    - *css*: the folder containing the default jspsych .css file
-    - *examples*: the folder containing examples of all the default jsPsych plugins. Open any of them in a web browser to see how it works, or open them in rStudio/code editor to see how they are programmed. Good for learning how to program your own experiments
-    - *jspsych.js*: the main file for the jsPsych library. Needs to be called in index.html
-    - *license.txt*: the license relevant to the jsPsych library
-    - *plugins*: the folder containing the jsPsych library plugins. Examples of how to use these are in the examples folder. These files will need to be called by the index.html file if you want to use those plugins
-  - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
-  - *R*: the folder containing all of my R code
-    - *analysis*: the folder containing all of the code used in analyzing the data
-      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data #MC
-      - *figures*: the folder where I save my figures (empty in this repository)
-      - *pull_firedata.R*: the file used to download the data from FireBase and save a .csv version of the data
-    - *pre_experiment*: the folder containing all the R code used in setting up the experiment
-      - *create_stimuli.R*: the file used to create all of the stimuli used in the example experiment
-      - *functions_to_create_stimuli.R*: a file containing the functions used in create_stimuli.R
-  - *README.md*: the file that GitHub uses to create the ReadMe (the document you are currently reading)
-  - *stimuli*: the folder containing all of the experimental stimuli
-    - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
-    - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
+>  - *.Rhistory*: this file tracks what you do in rStudio. It is also ignored by Git because that file type is included in .gitignore
+>  - *data*: this is the folder where data is saved by default when you pull it from FireBase
+>    - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by R/analysis/pull_firedata.R
+>    - *data.json*: this is the raw data file for 3 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (R/analysis/pull_firedata.R)
+>    - *summarized_data.csv*: this is a .csv with data summarized to a percent correct for each participant (and with extracted survey data)
+>  - *forms*: this is where I store the HTML code for the consent and debriefing forms
+>    - *consent.html*: the code for the consent form. It is called by the index.html file
+>    - *no_consent_deb.html*: this is the debreifing form for those who decline to participate in the experiment. It is called by the index.html file
+>  - *img*: this is where I expect images that are important to the experiment would be saved
+>    - *UM_Logo.png*: this is the University of Manitoba Logo. It is called by the consent and debreifing forms
+>  - *index.html*: this is the main part of the experiment. It will be explained in greater detail
+>  - *jspsych-6-2*: this is the jsPsych Library
+>    - *css*: the folder containing the default jspsych .css file
+>    - *examples*: the folder containing examples of all the default jsPsych plugins. Open any of them in a web browser to see how it works, or open them in rStudio/code editor to see how they are programmed. Good for learning how to program your own experiments
+>    - *jspsych.js*: the main file for the jsPsych library. Needs to be called in index.html
+>    - *license.txt*: the license relevant to the jsPsych library
+>    - *plugins*: the folder containing the jsPsych library plugins. Examples of how to use these are in the examples folder. These files will need to be called by the index.html file if you want to use those plugins
+>  - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
+>  - *R*: the folder containing all of my R code
+>    - *analysis*: the folder containing all of the code used in analyzing the data
+>      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data #MC
+>      - *figures*: the folder where I save my figures (empty in this repository)
+>      - *pull_firedata.R*: the file used to download the data from FireBase and save a .csv version of the data
+>    - *pre_experiment*: the folder containing all the R code used in setting up the experiment
+>      - *create_stimuli.R*: the file used to create all of the stimuli used in the example experiment
+>      - *functions_to_create_stimuli.R*: a file containing the functions used in create_stimuli.R
+>  - *README.md*: the file that GitHub uses to create the ReadMe (the document you are currently reading)
+>  - *stimuli*: the folder containing all of the experimental stimuli
+>    - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
+>    - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
 
 # MORE HERE
 
