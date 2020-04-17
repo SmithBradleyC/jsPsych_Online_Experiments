@@ -198,7 +198,7 @@ The best way to keep organized in rStudio is to use R Projects. When you create 
   - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
   - *R*: the folder containing all of my R code
     - *analysis*: the folder containing all of the code used in analyzing the data
-      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data
+      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data #MC
       - *figures*: the folder where I save my figures (empty in this repository)
       - *pull_firedata.R*: the file used to download the data from FireBase and save a .csv version of the data
     - *pre_experiment*: the folder containing all the R code used in setting up the experiment
