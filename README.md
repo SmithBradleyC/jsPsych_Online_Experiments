@@ -36,18 +36,18 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
   - [Downloading the software used to easily transfer data between GitHub and a local machine (GitHub Desktop)](#download-github-desktop)
   - [Making a local copy of the repository](#clone-the-repository)
 - [Running this example experiment](#running-this-example-experiment):
-  - [General editing/testing of the experiment](#editing/testing-the-experiment)
-  - Saving your edits to GitHub
-  - Hosting the experiment
-  - Collecting data remotely
-  - Automatically granting SONA credits
-  - Saving and unpacking FireBase data
-- General Tips:
-  - Tips for testing code/debugging 
-  - Tips for data analysis
-  - Tips for experimental structure
-  - Tips for repository structure
-  - Tips for naming conventions
+  - [General editing and testing of the experiment](#editing-and-testing-the-experiment)
+  - [Saving your edits to GitHub](#saving-edits-to-github)
+  - [Hosting the experiment](#hosting-the-experiment)
+  - [Collecting data remotely](#collecting-the-data-remotely)
+  - [Automatically granting SONA credits](#crediting-sona-participants)
+  - [Saving and unpacking FireBase data](#saving-and-unpacking-firebase-data)
+- [General Tips](#general-tips):
+  - [Tips for testing code and debugging](#tips-for-testing-code-and-debugging) 
+  - [Tips for data analysis](#tips-for-data-analysis)
+  - [Tips for experimental structure](#tips-for-experimental-structure)
+  - [Tips for repository structure](#tips-for-repository-structure)
+  - [Tips for naming conventions](#tips-for-naming-conventions)
 
 Keep in mind that there are many methods to acomplish any one of these steps and I have only described one. Just because you do it differently does not make it wrong, as long as it works.
 
@@ -163,7 +163,7 @@ If you already have the GitHub Desktop Client then skip to [Clone the Repository
 
 Now that you have a local copy of the example experiment on your machine you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine until you [push them back to GitHub](#saving-edits-to-github). You can use [any code editing software](#other-potentially-useful-code-editors) that you like, even Notepad, but I'll be describing how I use rStudio. This helps keep the experiment/repository tidy.
 
-#### Editing/Testing the Experiment
+#### Editing and Testing the Experiment
 
 The best way to keep organized in rStudio is to use R Projects. When you create an R Project in rStudio it creates a folder with the project name and every new file that you create and save within that rStudio session will be saved to the folder. The R Project also creates a .Rproj file. This is the core of the R Project. It will save data between sessions and is the pointer for your "working directory" (meaning that calls to other files will be in reference to the .Rproj file). For more information on R Projects see [here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) or one of the R resources I pointed out in the [Download Important Software](#download-important-software) section. **Many of the functions/files I have in my example repository rely on being run inside an R Project.**
 
@@ -338,7 +338,7 @@ The University of Manitoba uses the SONA system to credit participants with cour
 
 This section will probably not be useful to those who have no coding experience, but then of the most use for those who have a little bit of coding experience. I also expect that this section will have more contributions from others than most sections. This may cause there to be contradictory advice, in that case choose which direction you want, it obviously doesn't matter (more than one way to skin a cat and all).
 
-#### Tips for Testing Code/Debugging
+#### Tips for Testing Code and Debugging
 
 #### Tips for Data Analysis
 
