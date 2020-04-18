@@ -35,8 +35,8 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
   - [Getting/forking your own copy of the repository](#fork-the-repository)
   - [Downloading the software used to easily transfer data between GitHub and a local machine (GitHub Desktop)](#download-github-desktop)
   - [Making a local copy of the repository](#clone-the-repository)
-- Running this example experiment:
-  - General editing/testing of the experiment
+- [Running this example experiment](#running-this-example-experiment):
+  - [General editing/testing of the experiment](#editing/testing-the-experiment)
   - Saving your edits to GitHub
   - Hosting the experiment
   - Collecting data remotely
@@ -258,32 +258,25 @@ To save them to GitHub you will first need to commit the changes to your local g
 - Once you press the commit button, you have saved all of those file changes to you Git repository. You can revert back to any commit that you want but I'll leave it up to you to Google how.
 - After pressing the commit button and allowing the program to finish saving, there should be a tab at the top of the screen that says "Push origin". This means to save all the changes you just made locally onto your GitHub repository. Click on that tab and wait for the repository to be backed-up to GitHub
 
-
-# GONE UP TO HERE SO FAR
-
-
-### Running the Experiment
-
-Simply by forking the original repository of this experiment you should be set up to run the experiment with minimal changes. We have broken this process into three steps:
-
 #### Hosting the Experiment
 
-With your forked copy of the repository it should be a simple matter of turning on GitHub pages in order to host our version of the experiment. To do so do the following:
-- Navigate to your repository (github.com/YourYourGitHubUsername/OCSWinter2020)
-- Click on the "Settings" tab near the top of the screen (github.com/YourGitHubUsername/OCSWinter2020/settings)
+With your forked copy of the repository it should be a simple matter of turning on GitHub pages in order to host the experiment. To do so do the following:
+- Navigate to your repository (github.com/YourYourGitHubUsername/jsPsych_Online_Experiments)
+- Click on the "Settings" tab near the top of the screen (github.com/YourGitHubUsername/jsPsych_Online_Experiments/settings)
 - Ensure your repository is public (select the "Manage access" tab on the left)
 - Return to the "Settings" page
 - Scroll down to the GitHub Pages section of the page
 - Enable GitHub Pages by changing the source to the master branch
 - You do not need to select a theme
-- In a few minutes the pages site should be published. The URL will appear at the top of the GitHub Pages section (https://<i></i>YourGitHubUsername.github.io/OCSWinter2020)
+- In a few minutes the pages site should be published. The URL will appear at the top of the GitHub Pages section (https://<i></i>YourGitHubUsername.github.io/jsPsych_Online_Experiments)
 - Going to this URL will begin the experiment as it is hosted on your GitHub repository
 - Any changes to files in your GitHub repository will affect the experiment, but it may take a few minutes for those changes to be reflected on the Pages URL (it is not instantaneous)
 
-#### Collecting the Data
+#### Collecting the Data Remotely
 
-Unfortunately GitHub pages is only for static websites so we can't directly save the data on your repository. Instead we will save the data to Google's Firebase servers. We will explain how to do this with this particular experiment but we learned this process from the instructions found on [Matt Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html) repository.
-- Create an account with firebase https://firebase.google.com/ (free unless you need lots of data or other options). You may not want this associated with your "personal" google account.
+Unfortunately GitHub pages is only for static websites so we can't directly save the data on your repository. Instead we will save the data to Google's Firebase servers. I will explain how to do this with this particular experiment but I learned this process from the instructions found on [Matt Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html).
+
+- Create an account with firebase https://firebase.google.com/ (free unless you need lots of data or other options). You may or may not want this associated with your "personal" google account.
 - Create a new project:
   - Go to Console (top, right hand side of the screen)
   - "Create a project"
@@ -309,8 +302,8 @@ Unfortunately GitHub pages is only for static websites so we can't directly save
     messagingSenderId: &quot;stuff here &quot;,
     appId: &quot;stuff here &quot;
 </code></pre>
-- Copy this portion of the code, go to the [index.html](index.html) file in your local repository, scroll down until you find similar code (about line 70), and replace our Firebase configuration with yours.
-- You may notice that we have included three lines of source code (e.g., <script src="https://<i></i>www<i></i>.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>) rather than Firebase's one in the code that they provide you. All three of these are needed for our procedure. Do not delete or overwrite them. You may update the version number (e.g., from 6.3.4 to 7.13.2) but this is probably not needed.
+- Copy this portion of the code, go to the [index.html](index.html) file in your local repository, scroll down until you find similar code (about line 80), and replace my Firebase configuration with yours.
+- You may notice that I have included three lines of source code (e.g., <script src="https://<i></i>www<i></i>.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>) rather than Firebase's one in the code that they provide you. All three of these are needed for my procedure. Do not delete or overwrite them. You may update the version number (e.g., from 6.3.4 to 7.13.2) but this is probably not needed.
 - Now go back to your Browser and "Continue to console" (Go back to "Project settings")
 - In the left hand menu, under Develop, select "Authentication"
 - Select "Sign-in method" or "Set up sign-in method"
@@ -326,10 +319,10 @@ The rest of the references to firebase should be explained well enough in the co
 
 #### Crediting SONA Participants
 
-Our university uses the SONA system to credit participants with course credit. SONA allows online experiments and automatic crediting for those experiments. To do this:
+The University of Manitoba uses the SONA system to credit participants with course credit. SONA allows online experiments and automatic crediting for those experiments. To do this:
 - Set up a SONA online experiment
 - Go to your SONA experiment's "Change Study Information" page
-- Set the SONA Study URL to your experiments URL with "?id=%SURVEY_CODE%" added onto the end of the URL (without the quotation marks). For example, you might set the Study URL to: https://<i></i>YourGitHubUsername.github.io/OCSWinter2020/?id=%SURVEY_CODE%
+- Set the SONA Study URL to your experiments URL with "?id=%SURVEY_CODE%" added onto the end of the URL (without the quotation marks). For example, you might set the Study URL to: https://<i></i>YourGitHubUsername.github.io/jsPsych_Online_Experiments/?id=%SURVEY_CODE%
 - Then go back to the Study Information page and find the "Completion URLs:"
 - Copy the client-side Completion URL, this will be important to include as a redirect at the end of your study
 - There is then some important code to include in the [index.html](index.html) file (including the client-side URL) in order to automatically grant the participants credit. These will be tagged with "#SONA" so that they are easier to find. The most vital one will look something like this:
@@ -339,6 +332,18 @@ Our university uses the SONA system to credit participants with course credit. S
 - So long as you include the code in the [index.html](index.html) tagged with "#SONA", and change the client-side URL to the one provided by your study, then it should automatically grant credit at the completion of the experiment
 - You will also need to put the client-side_URL into the debriefing form for those participants who decline to participate during the consent phase of the experiment
 
-# Acknowledgements 
+#### Saving and unpacking FireBase data
 
-Thank you to Cychosz et al. for providing the BabbleCor dataset (BabbleCor: https://osf.io/rz4tx/). 
+### General Tips
+
+This section will probably not be useful to those who have no coding experience, but then of the most use for those who have a little bit of coding experience. I also expect that this section will have more contributions from others than most sections. This may cause there to be contradictory advice, in that case choose which direction you want, it obviously doesn't matter (more than one way to skin a cat and all).
+
+#### Tips for Testing Code/Debugging
+
+#### Tips for Data Analysis
+
+#### Tips for Experimental Structure
+
+#### Tips for Repository Structure
+
+#### Tips for Naming Conventions
