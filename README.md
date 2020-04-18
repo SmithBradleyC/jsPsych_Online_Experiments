@@ -29,7 +29,7 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
 - [Downloading important software](#download-important-software):
   - [Download R](#download-r)
   - [Download rStudio](#download-rstudio)
-  - Other potentially useful [code editors](#other-potentially-useful-code-editors)
+  - [Other potentially useful code editors](#other-potentially-useful-code-editors)
 - [Copying this example experiment](#copying-this-example-experiment):
   - [Creating your own GitHub account](#sign-up-for-a-github-account)
   - [Getting/forking your own copy of the repository](#fork-the-repository)
@@ -65,6 +65,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
   - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
   - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
 - Jackie's Distinctiveness Experiment
+- [The Experiment Factory](https://expfactory.github.io/experiments/) (They have their own system that looks like it would work well if you dived into it)
 - MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
@@ -340,10 +341,20 @@ This section will probably not be useful to those who have no coding experience,
 
 #### Tips for Testing Code and Debugging
 
+**#HELP HERE**
+
 #### Tips for Data Analysis
+
+**#HELP HERE**
 
 #### Tips for Experimental Structure
 
+**#HELP HERE**
+
 #### Tips for Repository Structure
 
+**#HELP HERE**
+
 #### Tips for Naming Conventions
+
+**#HELP HERE**
