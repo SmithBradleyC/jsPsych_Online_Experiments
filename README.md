@@ -349,7 +349,7 @@ If you've followed these instructions, your data is saved to your realtime data 
 - Then save that dataframe as "summarized_data.csv" in the data folder of the repository
 - The additional unpacking is to pull out all of the survey data (see comments in the .R file for an explanation)
 
-### General Tips
+## General Tips
 
 This section will probably not be useful to those who have no coding experience, but then of the most use for those who have a little bit of coding experience. I also expect that this section will have more contributions from others than most sections. This may cause there to be contradictory advice, in that case choose which direction you want, it obviously doesn't matter (more than one way to skin a cat and all).
 
@@ -372,3 +372,16 @@ This section will probably not be useful to those who have no coding experience,
 #### Tips for Naming Conventions
 
 **#HELP HERE**
+
+## More to do
+
+Documenting here ideas I have to improve this example repo:
+
+- Make a folder for writing a paper and give an rMarkdown example
+- "Teach" how to use jsPsych
+- Work from a LiveCode experiment, host it and collect data
+- Show how to work from a PsychoPy experiment, host it, and collect data
+- Demonstrate different ways to organize the experiment
+- Demonstrate different ways to organize the repo
+- Think of and write down a standardized way to fully extract data (from any experiment hosted this way)
+- More to come...
