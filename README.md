@@ -1,6 +1,6 @@
 # jsPsych Online Experiments
 
-This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: https://smithbradleyc.github.io/jsPsych_Online_Experiments/. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time Firebase database to collect participant's responses. All of these services can be used completely free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
+This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: https://smithbradleyc.github.io/jsPsych_Online_Experiments/. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time FireBase database to collect participant's responses. All of these services can be used completely free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
 - [Matt Cook](https://github.com/cookm346): #MC
 - [Jackie Spear](https://github.com/jackiespear): #JS
 - [Matt Crump](https://github.com/CrumpLab): #MJC
@@ -15,9 +15,9 @@ At that time, I programmed an experiment for the class "Open and Collaborative S
 
 ## The Goal
 
-The goal of this repository is to document the method I used (and plan to continue using for the forseeable future) to run online experiments. I hope to offer this explanation at a level so that even a novice GitHub user and/or novice programmer could run their own experiment (unfortunately I must leave creating the actual experiment for another tutorial). It is also a way to promote open science because this method facilitates open and collaborative science practices (using GitHub pages requires that the repository is made public).
+The goal of this repository is to document the method I used (and plan to continue using for the foreseeable future) to run online experiments. I hope to offer this explanation at a level so that even a novice GitHub user and/or novice programmer could run their own experiment (unfortunately I must leave creating the actual experiment for another tutorial). It is also a way to promote open science because this method facilitates open and collaborative science practices (using GitHub pages requires that the repository is made public).
 
-I'm indebted to the creators of the [jsPysch Library](https://www.jspsych.org/) and countless others have posted thier experiments using the jsPsych library online. In particular, I used code from [The Experiment Factory](https://www.expfactory.org/) ([GitHub Pages](https://expfactory.github.io/)), and [Matt Crump](https://crumplab.github.io/)'s [jspsychrexamples](https://github.com/CrumpLab/jspsychrexamples) to help me learn how to structure and run my own jsPsych experiments. Thanks are also due to [Danielle Navarro](https://djnavarro.net/)'s [xprmntr package](https://github.com/djnavarro/xprmntr) and [Matt Crump](https://crumplab.github.io/)'s [vertical package](https://github.com/CrumpLab/vertical). Although I didn't end up using either of these packages, they greatly informed the method I describe here (in fact, the instructions for using Google's Firebase is almost directly lifted from [Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html))
+I'm indebted to the creators of the [jsPysch Library](https://www.jspsych.org/) and countless others have posted their experiments using the jsPsych library online. In particular, I used code from [The Experiment Factory](https://www.expfactory.org/) ([GitHub Pages](https://expfactory.github.io/)), and [Matt Crump](https://crumplab.github.io/)'s [jspsychrexamples](https://github.com/CrumpLab/jspsychrexamples) to help me learn how to structure and run my own jsPsych experiments. Thanks are also due to [Danielle Navarro](https://djnavarro.net/)'s [xprmntr package](https://github.com/djnavarro/xprmntr) and [Matt Crump](https://crumplab.github.io/)'s [vertical package](https://github.com/CrumpLab/vertical). Although I didn't end up using either of these packages, they greatly informed the method I describe here (in fact, the instructions for using Google's FireBase is almost directly lifted from [Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html))
 
 # Getting Started
 
@@ -49,13 +49,13 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
   - [Tips for repository structure](#tips-for-repository-structure)
   - [Tips for naming conventions](#tips-for-naming-conventions)
 
-Keep in mind that there are many methods to acomplish any one of these steps and I have only described one. Just because you do it differently does not make it wrong, as long as it works.
+Keep in mind that there are many methods to accomplish any one of these steps and I have only described one. Just because you do it differently does not make it wrong, as long as it works.
 
 Dependencies/things needed to for any step to work (packages/libraries/etc) will be described in the first section that they are important for. So, although I encourage you to skip to the sections relevant to you, if you skip a section it may include dependencies required for future steps. If it seems like you are missing something to get your experiment working I suggest backing up to make sure you have all of the software needed. In the future I may spend the time to include dependencies in all steps they are required for.
 
 ## Examples
 
-Here are several examples of experiments hosted on GitHub. These experiment's are officially "dead" meaning that you are free to test out the experiment without causing problems for the researchers hosting these experiments. Those that I know have used Firebase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
+Here are several examples of experiments hosted on GitHub. These experiment's are officially "dead" meaning that you are free to test out the experiment without causing problems for the researchers hosting these experiments. Those that I know have used FireBase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
 - [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS #FIREBASE
 - [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS) #FIREBASE
 - Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) #MJC
@@ -63,7 +63,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
   - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) #MJC
   - [Stroop Demo (multiple responses)](https://crumplab.github.io/jspsychrexamples/Stroop_multiple_response/experiment/index.html) #MJC
   - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
-  - [Stroop Demo with Firebase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
+  - [Stroop Demo with FireBase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
 - Jackie's Distinctiveness Experiment
 - [The Experiment Factory](https://expfactory.github.io/experiments/) (They have their own system that looks like it would work well if you dived into it)
 - MORE EXAMPLES **#HELP HERE**
@@ -179,7 +179,7 @@ The next section will walk you through opening the local repository, describing 
   - Bottom right: the **Files**/Plots/Package/Help/Viewer tabs (open the files tab)
 - Critically you should see "jsPsych_Online_Experiments" in the top right hand corner of the screen, meaning that you have opened the R Project
 
-- In the Files tab (bottom right quadrant), you should see a list of file/folder from .gitattributes to a folder called stimuli (if you're organizing alphebetically)
+- In the Files tab (bottom right quadrant), you should see a list of file/folder from .gitattributes to a folder called stimuli (if you're organizing alphabetically)
 - These are all of the files/folders in the repository. Here's a quick explanation for all of them (steps will continue below):
 
 >  - *.gitattributes*: does some work for your git repository. Probably not needed for this repository but don't edit unless you know what you're doing
@@ -191,9 +191,9 @@ The next section will walk you through opening the local repository, describing 
 >    - *summarized_data.csv*: this is a .csv with data summarized to a percent correct for each participant (and with extracted survey data)
 >  - *forms*: this is where I store the HTML code for the consent and debriefing forms
 >    - *consent.html*: the code for the consent form. It is called by the index.html file
->    - *no_consent_deb.html*: this is the debreifing form for those who decline to participate in the experiment. It is called by the index.html file
+>    - *no_consent_deb.html*: this is the debriefing form for those who decline to participate in the experiment. It is called by the index.html file
 >  - *img*: this is where I expect images that are important to the experiment would be saved
->    - *UM_Logo.png*: this is the University of Manitoba Logo. It is called by the consent and debreifing forms
+>    - *UM_Logo.png*: this is the University of Manitoba Logo. It is called by the consent and debriefing forms
 >  - *index.html*: this is the main part of the experiment. It will be explained in greater detail
 >  - *jspsych-6-2*: this is the jsPsych Library
 >    - *css*: the folder containing the default jspsych .css file
@@ -217,7 +217,7 @@ The next section will walk you through opening the local repository, describing 
 
 - Open the index.html file by clicking on it and choosing "Open in Editor". This is the file that runs the experiment. It calls all the necessary packages and files
 - I hope that the index.html file (and all files) are commented well enough that people can follow what they do
-- There are some "tags" that I've added into the index.html file. You can find them by hiting ctrl+f and searching for the tags below:
+- There are some "tags" that I've added into the index.html file. You can find them by hitting ctrl+f and searching for the tags below:
   - #FIREBASE - These lines of code are needed to make data [save to the FireBase database](#collecting-data-remotely) that I've set up
   - #SONA - These lines of code are needed to [automatically credit SONA participants](#automatically-granting-sona-credits)
   - #TESTING - These lines of code may need to be commented out in order to test the experiment locally (your web browser may raise security issues)
@@ -226,7 +226,7 @@ The next section will walk you through opening the local repository, describing 
 - First off lets make sure that you can run the experiment locally:
   - Try to open the experiment by opening index.html in rStudio and the clicking the "Preview" button near the top of the screen
   - This should open a window that will run the experiment
-  - Next try to open the experiment in your prefered web browser (Safari will not enter fullscreen mode I think) by going to the repository in your file explorer and opening the index.html file directly
+  - Next try to open the experiment in your preferred web browser (Safari will not enter fullscreen mode I think) by going to the repository in your file explorer and opening the index.html file directly
   - If either method fails to load the experiment, try commenting out the lines of code tagged with #TESTING by adding "//" (without the quotation marks) at the beginning of the line
   - You may be able to further diagnose problems in your web browser by opening up the developer tools (hot keys = ctrl+shift+i). This console will be useful for testing and debugging. It will also display the errors that are generated by your code
 
@@ -237,25 +237,25 @@ The next section will walk you through opening the local repository, describing 
     - Go to the folder "R", then the folder "pre_experiment", then open both create_stimuli.R
     - This file uses the custom functions defined in functions_to_create_stimuli.R to create the practice_stimuli.js file you were just looking at
     - Try changing the words (e.g., MONTH) to any other words that you want (e.g., HERB) and then running the whole .R file
-    - You run the whole .R file by selecting all of the code (hot keys = ctrl+a) and then clicking the "Run" button near the top middle of the screen (hotkeys to Run = ctrl+enter)
+    - You run the whole .R file by selecting all of the code (hot keys = ctrl+a) and then clicking the "Run" button near the top middle of the screen (hot keys to Run = ctrl+enter)
     - If you then open the folder "stimuli", then open practice_stimuli.js (in rStudio) then you should see that it has been changed to reflect the new word that you chose
   - You can change the contents of the ReadME file by opening README.md and editing any of the text that you want and saving it. Once you push this change to your GitHub repository (explained below) the changes will be reflected on your GitHub page ReadMe documentation.
 
 - If you learn how to use jsPsych then you can make any edits you want or program entirely different experiments (see above for [examples](#examples))
 - For now, try rerunning the experiment with your new edits
-- If you run it in your web browser and complete the experiment then the data will be saved to my Firebase database (you can change this as described [later](#collecting-data-remotely))
+- If you run it in your web browser and complete the experiment then the data will be saved to my FireBase database (you can change this as described [later](#collecting-data-remotely))
 
 #### Saving Edits to GitHub
 
 To save them to GitHub you will first need to commit the changes to your local git repository (automatically created when you cloned the repository). You can do this through the GitHub Desktop Client. When you commit to your local git repository it is a form of version control (essentially it keeps a record of all the changes you make and allows you to revert to a previous iteration of the experiment if you want). Once you have committed changes to your local repository you can then push those changes to your GitHub repository (think of "pushing" as saving your edits to the "cloud"). Once changes are on your GitHub repository, others can see your work and contribute to it. If you understand this then you can probably safely skip to [Hosting the Experiment](#hosting-the-experiment)).
 
-- Confirm that you have saved all the files that you opened/made changes to in previous instructions. If you open files in rStudio you can tell which are unsaved because they will have an astricks (*) by their name.
+- Confirm that you have saved all the files that you opened/made changes to in previous instructions. If you open files in rStudio you can tell which are unsaved because they will have an asterisks (*) by their name.
 - Open the GitHub Desktop Application and confirm it is open to the correct repository (jsPsych_Online_Experiments in the top left hand corner)
 - You should see a list of files changed on the left hand side of the application
 - If you click on a particular file, it will show you what has been changed (unless there are too many changes)
 - At this point you may want to go back and uncomment the #TESTING lines of code unless you want to exclude them from the online version of your experiment
 - You can "commit" all changes by giving them a name and description in the boxes just below the list of changed files (name/summary is required)
-- I reccommend making a summary like "edit_experiment_words" and then describing the major changes you made to the experiment
+- I recommend making a summary like "edit_experiment_words" and then describing the major changes you made to the experiment
 - Once you press the commit button, you have saved all of those file changes to you Git repository. You can revert back to any commit that you want but I'll leave it up to you to Google how.
 - After pressing the commit button and allowing the program to finish saving, there should be a tab at the top of the screen that says "Push origin". This means to save all the changes you just made locally onto your GitHub repository. Click on that tab and wait for the repository to be backed-up to GitHub
 
@@ -275,7 +275,7 @@ With your forked copy of the repository it should be a simple matter of turning 
 
 #### Collecting the Data Remotely
 
-Unfortunately GitHub pages is only for static websites so we can't directly save the data on your repository. Instead we will save the data to Google's Firebase servers. I will explain how to do this with this particular experiment but I learned this process from the instructions found on [Matt Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html).
+Unfortunately GitHub pages is only for static websites so we can't directly save the data on your repository. Instead we will save the data to Google's FireBase servers. I will explain how to do this with this particular experiment but I learned this process from the instructions found on [Matt Crump's FirebaseDemo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/Instructions_FirebaseDemo.html).
 
 - Create an account with firebase https://firebase.google.com/ (free unless you need lots of data or other options). You may or may not want this associated with your "personal" google account.
 - Create a new project:
@@ -293,7 +293,7 @@ Unfortunately GitHub pages is only for static websites so we can't directly save
 - In the first tab, "General", you will need to register an app. Add a web app (symbol looks like this </>).
 - You do not need to turn on hosting unless you decide to host your experiment here instead of GitHub Pages.
 - Give the app a nickname and click "Register app"
-- Firebase will give you some html code that will look something like this:
+- FireBase will give you some html code that will look something like this:
 <pre class="js"><code>var firebaseConfig = {
     apiKey: &quot; stuff here&quot;,
     authDomain: &quot;stuff here &quot;,
@@ -303,8 +303,8 @@ Unfortunately GitHub pages is only for static websites so we can't directly save
     messagingSenderId: &quot;stuff here &quot;,
     appId: &quot;stuff here &quot;
 </code></pre>
-- Copy this portion of the code, go to the [index.html](index.html) file in your local repository, scroll down until you find similar code (about line 80), and replace my Firebase configuration with yours.
-- You may notice that I have included three lines of source code (e.g., <script src="https://<i></i>www<i></i>.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>) rather than Firebase's one in the code that they provide you. All three of these are needed for my procedure. Do not delete or overwrite them. You may update the version number (e.g., from 6.3.4 to 7.13.2) but this is probably not needed.
+- Copy this portion of the code, go to the [index.html](index.html) file in your local repository, scroll down until you find similar code (about line 80), and replace my FireBase configuration with yours.
+- You may notice that I have included three lines of source code (e.g., <script src="https://<i></i>www<i></i>.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>) rather than FireBase's one in the code that they provide you. All three of these are needed for my procedure. Do not delete or overwrite them. You may update the version number (e.g., from 6.3.4 to 7.13.2) but this is probably not needed.
 - Now go back to your Browser and "Continue to console" (Go back to "Project settings")
 - In the left hand menu, under Develop, select "Authentication"
 - Select "Sign-in method" or "Set up sign-in method"
@@ -316,7 +316,7 @@ Unfortunately GitHub pages is only for static websites so we can't directly save
   - Click on "Database secrets"
   - Under your projects database, click to show the secret key. Copy and paste this somewhere you can use it later. The only place you'll probably use it is in the [R/analysis/pull_firedata.R](R/analysis/pull_firedata.R) file to pull off the data. You will also need your projectURL (found in the code provided by firebase).
 
-The rest of the references to firebase should be explained well enough in the comments of the [index.html](index.html) file. To more easily find this code I have tagged those lines with "#FIREBASE". Now when someone finishes the experiment their data should be saved to your Firebase realtime database.
+The rest of the references to firebase should be explained well enough in the comments of the [index.html](index.html) file. To more easily find this code I have tagged those lines with "#FIREBASE". Now when someone finishes the experiment their data should be saved to your FireBase realtime database.
 
 #### Crediting SONA Participants
 
@@ -334,6 +334,20 @@ The University of Manitoba uses the SONA system to credit participants with cour
 - You will also need to put the client-side_URL into the debriefing form for those participants who decline to participate during the consent phase of the experiment
 
 #### Saving and unpacking FireBase data
+
+If you've followed these instructions, your data is saved to your realtime data base on Google FireBase. You can view the data and download it straight from the FireBase website. However, I've found it much easier to download it through an R package.
+
+- In your local repository, open the R folder, then open the analysis folder, then open the pull_firedata.R file
+- If you haven't already, replace the projectURL and secretKey with the one for your project
+- Assuming you have cloned this repository and opened the R Project you should be able to run the code found in pull_firedata.R (select all code and press "Run")
+- It will download a .json file with all the data to the repositories data folder
+- Then it will unpack that .json file (not completely unpack it, but most of the way) and save it as a .csv file in the data folder
+- It will also tell you how many participants have completed the experiment
+
+- To further unpack the data, open the data_analysis.R file (in the R/analysis folder)
+- This file is more personalized to the example experiment, It will completely unpack the data and summarize it into one line per participant
+- Then save that dataframe as "summarized_data.csv" in the data folder of the repository
+- The additional unpacking is to pull out all of the survey data (see comments in the .R file for an explanation)
 
 ### General Tips
 
