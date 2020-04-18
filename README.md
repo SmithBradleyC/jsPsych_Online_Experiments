@@ -91,7 +91,7 @@ If you already have R and rStudio then skip to [Other Code Editors](#other-poten
   - Linux:
     - **#HELP HERE**
   
-- **You will not need or want to open this base program instead proceed to Downloading rStudio**
+- **You will not need or want to open this base program. Instead proceed to Downloading rStudio**
 
 #### Download rStudio:
 - Go to https://rstudio.com/
@@ -114,7 +114,7 @@ Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Lat
 
 ## Copying This Example Experiment:
 
-The easiest way copy this experiment is to fork this repository into your own GitHub account, and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Running This Example Experiment](#running-this-example-experiment), otherwise we'll explain how to do that:
+The easiest way copy this experiment is to fork this repository into your own GitHub account, and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Running This Example Experiment](#running-this-example-experiment), otherwise I'll explain how to do that:
 
 #### Sign-Up For a GitHub Account
 
