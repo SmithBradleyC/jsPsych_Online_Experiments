@@ -372,7 +372,14 @@ This section will probably not be useful to those who have no coding experience,
 Coding experimental stimuli can be a tedious processes. In a simple word recognition experiment, the code for one word can end up being quite long, to include all the appropriate HTML and stimuli attributes. An example of one such line may be: #JS
 
 ```js
-{"stimulus":"<p style='font-size: 48px;'>SOUND</p>","data":{"type":"old","category":"music","word":"SOUND"}},
+{
+"stimulus":"<p style='font-size: 48px;'>SOUND</p>",
+"data":{
+  "type":"old",
+  "category":"music",
+  "word":"SOUND"
+  }
+},
 ```
 
 The inclusion of specific data attributes for your stimuli will make your life much easier at the data anlysis stage. However, this makes the coding of each word quite lengthy and repetitve, where attempting to do this by hand would be an invitation to introduce errors into your code. For those who do not want to or know how to write code to automate this process, BBEdit is an extremely useful and powerful tool. Under the "Text" menu in BBEdit, utilizing the "Prefix/Suffix Lines" option is quite useful, where as much or as little text can be added to each option, to code each word as you see fit. This can be done for multiple lines at once, by highlighting all desired lines and then completing this process. #JS
