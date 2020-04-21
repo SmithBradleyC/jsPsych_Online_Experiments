@@ -56,8 +56,8 @@ Dependencies/things needed to for any step to work (packages/libraries/etc) will
 ## Examples
 
 Here are several examples of experiments hosted on GitHub. These experiment's are officially "dead" meaning that you are free to test out the experiment without causing problems for the researchers hosting these experiments. Those that I know have used FireBase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
-- [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS #FIREBASE
-- [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS) #FIREBASE
+- [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) **#BCS** #FIREBASE
+- [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by **#BCS**) #FIREBASE
 - Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) **#MJC**
   - [Flanker Demo](https://crumplab.github.io/jspsychrexamples/Flanker/experiment/index.html) **#MJC**
   - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) **#MJC**
