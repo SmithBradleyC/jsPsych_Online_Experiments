@@ -112,7 +112,7 @@ Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Lat
 
 - [Visual Studio](https://code.visualstudio.com/)
 - [NetBeans](https://netbeans.org/)
-- [BBEdit] (https://www.barebones.com/products/bbedit/) **#JS**
+- [BBEdit](https://www.barebones.com/products/bbedit/) **#JS**
 - **#HELP HERE**
 
 
