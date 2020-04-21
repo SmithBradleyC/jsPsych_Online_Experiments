@@ -86,7 +86,7 @@ If you already have R and rStudio then skip to [Other Code Editors](#other-poten
     - Click on the link to "install R for the first time"
     - Click on "Download R ... for Windows"
     - Once the file is downloaded, open it and go through the installation process
-  - Mac:
+  - Mac: #JS
     - Click on "Download R for (Mac) OS X"
     - Click on the .pkg link, this will start the download
     - Once the .pkg file is downloaded, open it, click continue, and follow the instructions
@@ -112,7 +112,7 @@ Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Lat
 
 - [Visual Studio](https://code.visualstudio.com/)
 - [NetBeans](https://netbeans.org/)
-- [BBEdit] (https://www.barebones.com/products/bbedit/)
+- [BBEdit] (https://www.barebones.com/products/bbedit/) #JS
 - **#HELP HERE**
 
 
@@ -243,7 +243,7 @@ The next section will walk you through opening the local repository, describing 
     - Try changing the words (e.g., MONTH) to any other words that you want (e.g., HERB) and then running the whole .R file
     - You run the whole .R file by selecting all of the code (hot keys = ctrl+a) and then clicking the "Run" button near the top middle of the screen (hot keys to Run = ctrl+enter)
     - If you then open the folder "stimuli", then open practice_stimuli.js (in rStudio) then you should see that it has been changed to reflect the new word that you chose
-  - You can change the contents of the ReadME file by opening README.md and editing any of the text that you want and saving it. Once you push this change to your GitHub repository (explained below) the changes will be reflected on your GitHub page ReadMe documentation. Note that you can use [Markdown] (https://www.markdownguide.org/cheat-sheet/) to format it and make it look pretty. 
+  - You can change the contents of the ReadME file by opening README.md and editing any of the text that you want and saving it. Once you push this change to your GitHub repository (explained below) the changes will be reflected on your GitHub page ReadMe documentation. Note that you can use [Markdown](https://www.markdownguide.org/cheat-sheet/) to format it and make it look pretty. 
 
 - If you learn how to use jsPsych then you can make any edits you want or program entirely different experiments (see above for [examples](#examples))
 - For now, try rerunning the experiment with your new edits
@@ -369,11 +369,13 @@ This section will probably not be useful to those who have no coding experience,
 
 #### Tips for Writing/Coding Experimental Stimuli
 
-Coding experimental stimuli can be a tedious processes. In a simple word recognition experiment, the code for one word can end up being quite long, to include all the appropriate HTML and stimuli attributes. An example of one such line may be: 
+Coding experimental stimuli can be a tedious processes. In a simple word recognition experiment, the code for one word can end up being quite long, to include all the appropriate HTML and stimuli attributes. An example of one such line may be: #JS
 
+```js
 {"stimulus":"<p style='font-size: 48px;'>SOUND</p>","data":{"type":"old","category":"music","word":"SOUND"}},
+```
 
-The inclusion of specific data attributes for your stimuli will make your life much easier at the data anlysis stage. However, this makes the coding of each word quite lengthy and repetitve, where attempting to do this by hand would be an invitation to introduce errors into your code. For those who do not want to or know how to write code to automate this process, BBEdit is an extremely useful and powerful tool. Under the "Text" menu in BBEdit, utilizing the "Prefix/Suffix Lines" option is quite useful, where as much or as little text can be added to each option, to code each word as you see fit. This can be done for multiple lines at once, by highlighting all desired lines and then completing this process. 
+The inclusion of specific data attributes for your stimuli will make your life much easier at the data anlysis stage. However, this makes the coding of each word quite lengthy and repetitve, where attempting to do this by hand would be an invitation to introduce errors into your code. For those who do not want to or know how to write code to automate this process, BBEdit is an extremely useful and powerful tool. Under the "Text" menu in BBEdit, utilizing the "Prefix/Suffix Lines" option is quite useful, where as much or as little text can be added to each option, to code each word as you see fit. This can be done for multiple lines at once, by highlighting all desired lines and then completing this process. #JS
 
 **#HELP HERE**
 
