@@ -1,9 +1,9 @@
 # jsPsych Online Experiments
 
 This is the repository created by Bradley C. Smith (BCS) to document one method of running an online experiment like this one: https://smithbradleyc.github.io/jsPsych_Online_Experiments/. This method uses jsPsych (a JavaScript library for running behavioural experiments in a web browser) to create the experiment, GitHub Pages to host the experiment, and a real-time FireBase database to collect participant's responses. All of these services can be used completely for free (as of April 2020). Anything written by someone other than BCS will be clearly tagged to that person with either a hyperlink to that person's GitHub account or with one of the tags below:
-- [Matt Cook](https://github.com/cookm346): #MC
-- [Jackie Spear](https://github.com/jackiespear): #JS
-- [Matt Crump](https://github.com/CrumpLab): #MJC
+- [Matt Cook](https://github.com/cookm346): **#MC**
+- [Jackie Spear](https://github.com/jackiespear): **#JS**
+- [Matt Crump](https://github.com/CrumpLab): **#MJC**
 
 Below you will find a [step-by-step explanation](#step-by-step-guide) of how you can host your own experiment. It will not describe how to program your own experiment except as it pertains to collecting data (and granted credit through the [SONA system](https://www.sona-systems.com/default.aspx)) but all of the examples will use the jsPsych JavaScript library. In theory, you should be able to switch this library out for your personal favourite and this guide should still work for you; but I have not tested this.
 
@@ -58,12 +58,12 @@ Dependencies/things needed to for any step to work (packages/libraries/etc) will
 Here are several examples of experiments hosted on GitHub. These experiment's are officially "dead" meaning that you are free to test out the experiment without causing problems for the researchers hosting these experiments. Those that I know have used FireBase to save data are flagged with #FIREBASE. The host account of each example will be tagged:
 - [Contingency Practice Phase](https://smithbradleyc.github.io/jsPsych_Online_Experiments/) #BCS #FIREBASE
 - [What can we percieve in infant vocalizations?](https://melsod.github.io/OCSWinter2020/)(Hosted by [melsod](https://github.com/melsod) written by #BCS) #FIREBASE
-- Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) #MJC
-  - [Flanker Demo](https://crumplab.github.io/jspsychrexamples/Flanker/experiment/index.html) #MJC
-  - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) #MJC
-  - [Stroop Demo (multiple responses)](https://crumplab.github.io/jspsychrexamples/Stroop_multiple_response/experiment/index.html) #MJC
-  - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) #MJC
-  - [Stroop Demo with FireBase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) #MJC #FIREBASE
+- Matt Crump's [jsPsychrExamples](https://github.com/CrumpLab/jspsychrexamples) **#MJC**
+  - [Flanker Demo](https://crumplab.github.io/jspsychrexamples/Flanker/experiment/index.html) **#MJC**
+  - [Stroop Demo](https://crumplab.github.io/jspsychrexamples/Stroop/experiment/index.html) **#MJC**
+  - [Stroop Demo (multiple responses)](https://crumplab.github.io/jspsychrexamples/Stroop_multiple_response/experiment/index.html) **#MJC**
+  - [Recognition Memory](https://crumplab.github.io/jspsychrexamples/RecognitionMemory/experiment/index.html) **#MJC**
+  - [Stroop Demo with FireBase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) **#MJC** #FIREBASE
 - Jackie's Distinctiveness Experiment
 - [The Experiment Factory](https://expfactory.github.io/experiments/) (They have their own system that looks like it would work well if you dived into it)
 - MORE EXAMPLES **#HELP HERE**
@@ -74,7 +74,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
 
 If you already have R and rStudio then skip to [Other Code Editors](#other-potentially-useful-code-editors). If not then follow the instructions below. My goal is to make all of the instructions so that you can follow them with no-exposure/minimal-exposure to R or programming in general. However, if you want to learn programming in R (and you should) I can recommend a couple free resources to get you going:
 - [The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/) (Yes ... seriously, it is a good resource)
-- [Programming for Psychologists](https://crumplab.github.io/programmingforpsych/programming-in-r.html) #MJC
+- [Programming for Psychologists](https://crumplab.github.io/programmingforpsych/programming-in-r.html) **#MJC**
 
 #### Download R:
 
@@ -86,7 +86,7 @@ If you already have R and rStudio then skip to [Other Code Editors](#other-poten
     - Click on the link to "install R for the first time"
     - Click on "Download R ... for Windows"
     - Once the file is downloaded, open it and go through the installation process
-  - Mac: #JS
+  - Mac: **#JS**
     - Click on "Download R for (Mac) OS X"
     - Click on the .pkg link, this will start the download
     - Once the .pkg file is downloaded, open it, click continue, and follow the instructions
@@ -112,7 +112,7 @@ Personally, I use rStudio as a code editor for R, HTML, rMarkdown (including Lat
 
 - [Visual Studio](https://code.visualstudio.com/)
 - [NetBeans](https://netbeans.org/)
-- [BBEdit] (https://www.barebones.com/products/bbedit/) #JS
+- [BBEdit] (https://www.barebones.com/products/bbedit/) **#JS**
 - **#HELP HERE**
 
 
@@ -208,7 +208,7 @@ The next section will walk you through opening the local repository, describing 
 >  - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
 >  - *R*: the folder containing all of my R code
 >    - *analysis*: the folder containing all of the code used in analyzing the data
->      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data #MC
+>      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data **#MC**
 >      - *figures*: the folder where I save my figures (empty in this repository)
 >      - *pull_firedata.R*: the file used to download the data from FireBase and save a .csv version of the data
 >    - *pre_experiment*: the folder containing all the R code used in setting up the experiment
@@ -369,7 +369,7 @@ This section will probably not be useful to those who have no coding experience,
 
 #### Tips for Writing/Coding Experimental Stimuli
 
-Coding experimental stimuli can be a tedious processes. In a simple word recognition experiment, the code for one word can end up being quite long, to include all the appropriate HTML and stimuli attributes. An example of one such line may be: #JS
+Coding experimental stimuli can be a tedious processes. In a simple word recognition experiment, the code for one word can end up being quite long, to include all the appropriate HTML and stimuli attributes. An example of one such line may be: **#JS**
 
 ```js
 {
@@ -382,7 +382,7 @@ Coding experimental stimuli can be a tedious processes. In a simple word recogni
 },
 ```
 
-The inclusion of specific data attributes for your stimuli will make your life much easier at the data anlysis stage. However, this makes the coding of each word quite lengthy and repetitve, where attempting to do this by hand would be an invitation to introduce errors into your code. For those who do not want to or know how to write code to automate this process, BBEdit is an extremely useful and powerful tool. Under the "Text" menu in BBEdit, utilizing the "Prefix/Suffix Lines" option is quite useful, where as much or as little text can be added to each option, to code each word as you see fit. This can be done for multiple lines at once, by highlighting all desired lines and then completing this process. #JS
+The inclusion of specific data attributes for your stimuli will make your life much easier at the data anlysis stage. However, this makes the coding of each word quite lengthy and repetitve, where attempting to do this by hand would be an invitation to introduce errors into your code. For those who do not want to or know how to write code to automate this process, BBEdit is an extremely useful and powerful tool. Under the "Text" menu in BBEdit, utilizing the "Prefix/Suffix Lines" option is quite useful, where as much or as little text can be added to each option, to code each word as you see fit. This can be done for multiple lines at once, by highlighting all desired lines and then completing this process. **#JS**
 
 **#HELP HERE**
 
