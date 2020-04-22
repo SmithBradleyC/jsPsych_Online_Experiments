@@ -6,7 +6,7 @@ In addition, an official LiveCode tutorial on how to get your "App" online is fo
 
 ## General Concerns
 
-- Testing your HTML5 development locally is difficult if not impossible with how they program is exported (~5 minute wait everytime you upload to GitHub to host it)
+- Testing your HTML5 development locally is difficult, if not impossible with how they program is exported (~5 minute wait everytime you upload to GitHub to host it)
 - Not exactly a smooth transition from programming to running
 - Most of the HTML code is hidden away/difficult to read so you are trusting the LiveCode port
 - Saving data to #FIREBASE from LiveCode can be a bit fiddly
@@ -51,7 +51,7 @@ See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsy
 
 #### Download Livecode:
 
-- go to https://downloads.livecode.com/livecode/
+- Go to https://downloads.livecode.com/livecode/
 - Choose the version that you want to download (e.g., LiveCode 9.5.1)
 - I reccomend the most recent but version that is labelled as STABLE
 - Under the "Community Edition" Column, select the download link appropriate for your operating system
@@ -64,14 +64,14 @@ The easiest way copy this experiment is to fork the entire repository into your 
 
 ### Running This Example Experiment
 
-Now that you have a local copy of the example experiment on your machine you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine until you [push them back to GitHub](#saving-edits-to-github).
+Now that you have a local copy of the example experiment on your machine, you can begin to make and save your own edits. When you save the edits they will only be saved on your local machine until you [push them back to GitHub](#saving-edits-to-github).
 
 #### Editing and Testing the Experiment
 
-Before I get into how to make edits to the example experiment I'll start by describing the files contained in this folder:
->  - *data*: this is the folder where data is saved by default when you pull it from FireBase
->    - *data.csv*: this is the .csv version the the datafile pulled from FireBase. It is created by LiveCode/R/analysis/pull_firedata.R
->    - *data.json*: this is the raw data file for 3 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (LiveCode/R/analysis/pull_firedata.R)
+Before I get into how to make edits to the example experiment, I'll start by describing the files contained in this folder:
+>  - *data*: This is the folder where data is saved by default when you pull it from FireBase
+>    - *data.csv*: This is the .csv version the the datafile pulled from FireBase. It is created by LiveCode/R/analysis/pull_firedata.R
+>    - *data.json*: This is the raw data file for 3 'participants' in the experiment. It is the file pulled straight from FireBase. Unless you rename this file it will be overwritten when you pull data from FireBase (LiveCode/R/analysis/pull_firedata.R)
 >  - *Example Experiment*: This is the folder created by LiveCode when you save it as a standalone program in HTML5 format
 >    - *Example Experiment.html*: This file is created by LiveCode and is meant to be used to test your program locally (or online). However, it includes a lot of features you probably don't want like a LiveCode banner at the top. Also, in my experience, it never works if you try to run it locally becauase of browser security issues (CORS policy)
 >    - *SimpleExampleExperiment.html*: This is the file that I created to actually run the experiment. See my comments in the file to see how it works
@@ -86,10 +86,10 @@ Before I get into how to make edits to the example experiment I'll start by desc
 >    - *pre_experiment*: the folder containing all the R code used in setting up the experiment (none here)
 >  - *README.md*: the file that GitHub uses to create the ReadMe (the document you are currently reading)
  
-So to make changes to the experiment:
+So, to make changes to the experiment:
 - Open ExampleExperiment.livecode with LiveCode
 - Adapt whatever you want in the program
-- I'm leaving it to you to learn to program with LiveCode and not break the experiment but I want to point out a few things:
+- I'm leaving it to you to learn to program with LiveCode and not break the experiment, but I want to point out a few things:
   - Navigate to the Stack Script:
     - Notice the function to make the data into a JSON format, this is because my method of uploading to #FIREBASE doesn't accept just any method of formatting data and it seems that JSON is the most readily accepted
     - Notice the function to make a participant ID, this function has been slightly problematic because non-normal characters are being seleted somehow. I'm not going to solve this problem for this Example Experiment so I reccomend you find a solution for your own experiments
@@ -97,7 +97,7 @@ So to make changes to the experiment:
     - Notice the line: `do "firebase.database().ref('"&ParID&"').set({"&makeJSON(par_data, ParID)&"});" as "JavaScript"`
     - the `do` function takes a string arguement and then trys to run it as code
     - the `as "JavaScript"` arguement means that it will try to run the code in JavaScript
-    - This function will not through errors within LiveCode so you may not realize there is a problem until you have exported to HTML and are hosting it on a server
+    - This function will not throw errors within LiveCode so you may not realize there is a problem until you have exported to HTML and are hosting it on a server
     - This function saves the data to the FireBase realtime database specified in the SimpleExampleExperiment.html file
   - Navigate to the button "SONA_btn" script (button is on the last card):
     - Notice the line: `do "window.location.href = 'https://umanitobapsych.sona-systems.com/webstudy_credit.aspx?experiment_id=XXXX&credit_token=11x11x111x1x1x1xx1x11111111xx11x&survey_code='+SONA_ID;" as "JavaScript"`
