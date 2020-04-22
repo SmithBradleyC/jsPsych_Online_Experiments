@@ -206,6 +206,7 @@ The next section will walk you through opening the local repository, describing 
 >    - *license.txt*: the license relevant to the jsPsych library
 >    - *plugins*: the folder containing the jsPsych library plugins. Examples of how to use these are in the examples folder. These files will need to be called by the index.html file if you want to use those plugins
 >  - *jsPsych_Online_Experiments.Rproj*: the R project file to keep everything organized
+>  - *LiveCode*: the folder containing the files to run the [LiveCode Example Experiment](https://smithbradleyc.github.io/jsPsych_Online_Experiments/LiveCode/Example%20Experiment/SimpleExampleExperiment.html). This experiment saves data using #FIREBASE and redirects people to #SONA. The method is a little unconventional but is explained [here](LiveCode)
 >  - *R*: the folder containing all of my R code
 >    - *analysis*: the folder containing all of the code used in analyzing the data
 >      - *data_analysis.R*: the file where the data analysis is done. The example summarizes the data and saves the summarized data **#MC**
