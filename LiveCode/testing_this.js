@@ -1,0 +1,1 @@
+firebase.database().ref("1234").set({"value":"this thing!"})
