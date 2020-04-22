@@ -1,3 +1,15 @@
+<!--
+
+Code important to SONA is tagged with #SONA
+Code important to Firebase is tagged with #FIREBASE
+Code that needs to be commented out in order to test locally is tagged with #TESTING
+Written in Javascript and HTML, using the jsPsych library
+
+Experiment is Hosted on GitHub Pages https://smithbradleyc.github.io/jsPsych_Online_Experiments/LiveCode/Example%20Experiment/SimpleExampleExperiment.html
+Experiment is explained on GitHub https://github.com/SmithBradleyC/jsPsych_Online_Experiments/tree/master/LiveCode
+
+-->
+
 <html>
 
 <body>
@@ -74,13 +86,14 @@ function getUrlVars() { // #SONA
     return urlparameter; // #SONA
   }
 
+// actually get the SONA_ID to pass to the redirect to SONA
   var SONA_ID = getUrlParam('id','Empty'); // #SONA
 
 
 </script>
 
 
-
+  <!-- Set up the "canvas" for hosting the experiment-->
    <canvas style="border: 0px none;" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
     <script type="text/javascript">
@@ -90,7 +103,7 @@ function getUrlVars() { // #SONA
     </script>
 
 
-
+  <!-- script that actually runs the experiment created by LiveCode --> 
    <script async type="text/javascript" src="standalone-community-9.0.0.js"></script>
 
 
