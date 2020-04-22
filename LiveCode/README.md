@@ -85,5 +85,5 @@ So to make changes to the experiment:
     - Notice the function to make the data into a JSON format, this is because my method of uploading to #FIREBASE doesn't accept just any method of formatting data and it seems that JSON is the most readily accepted
     - Notice the function to make a participant ID, this function has been slightly problematic because non-normal characters are being seleted somehow. I'm not going to solve this problem for this Example Experiment so I reccomend you find a solution for your own experiments
   - Navigate to the final Card's Script:
-    - Notice the line: `js do "firebase.database().ref('"&ParID&"').set({"&makeJSON(par_data, ParID)&"});" as "JavaScript"`
+    - Notice the line: `javascript do "firebase.database().ref('"&ParID&"').set({"&makeJSON(par_data, ParID)&"});" as "JavaScript"`
 The [Example Experiment](Example%20Experiment) folder is created by LiveCode when you export the program 
