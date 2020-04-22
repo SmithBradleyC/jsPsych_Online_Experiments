@@ -1,0 +1,112 @@
+<!--
+
+Code important to SONA is tagged with #SONA
+Code important to Firebase is tagged with #FIREBASE
+Code that needs to be commented out in order to test locally is tagged with #TESTING
+Written in Javascript and HTML, using the jsPsych library
+
+Experiment is Hosted on GitHub Pages https://smithbradleyc.github.io/jsPsych_Online_Experiments/LiveCode/Example%20Experiment/SimpleExampleExperiment.html
+Experiment is explained on GitHub https://github.com/SmithBradleyC/jsPsych_Online_Experiments/tree/master/LiveCode
+
+-->
+
+<html>
+
+<body>
+
+<!-- ################################## -->
+<!--       Set up FireBase Stuff        -->
+<!-- ################################## -->
+
+<!-- Allow remote storage on Google Firebase -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script> <!-- #FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script> <!-- #FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script> <!-- #FIREBASE -->
+
+<!-- enter some javascript code-->
+<script type="text/javascript">
+  // Firebase set up
+  
+   // Your web app's Firebase configuration (given to us by firebase)
+   // secret key: BFMIDmzqAJYyGHxqMq3z8td0l4ZxHs495q4WJNWy
+    var firebaseConfig = { // #FIREBASE
+    apiKey: "AIzaSyCMGKu7LtrTEB9jY17t9cJCJjmfhkYWaYc", // #FIREBASE
+    authDomain: "livecodeexampleexperiment.firebaseapp.com", // #FIREBASE
+    databaseURL: "https://livecodeexampleexperiment.firebaseio.com", // #FIREBASE
+    projectId: "livecodeexampleexperiment", // #FIREBASE
+    storageBucket: "livecodeexampleexperiment.appspot.com", // #FIREBASE
+    messagingSenderId: "725350080021", // #FIREBASE
+    appId: "1:725350080021:web:c9f9f1cea86bf2c85f781c" // #FIREBASE
+    }; // #FIREBASE 
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig); // #FIREBASE
+    
+    // Get a reference to the database service
+    var database = firebase.database(); // #FIREBASE
+    
+    // login anonymous user
+    firebase.auth().signInAnonymously().catch(function(error) { // #FIREBASE
+    // Handle Errors here.
+    var errorCode = error.code; // #FIREBASE
+    var errorMessage = error.message; // #FIREBASE
+    // ...
+  }); // #FIREBASE
+    
+    // check if user can sign on to firebase 
+    firebase.auth().onAuthStateChanged(function(user) { // #FIREBASE
+    if (user) { // #FIREBASE
+      // User is signed in.
+      var isAnonymous = user.isAnonymous; // #FIREBASE
+      var uid = user.uid; // #FIREBASE
+      // ...
+    } else {
+      // User is signed out.
+      // ...
+    }
+    // ...
+});
+
+// function to extract data from URL variables
+function getUrlVars() { // #SONA
+    var vars = {}; // #SONA
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) { // #SONA
+        vars[key] = value; // #SONA
+    }); // #SONA
+    return vars; // #SONA
+  } // #SONA
+
+// function to go find data in the URL
+// should be provided a defualt (e.g., "") so that there will be no errors thrown
+  function getUrlParam(parameter, defaultvalue){ // #SONA
+    var urlparameter = defaultvalue; // #SONA
+    if(window.location.href.indexOf(parameter) > -1){ // #SONA
+        urlparameter = getUrlVars()[parameter]; // #SONA
+        } // #SONA
+    return urlparameter; // #SONA
+  }
+
+// actually get the SONA_ID to pass to the redirect to SONA
+  var SONA_ID = getUrlParam('id','Empty'); // #SONA
+
+
+</script>
+
+
+  <!-- Set up the "canvas" for hosting the experiment-->
+   <canvas style="border: 0px none;" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script type="text/javascript">
+
+      var Module = { canvas: document.getElementById('canvas')  };
+
+    </script>
+
+
+  <!-- script that actually runs the experiment created by LiveCode --> 
+   <script async type="text/javascript" src="standalone-community-9.0.0.js"></script>
+
+
+ </body>
+
+</html>
