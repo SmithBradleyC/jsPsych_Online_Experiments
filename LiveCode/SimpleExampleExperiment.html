@@ -16,14 +16,15 @@
   // Firebase set up
   
    // Your web app's Firebase configuration (given to us by firebase)
+   // secret code: BFMIDmzqAJYyGHxqMq3z8td0l4ZxHs495q4WJNWy
     var firebaseConfig = { // #FIREBASE
-      apiKey: "AIzaSyAzGClrvmRPuLr-FHAOtdY5vkMON-t9geQ", // #FIREBASE
-      authDomain: "contingencypractice.firebaseapp.com", // #FIREBASE
-      databaseURL: "https://contingencypractice.firebaseio.com", // #FIREBASE
-      projectId: "contingencypractice", // #FIREBASE
-      storageBucket: "contingencypractice.appspot.com", // #FIREBASE
-      messagingSenderId: "999696162491", // #FIREBASE
-      appId: "1:999696162491:web:5d5cbdcc07f4d48712d39e", // #FIREBASE
+    apiKey: "AIzaSyCMGKu7LtrTEB9jY17t9cJCJjmfhkYWaYc", // #FIREBASE
+    authDomain: "livecodeexampleexperiment.firebaseapp.com", // #FIREBASE
+    databaseURL: "https://livecodeexampleexperiment.firebaseio.com", // #FIREBASE
+    projectId: "livecodeexampleexperiment", // #FIREBASE
+    storageBucket: "livecodeexampleexperiment.appspot.com", // #FIREBASE
+    messagingSenderId: "725350080021", // #FIREBASE
+    appId: "1:725350080021:web:c9f9f1cea86bf2c85f781c" // #FIREBASE
     }; // #FIREBASE 
     
     // Initialize Firebase
@@ -53,6 +54,29 @@
     }
     // ...
 });
+
+// function to extract data from URL variables
+function getUrlVars() { // #SONA
+    var vars = {}; // #SONA
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) { // #SONA
+        vars[key] = value; // #SONA
+    }); // #SONA
+    return vars; // #SONA
+  } // #SONA
+
+// function to go find data in the URL
+// should be provided a defualt (e.g., "") so that there will be no errors thrown
+  function getUrlParam(parameter, defaultvalue){ // #SONA
+    var urlparameter = defaultvalue; // #SONA
+    if(window.location.href.indexOf(parameter) > -1){ // #SONA
+        urlparameter = getUrlVars()[parameter]; // #SONA
+        } // #SONA
+    return urlparameter; // #SONA
+  }
+
+  var SONA_ID = getUrlParam('id','Empty'); // #SONA
+
+
 </script>
 
 
