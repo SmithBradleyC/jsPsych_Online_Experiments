@@ -12,6 +12,15 @@ In addition, an official LiveCode tutorial on how to get your "App" online is fo
 - Saving data to #FIREBASE from LiveCode can be a bit fiddly
 - Automatic scaling/adapting to screen size isn't intuitive with LiveCode to HTML port
 
+## Broad Overview 
+
+Here's a broad overview of how to run a LiveCode Experiment using GitHub Pages to host it, FireBase to save the data, and SONA to get participants:
+- Program a LiveCode Experiment with code to export the data to #FIREBASE and a redirect to credit your #SONA participants
+- Export the program as a standalone HTML5 program
+- Add a new "index style" file like my SimpleExampleExperiment.html file that includes the necessary code for #FIREBASE and #SONA
+- Host this experiment on GitHub Pages
+- Point your #SONA participants to the correct URL
+
 ## Overall Summary
 
 The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
@@ -85,5 +94,34 @@ So to make changes to the experiment:
     - Notice the function to make the data into a JSON format, this is because my method of uploading to #FIREBASE doesn't accept just any method of formatting data and it seems that JSON is the most readily accepted
     - Notice the function to make a participant ID, this function has been slightly problematic because non-normal characters are being seleted somehow. I'm not going to solve this problem for this Example Experiment so I reccomend you find a solution for your own experiments
   - Navigate to the final Card's Script:
-    - Notice the line: `javascript do "firebase.database().ref('"&ParID&"').set({"&makeJSON(par_data, ParID)&"});" as "JavaScript"`
-The [Example Experiment](Example%20Experiment) folder is created by LiveCode when you export the program 
+    - Notice the line: `do "firebase.database().ref('"&ParID&"').set({"&makeJSON(par_data, ParID)&"});" as "JavaScript"`
+    - the `do` function takes a string arguement and then trys to run it as code
+    - the `as "JavaScript"` arguement means that it will try to run the code in JavaScript
+    - This function will not through errors within LiveCode so you may not realize there is a problem until you have exported to HTML and are hosting it on a server
+    - This function saves the data to the FireBase realtime database specified in the SimpleExampleExperiment.html file
+  - Navigate to the button "SONA_btn" script (button is on the last card):
+    - Notice the line: `do "window.location.href = 'https://umanitobapsych.sona-systems.com/webstudy_credit.aspx?experiment_id=XXXX&credit_token=11x11x111x1x1x1xx1x11111111xx11x&survey_code='+SONA_ID;" as "JavaScript"`
+    - Similar to above, this uses the `do` function `as "JavaScript"` and calls information declared in the SimpleExampleExperiemnt.html file
+    - You will need to edit the URL reference to the one provided by your SONA experiment as described in [Automatically granting SONA credits](#crediting-sona-participants)
+
+#### Saving Edits to GitHub
+
+See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#saving-edits-to-github)
+
+#### Hosting the Experiment
+
+See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#hosting-the-experiment)
+
+#### Collecting the Data Remotely
+
+See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#collecting-the-data-remotely) except change the information in the SimpleExampleExperiment.html files instead of the index.html file
+
+#### Crediting SONA Participants
+
+See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#collecting-the-data-remotely) except you'll need to point to a URL that looks something like this: https://<i></i>YourGitHubUsername.github.io/jsPsych_Online_Experiments/LiveCode/Example%20Experiment/SimpleExampleExperiment.html/?id=%SURVEY_CODE%
+
+Also notice that the tagged SONA code is found in the SimpleExampleExperiment.html file but you won't need to change any of it. What you will need to change is the code within the LiveCode Program (as described in [Editing and Testing the Experiment](#editing-and-testing-the-experiment))
+
+#### Saving and unpacking FireBase data
+
+See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#saving-and-unpacking-firebase-data) except open the LiveCode/R/analysis/pull_firedata.R file instead of just the R/analysis/pull_firedata.R file
