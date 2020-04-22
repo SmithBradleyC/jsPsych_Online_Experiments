@@ -66,6 +66,7 @@ Here are several examples of experiments hosted on GitHub. These experiment's ar
   - [Stroop Demo with FireBase Demo](https://crumplab.github.io/jspsychrexamples/FirebaseDemo/experiment/index.html) **#MJC** #FIREBASE
 - Jackie's Distinctiveness Experiment
 - [The Experiment Factory](https://expfactory.github.io/experiments/) (They have their own system that looks like it would work well if you dived into it)
+- [LiveCode Example Experiment](https://smithbradleyc.github.io/jsPsych_Online_Experiments/LiveCode/Example%20Experiment/SimpleExampleExperiment.html) (See the [Livecode Folder](LiveCode) for an explanation of this experiment) **#BCS** #FIREBASE
 - MORE EXAMPLES **#HELP HERE**
 
 ## Step-by-Step Guide
