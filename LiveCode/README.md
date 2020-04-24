@@ -4,15 +4,9 @@ This will be a shorter and much less thourough explanation of one method of cond
 
 In addition, an official LiveCode tutorial on how to get your "App" online is found here: http://lessons.livecode.com/m/4071/l/800867-how-do-i-put-my-first-app-on-the-web and it is very useful for understanding how the LiveCode to HTML5 port works. However, it will not cover how to save data to #FIREBASE or how to host it on a free server like GitHub Pages
 
-## General Concerns
-
-- Testing your HTML5 development locally is difficult, if not impossible with how they program is exported (~5 minute wait everytime you upload to GitHub to host it)
-- Not exactly a smooth transition from programming to running
-- Most of the HTML code is hidden away/difficult to read so you are trusting the LiveCode port
-- Saving data to #FIREBASE from LiveCode can be a bit fiddly
-- Automatic scaling/adapting to screen size isn't intuitive with LiveCode to HTML port
-
 ## Broad Overview 
+
+At this point, it may be advantageous to skip down to [General Concerns](#general-concerns) to check if any of them are concerning enough to stop you from continuing on in this process.
 
 Here's a broad overview of how to run a LiveCode Experiment using GitHub Pages to host it, FireBase to save the data, and SONA to get participants:
 - Program a LiveCode Experiment with code to export the data to #FIREBASE and a redirect to credit your #SONA participants
@@ -60,7 +54,7 @@ See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsy
 
 ## Copying This Example Experiment:
 
-The easiest way copy this experiment is to fork the entire repository into your own GitHub account, and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Running This Example Experiment](#running-this-example-experiment), otherwise go check out the [instructions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#download-rstudio#copying-this-example-experiment)
+The easiest way copy this experiment is to fork the entire repository into your own GitHub account, and then clone it (so that it is saved locally on your machine). If you understand these instructions then you can skip to the section [Running This Example Experiment](#running-this-example-experiment), otherwise go check out the [instructions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#download-rstudio#copying-this-example-experiment). For running the LiveCode experiment you will only need the files in the *LiveCode* folder but it may help to organize the project if you keep all the files.
 
 ### Running This Example Experiment
 
@@ -125,3 +119,12 @@ Also notice that the tagged SONA code is found in the SimpleExampleExperiment.ht
 #### Saving and unpacking FireBase data
 
 See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsych_Online_Experiments#saving-and-unpacking-firebase-data) except open the LiveCode/R/analysis/pull_firedata.R file instead of just the R/analysis/pull_firedata.R file
+
+## General Concerns
+
+- Testing your HTML5 development locally is difficult, if not impossible with how they program is exported (~5 minute wait everytime you upload to GitHub to host it)
+- Not exactly a smooth transition from programming to running
+- Most of the HTML code is hidden away/difficult to read so you are trusting the LiveCode port
+- Saving data to #FIREBASE from LiveCode can be a bit fiddly
+- Automatic scaling/adapting to screen size isn't intuitive with LiveCode to HTML port
+
