@@ -1,0 +1,442 @@
+<!--
+
+Code important to SONA is tagged with #SONA
+Code important to hosting the experiment on the uManitoba server is tagged with #UMANITOBA_SERVER
+Code that needs to be commented out in order to test locally is tagged with #TESTING
+Written in Javascript and HTML, using the jsPsych library
+
+Experiment is Hosted on the uManitoba Server http://home.cc.umanitoba.ca/~smithb21/jsPsych_example_experiment
+Experiment is explained on GitHub https://github.com/SmithBradleyC/jsPsych_Online_Experiments/tree/master/uManitoba_Server
+
+-->
+
+<!-- ################################## -->
+<!-- some preamble to set everything up.-->
+<!-- ################################## -->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<!-- Set up character set. This is default so this line isn't needed but good practice -->
+<meta charset="utf-8" />
+
+<!-- Possibly important for older browsers -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<!-- adapts how the window displays to fit the screen size -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- set meta data with author. Also set title of the file-->
+<meta name="author" content="Bradley Smith" />
+<title>Contingency Practice</title>
+
+<!-- set up css rules. This allows us to set defualt display rules so we don't have to specify them everytime and can change everything at once. Not all of these objects are used in this experiment but I'm leaving them for examples -->
+<style type="text/css">
+
+.jspsych-display-element {display: flex;flex-direction: column;overflow-y: auto;}
+.jspsych-display-element:focus {outline: none;}
+.jspsych-content-wrapper {display: flex;margin: auto;flex: 1 1 100%;width: 100%;}
+.jspsych-content {max-width: 95%; text-align: center;margin: auto; }
+.jspsych-top {align-items: flex-start;}
+.jspsych-middle {align-items: center;}
+.jspsych-display-element {font-family: 'verdana', 'Arial', sans-serif;font-size: 20px;line-height: 1.6em;}
+.jspsych-display-element input[type="text"] {font-family: 'verdana', 'Arial', sans-serif;font-size: 34px;}
+.jspsych-btn {display: inline-block;padding: 6px 12px;margin: 0px;font-size: 20px;font-weight: 400;font-family: 'verdana', 'Arial', sans-serif;cursor: pointer;line-height: 1.4;text-align: center;white-space: nowrap;vertical-align: middle;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #333;background-color: #fff;border-color: #ccc;}
+.jspsych-btn:hover {background-color: #ddd;border-color: #aaa;}
+.jspsych-btn:disabled {background-color: #eee;color: #aaa;border-color: #ccc;cursor: not-allowed;}
+#jspsych-progressbar-container {color: #555;border-bottom: 1px solid #dedede;background-color: #f9f9f9;margin-bottom: 1em;text-align: center;padding: 8px 0px;width: 100%;line-height: 1em;}
+#jspsych-progressbar-container span {font-size: 34px;padding-right: 14px;}
+#jspsych-progressbar-outer {background-color: #eee;width: 50%;margin: auto;height: 14px;display: inline-block;vertical-align: middle;box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);}
+#jspsych-progressbar-inner {background-color: #aaa;width: 0%;height: 100%;}
+#jspsych-data-display {text-align: left;}
+</style>
+
+</head>
+
+<!-- Set the background for the entire experiment -->
+<body style = "background-color:white">
+  
+<!-- set title and author, these appear briefly while file loads and remain if there is an error -->
+<h1 class="title toc-ignore">Example Online Experiment</h1>
+<h4 class="author">BCS</h4>
+
+<!-- ################################## -->
+<!--  load the jsPsych plugins needed.  -->
+<!-- ################################## -->
+
+<!-- base library. Needed for everything -->
+<script src="jspsych-6-2/jspsych.js"></script> 
+
+<!-- additional libraries needed for their specific trial type. Look in jspsych-6-2/plugins for more-->
+<script src="jspsych-6-2/plugins/jspsych-html-keyboard-response.js"></script> 
+<script src="jspsych-6-2/plugins/jspsych-external-html.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-text.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-survey-html-form.js"></script>
+<script src="jspsych-6-2/plugins/jspsych-fullscreen.js"></script>
+
+<!-- load the stimuli needed, add your own files if you make new ones -->
+<script src='stimuli/exp_text.js'></script>
+<script src='stimuli/practice_stimuli.js'></script>
+
+
+<!-- enter javascript code -->
+<script type="text/javascript">
+/* Note this is a js (javascript) code chunk */
+
+// #######################################
+//  set up function to save data locally
+// #######################################
+
+function saveData(name, data){ // #UMANITOBA_SERVER
+  var xhr = new XMLHttpRequest(); // #UMANITOBA_SERVER
+  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file // #UMANITOBA_SERVER
+  xhr.setRequestHeader('Content-Type', 'application/json'); // #UMANITOBA_SERVER
+  xhr.send(JSON.stringify({filename: name, filedata: data})); // #UMANITOBA_SERVER
+} // #UMANITOBA_SERVER
+
+
+// #######################################
+//  set up custom functions for experiment
+// #######################################
+
+// function to check if in fullscreen mode
+  function is_fullscreen(){
+  // check if in fullscreen mode
+  if(window.innerWidth == screen.width && window.innerHeight == screen.height){
+    return true;
+  }else{return false}
+  }
+
+// function to extract data from URL variables
+  function getUrlVars() { // #SONA
+    var vars = {}; // #SONA
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) { // #SONA
+        vars[key] = value; // #SONA
+    }); // #SONA
+    return vars; // #SONA
+  } // #SONA
+
+// function to go find data in the URL
+// should be provided a defualt (e.g., "") so that there will be no errors thrown
+  function getUrlParam(parameter, defaultvalue){ // #SONA
+    var urlparameter = defaultvalue; // #SONA
+    if(window.location.href.indexOf(parameter) > -1){ // #SONA
+        urlparameter = getUrlVars()[parameter]; // #SONA
+        } // #SONA
+    return urlparameter; // #SONA
+  }
+
+// #######################################
+//  set up experiment parameters
+// #######################################
+
+// Create unique identifier for subject (random string of letters/numbers X digits long)
+var subject_id = jsPsych.randomization.randomID(15);
+
+// to check for consent
+var consent_check = false;
+
+// get the id number for the SONA participant so that we can grant credits automatically
+var SONA_ID = getUrlParam('id','Empty'); // #SONA
+
+// Get the time that the experiment began (ms since 1 January 1970)
+var start_time = new Date().getTime();
+
+// record this data to all trials
+jsPsych.data.addProperties({
+  subject: subject_id,
+  StartTime: start_time,
+});
+
+// set up consent procedure
+var consent = {
+  type: "external-html", // specify jsPsych plugin
+  url: "forms/consent.html", // point to consent form
+  cont_btn: "consent-btns", // allow button group (specified in consent.html) to end the trial
+  data: {"phase": "Consent"}, // record the phase
+};
+
+// set up the debreifing if they decline to participate
+var no_consent = {
+  timeline: [ // timeline is important for conditional functions
+    {
+      type: "external-html", // specify jsPsych plugin
+      url: "forms/no_consent_deb.html", // point to debreif form
+      data: {"phase": "No_consent"}, // record the phase
+    },
+    ],
+  conditional_function: function(data){ // conditional trial
+    if(consent_check == false){ // if consent_check is still false (default is false but becomes true if they consent to participate) then do this trial (debrief with URL redirect to SONA)
+      return true
+    }else{ //Otherwise don't do this trial
+      return false
+    }
+  }
+};
+
+// set up welcome screen 
+var welcome = {
+  type: "html-keyboard-response", // specify jsPsych plugin
+  stimulus: welcome_text, // from exp_text.js
+  data: {"phase": "Welcome", // record the phase
+  },
+};
+
+// set up full_screen mode
+var enter_full_screen = {
+  type: 'fullscreen', // specify jsPsych plugin
+  fullscreen_mode: true, // enter fullscreen
+  message: fullscreen_prompt, // from exp_text.js
+  
+  // disable button for 5 seconds to force reading
+  on_load: function(data){
+    var test = document.querySelectorAll('button')[0]; // find the button
+    test.disabled = true; // disable the button
+    setTimeout(() => {test.disabled = false;},5000); // enable the button after waiting 5 seconds
+  }
+};
+
+// set up instructions screen (including attention check)
+var instructions = {
+  timeline: [
+    // first trial is displaying the experiment instructions
+    {
+      type: "html-keyboard-response", // specify jsPsych plugin
+      stimulus: instruction_text, // from exp_text.js
+      data: {"phase": "Instructions"}, // record the phase
+    },
+    // second trial is displaying the attention check
+    {
+      type: "survey-text", // specify jsPsych plugin
+      questions: [
+        {
+          prompt: attention_check_text,  // from exp_text.js
+          columns: 20, // how wide is the response box
+          rows: 1, // how tall is the response box
+          required: true, // is a response required
+          name: "Attention_check" // give it a name
+        },
+      ],
+      data: {"phase": "Attention_Check"}, // record the phase
+    },
+  ],
+  // wait 1 second after completion
+  post_trial_gap: 1000, // milliseconds
+  // record if in fullscreen
+  on_finish: function(data){
+    data.fullscreen = is_fullscreen(); // check if in fullscreen
+  },
+  // if the participant recorded anything except "clean" then repeat
+  loop_function: function(data){
+    responses_data = JSON.parse(data.values()[1].responses); // get last response
+    if(responses_data.Attention_check == "clean"){ // if they gave the right response then continue, otherwise repeat
+      return false
+    }else{
+      return true
+    }
+  },
+};
+
+// set up a longer fixation point for the beginning of the experiment
+var long_fixation = {
+  type: 'html-keyboard-response', // call for a keyboard response trial
+  choices: [], // give no choices for response
+  prompt: keypress_prompt,
+  trial_duration: 2750, // fixation cross lasts for 2750ms
+  stimulus: fixation_stim, // stimulus is defined by exp_text.js
+  data: {"phase": "Fixation"}, // record the phase
+}
+
+// set up "practice trials" (the main part of this example experiment)
+var practice_trials = {
+  //var correct = false;
+  // declare the timeline
+  timeline: [
+    {
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      choices: [], // give no choices for response
+      prompt: keypress_prompt,
+      trial_duration: 250, // fixation cross lasts for 250ms
+      stimulus: fixation_stim, // stimulus is defined by exp_text.js
+      data: {"phase": "Fixation"}, // record the phase
+    },
+    {
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      
+      choices: keypress_choices, // define the choices and prompt (from exp_text.js)
+      prompt: keypress_prompt, // always show this prompt
+      trial_duration: 2000, // force the trial to end after 2 seconds
+      response_ends_trial: true, // force the trial to end after a response
+      stimulus: jsPsych.timelineVariable('stimulus'), // looks for "stimulus" tags in our timeline_variable
+      data: jsPsych.timelineVariable('data'), // looks for "data" tags in our timeline_variable
+      on_finish: function(data){
+        var correct = false;
+        // if they the correct response is j and they pressed j and the trial had officially started then they are correct
+        if (data.cor_response == 'j' && data.key_press == 74 && data.rt > -1){ 
+          correct = true;
+        } else if(data.cor_response == 'k' && data.key_press == 75 && data.rt > -1){
+          correct = true;
+        } else if(data.cor_response == 'l' && data.key_press == 76 && data.rt > -1){
+          correct = true;
+        }
+       data.correct = correct // record in the dataframe whether they were correct or not
+      },
+      post_trial_gap: 0, // add a gap between trials if you want
+    },
+//    feedback_trial,
+    {
+      type: 'html-keyboard-response', // call for a keyboard response trial
+      choices: [], // give no choices for response
+      trial_duration: function(){ // make this a dynamic parameter
+        var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; // check if the last response was correct
+        if(last_trial_correct){ // if it was correct then make this trial last for 0ms
+          return 0;
+        }else{ // otherwise make the trial last for 1000ms
+          return 1000;
+        }
+      },
+      stimulus: function(){ // make this a dynamic parameter
+        var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct; // check if last response was correct
+        if(last_trial_correct){ // if it was correct then give correct feedback (white text on white background for 0ms)
+          return feedback_stim_correct;
+        }else{// if it was incorrect then give wrong feedback ("XXX" for 1000ms)
+          return feedback_stim_wrong;
+        }
+      }, // stimulus is defined by exp_text.js
+      prompt: keypress_prompt, // always show this prompt
+      data: {"phase": "Feedback"}, // record the phase
+    },
+  ],
+  timeline_variables: practice_stimuli, // call the stimuli from practice_stimuli.js
+  randomize_order: true, // present trials in a random order
+  repetitions: 1, // can add multiple repititions
+};
+
+// set up participant age question
+var par_age_quest = {
+  timeline: [
+    {
+      type: "survey-text", // specify jsPsych plugin
+      questions: [
+        {
+          prompt: age_text, // from exp_text.js
+          required: false, // no response is required
+          name: "Par_Age", // give it a name
+          rows: 1, // response box height
+          columns: 4, // response box width
+        },
+      ],    
+    },
+  ],
+  // repeat if not an integer (will accept "20 years" so prolematic)
+  loop_function: function(data){
+    responses_data = JSON.parse(data.values()[0].responses); // get response
+    is_int = Number.isInteger(parseInt(responses_data.Par_Age)); // check if it is an integer
+    data.is_integer = is_int;
+    if(!is_int){ // if it's not an integer then give a warning
+      alert(provide_number_txt); // from exp_text.js
+    }
+    return !is_int // will repeat if not an integer
+  },
+};
+
+// set up gender question
+var gender_quest = {
+  type: 'survey-html-form', // specify jsPsych plugin
+  preamble: gender_prompt, // from exp_text.js
+  // set up a required radio multiple choice question
+  html: "<input type='radio' id='Male' name='Gender_Q' value='Male', required><label for='Male'>Male</label> <input type='radio' id='Female' name='Gender_Q' value='Female', required><label for='Female'>Female</label> <input type='radio' id='Other_gender' name='Gender_Q' value='Other_gender', required><label for='Other'>Other</label> <input type='text', name='other_gender_fill_in'>",
+  
+};
+
+// set up country of origin question
+var country_quest = {
+  type: 'survey-html-form',// specify jsPsych plugin
+  preamble: country_prompt, // from exp_text.js
+  // set up a required radio multiple choice question
+  html: "<label><input type='radio' id='Canada' name='Country_Q' value='Canada', required>Canada</label> <label><input type='radio' id='USA' name='Country_Q' value='USA', required>USA</label> <label><input type='radio' id='Other_country' name='Country_Q' value='Other_country', required>Other</label> <input type='text', name='other_country_fill_in'>",
+};
+
+// set up ID so that people can identify thier data if they want to
+// ################################################################
+// THIS SHOULD NEVER BE USED IN A REAL EXPERIMENT!
+// ################################################################
+var ID_quest = {
+  type: "survey-text", // specify jsPsych plugin
+  questions: [
+    {
+      prompt: ID_text, // from exp_text.js
+      required: false, // not required
+      name: "Par_ID", // give it a name
+      rows: 1, // how tall is the text box
+      columns: 10, // how wide is the text box
+    },
+  ],
+};
+
+// set up demographic survey 
+var survey = {
+  data: {"phase": "Survey"}, // record same phase for all these trials
+  timeline: [
+    par_age_quest, // ask age question
+    gender_quest, // ask gender question
+    country_quest, // ask country of origin question
+    ID_quest, // ask ID question NEVER USE IN A REAL EXPERIMENT
+  ],
+  on_finish: function(data){
+    data.fullscreen = is_fullscreen(); // check if fullscreen
+  }
+};
+
+// prepare an end to full_screen mode 
+var exit_full_screen = {
+  type: 'fullscreen', // get jsPsych plugin
+  fullscreen_mode: false, // leave fullscreen
+  
+  // save data when going through exit full screen routine
+  // will still save data at this point if they have alrady exited full screen
+  on_finish: function() {
+    saveData(subject_id, jsPsych.data.get().csv()); // #UMANITOBA_SERVER
+  }
+};
+
+// set up debrief block
+var debrief = {
+  type: "html-keyboard-response", // get jsPsych plugin
+  stimulus: debrief_text, // from exp_text.js
+};
+
+/*set up experiment structure*/
+var timeline = [];
+timeline.push(consent); // #TESTING
+timeline.push(no_consent); // #TESTING
+timeline.push(welcome);
+timeline.push(enter_full_screen);
+timeline.push(instructions);
+timeline.push(long_fixation);
+timeline.push(practice_trials);
+timeline.push(survey);
+timeline.push(exit_full_screen);
+timeline.push(debrief);
+
+/*start experiment*/
+jsPsych.init({
+    timeline: timeline,
+    on_finish: function() {
+      // redirect to sona on completion. Warning: give some final instruction to "press a key to end the experiment". It won't redirect unless they press a key. If they close the window before that then they won't be automatically granted credit.
+      window.location.href = "https://umanitobapsych.sona-systems.com/webstudy_credit.aspx?experiment_id=XXXX&credit_token=11x11x111x1x1x1xx1x11111111xx11x&survey_code="+SONA_ID; // #SONA
+      // display data at end:
+      //jsPsych.data.displayData(); //Uncomment this and comment out the SONA redirect if instead of redirecting people to SONA you want to display the data to the browser window 
+    }
+});
+</script>
+
+
+<!-- code folding -->
+
+</body>
+</html>
