@@ -220,6 +220,8 @@ The next section will walk you through opening the local repository, describing 
 >  - *stimuli*: the folder containing all of the experimental stimuli
 >    - *exp_text.js*: a javascript file that sets up all of the text that will be presented by the experiment. This file is called by the index.html file
 >    - *practice_stimuli.js*: a javascript file that defines the stimuli used in the example experiment. This file is created by create_stimuli.R and called by index.html
+>  - *uManitoba_Server*: the folder containing the files to run the [Example Experiment on the uManitoba Servers](http://home.cc.umanitoba.ca/~smithb21/jsPsych_example_experiment). This experiment saves data directly onto the uManitoba server and redirects people to #SONA. The method is explained [here](uManitoba_Server)
+
 
 - Open the index.html file by clicking on it and choosing "Open in Editor". This is the file that runs the experiment. It calls all the necessary packages and files
 - I hope that the index.html file (and all files) are commented well enough that people can follow what they do
