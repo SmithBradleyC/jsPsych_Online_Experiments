@@ -59,7 +59,7 @@ Follow the instructions found here: https://home.cc.umanitoba.ca/setup.html
 
 #### Hosting the Experiment
 
-Simply by transfering the contents of the *uManitoba_Server* to your Unix account's *public_html* file, this experiment will be hosted on the server. It can be found at a URL that looks something like this: http:<i></i>//home.cc.umanitoba.ca/~USER_ID (as long as you don't hide the index.html file inside of a folder)
+Simply by transferring the contents of the *uManitoba_Server* to your Unix account's *public_html* file, this experiment will be hosted on the server. It can be found at a URL that looks something like this: http:<i></i>//home.cc.umanitoba.ca/~USER_ID (as long as you don't hide the index.html file inside of a folder)
 
 **I'm going to make these instructions more granular in the future but this will have to work for now**
 
@@ -68,7 +68,7 @@ Simply by transfering the contents of the *uManitoba_Server* to your Unix accoun
 Fortunately, jsPsych has functions in order to save data onto a web server that has PHP installed (see their instructions [here](https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file)). Essentially it boils down to this:
 - Include the write_data.php file in the directory that you are hosting this experiment (index.html file) on
 - Include the functions tagged with #UMANITOBA_SERVER in the index.html file of this folder (uManitoba_Server)
-- Set the permissions for the directory you are hosting the experiment on so that users can read and execute all the code, and write to the appropraiate data folders. You can do this with Filezilla
+- Set the permissions for the directory you are hosting the experiment on so that users can read and execute all the code, and write to the appropriate data folders. You can do this with Filezilla
 
 **I'm going to make these instructions more granular in the future but this will have to work for now**
 
@@ -80,4 +80,4 @@ See [instuctions in the parent directory](https://github.com/SmithBradleyC/jsPsy
 
 - These instructions will be difficult for those not familiar with programming or hosting their own website
 - Dealing with file/folder permissions and server access can be a bit of a pain unless you are willing to allow to give read, write, and execute permissions to all files
-- Although this method is firmly an open science method, it's not as common as posting to a GitHub repository
+- Although this method is firmly an open science method, it's not as accessible as posting to a GitHub repository
