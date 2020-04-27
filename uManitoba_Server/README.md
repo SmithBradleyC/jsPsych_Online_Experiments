@@ -19,6 +19,7 @@ The [Step-by-Step Guide](#step-by-step-guide) will walk you through:
 - [Downloading important software](#download-important-software):
   - [Download R](#download-r)
   - [Download rStudio](#download-rstudio)
+  - [Download FileZilla](#download-filezilla)
 - [Copying this example experiment](#copying-this-example-experiment):
 - [Running this example experiment](#running-this-example-experiment):
   - [General editing and testing of the experiment](#editing-and-testing-the-experiment)
@@ -67,7 +68,7 @@ These instructions will be specific to the University of Manitoba. However, many
     - Username: your uManitoba username (e.g., smithzz)
     - Password: your uManitoba password
     - Port: 22
-    -Click on Quickconnect
+    - Click on Quickconnect
     - A warning message is ok, it is your computer warning you about connecting to a remote server. As long as you trust the university server (or whatever you connected to) then it is probably save to ignore this message
   - You are now connected to your account on the university server
   - Your server files are on the right hand side of the screen
