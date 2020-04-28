@@ -396,7 +396,20 @@ The inclusion of specific data attributes for your stimuli will make your life m
 
 #### Tips for Naming Conventions
 
-**#HELP HERE**
+Give meaningful names, but:
+
+- Be concise
+- However favour readability over brevity 
+- Avoid names that are too similar to one another; variable names should be easily distinguishable 
+- Be consistent with your naming conventions
+- Avoid using identifiers that conflict with keywords that are widely used in other programming languages 
+- To easily differentiate words in a variable name, capitalize the first letter of each word (instead of using underscores)
+
+In general, it is advised that function names be verbs if they change the state of a program, and nouns if they are used to return a particular value. 
+
+Another issue that is inherently tied to naming conventions and programming best practices is having well documented and commented code. A good example of this can be seen in the index.html file in this repository. Here, all of the code that has to do with Google's Firebase, is tagged #FIREBASE, all of the code that has to do with automatically granting credit for SONA participants is tagged #SONA, and so forth. This has been purposely done so that people learning how to construct experiments in the method explained here can easily distinguish what each code block is used for. Beyond that, having appropriately named variables and well documented code will not only help others read your code, but yourself as well, especially in the case that you have to read or reuse your code after a long period of time.
+
+In sum, having appropriately named variables improves the readability of your code, which should reduce the effort needed to read and understand the code. The goal should be to reduce ambiguity, while promoting clarity.
 
 ## More to do
 
