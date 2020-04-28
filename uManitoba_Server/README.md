@@ -1,13 +1,13 @@
 # Hosting on the uManitoba Server
 
-This will be a shorter and much more technically demanding method than the one presented in the [Parent Directory (jsPsych Online Experiments)](https://github.com/SmithBradleyC/jsPsych_Online_Experiments). I will be referencing and copying text from those instructions liberally so understanding them may make this process easier. Many of the steps will be drastically changed because this method will not require the use of Google's FireBase or GitHub. However, due to the technical complexity of hosting an experiment on "your own server" this explanation will not be as user friendly.
+This will be a shorter and much more technically demanding method than the one presented in the [Parent Directory (jsPsych Online Experiments)](https://github.com/SmithBradleyC/jsPsych_Online_Experiments). I will be referencing and copying text from those instructions liberally so understanding them may make this process easier. Many of the steps will be drastically changed because this method will not require the use of Google's FireBase or GitHub Pages. However, due to the technical complexity of hosting an experiment on "your own server" this explanation will not be as user friendly.
 
 The benefit of doing so is that you can fully control where and how the data is stored. This is required for ethics approval at some universities.
 
 ## Broad Overview 
 
-Here's a broad overview of how to run a jsPsych Experiment using the uManitoba servers to host it and save the data (You will need to be a uManitoba Student/Staff to do this but other universities have similar resources). It also explains how to link SONA to get and automatically credit participants:
-- Program a jsPsych Experiment (or other software) with code to export the data to a local folder
+Here's a broad overview of how to run a jsPsych Experiment using the uManitoba servers to host it and save the data (you will need to be a uManitoba student/staff member to do this but other universities have similar resources). It also explains how to link SONA to get and automatically credit participants:
+- Program a jsPsych experiment (or other software) with code to export the data to a local folder
 - Set up/find your account on the uManitoba Servers
 - Transfer your files to the uManitoba Servers
 - Change the permissions for the files on your uManitoba Server account files
@@ -60,7 +60,7 @@ Because this experiment is the same as the one in the parent directory, you'll f
 
 #### Finding your uManitoba Server Account
 
-These instructions will be specific to the University of Manitoba. However, many universities have a similar set up so the method should be fairly general. If you want to use the official uManitoba resources to set up/find your personal webpage (assuming you're a uManitoba Student/Staff) then follow the instructions found here: https://home.cc.umanitoba.ca/setup.html. Otherwise follow my instructions below:
+These instructions will be specific to the University of Manitoba. However, many universities have a similar set up so the method should be fairly general. If you want to use the official uManitoba resources to set up/find your personal webpage (assuming you're a uManitoba student/staff member) then follow the instructions found here: https://home.cc.umanitoba.ca/setup.html. Otherwise follow my instructions below:
 - If you haven't already, [Download FileZilla](#download-filezilla)
 - Open FileZilla:
   - Connect to the server:
@@ -79,7 +79,7 @@ These instructions will be specific to the University of Manitoba. However, many
     - In the bottom right panal, scroll down to confirm that the folder public_html doesn't exist (A *Public* folder may exsist already). If it does exist then skip creating the file and go to transfering your file
     - Right click in the bottom right panel and select "Create directory"
     - Change the text "New directory" to "public_html" and click "OK"
-    - You now have a public webpage but it will have nothing in it
+    - You now have a public webpage but it will have nothing on it
   - Now you need to transfer the experiment files from your computer to the server
     - In the top left panel, navigate to where you have saved the experiment files
     - Open the uManitoba_Server folder (you should see all the files in the bottom left panel)
@@ -92,30 +92,30 @@ These instructions will be specific to the University of Manitoba. However, many
       - Right click on the public_html folder and select "File Attributes..."
       - Confirm that the Owner has Read, Write, and Execute permissions
       - Also confirm that the Public has Read, Write, and Execute permissions
-      - This will make the Numeric value 7x7 (the x corresponds to Group permissions and don't matter right now) so you could just type in 707 and the check marks will be set correctly
-      - Check the box "Recurse into subdirectories"
+      - This will make the numeric value 7x7 (the x corresponds to Group permissions, which doesn't matter right now) therefore, if you desired, you could just type in 707 and the check marks will be set correctly
+      - Check the box that reads: "Recurse into subdirectories"
       - Confirm that "Apply to all files and directories" is selected
       - This will set the permissions for all files and folder in the public_html folder
       - These permissions are not secure against a tech savy individual looking to overwrite your programs/data
     - A harder way to set the permissions is:
       - Go into the the folder and set File permissions for each folder and file individually (not selecting) to "Recurse into subdirectories"
       - This way you can secure your data so others can't read it or change files/folder
-      - However, the experiment (or any program) is a chain of interconnected files. Some will need just read permission, some will need, execute, some write, others a combination. If one of them doesn't have the correct permissions then the experiment will fail to do what you're expecting but it won't raise an obvious error (e.g., without the correct write permissions your data won't save, but you won't know that until you check the data folder)
+      - However, the experiment (or any program) is a chain of interconnected files. Some files will only need read permissions, where some will only need execute permissions, some will need write permissions, and others will require a combination. If one of them doesn't have the correct permissions, then the experiment will fail to do what you're expecting, but it won't raise an obvious error (e.g., without the correct write permissions your data won't save, but you won't know that until you check the data folder)
       
 #### Hosting the Experiment
 
-Simply by transferring the contents of the *uManitoba_Server* to your Unix account's *public_html* file, this experiment will be hosted on the server. It can be found at a URL that looks something like this: http:<i></i>//home.cc.umanitoba.ca/~USER_ID (as long as you don't put the index.html file inside of a folder, then you'll need to add that folder into the URL, e.g., http:<i></i>//home.cc.umanitoba.ca/~USER_ID/my_experiment/index.html)
+Simply by transferring the contents of the *uManitoba_Server* to your Unix account's *public_html* file, this experiment will be hosted on the server. It can be found at a URL that looks something like this: http:<i></i>//home.cc.umanitoba.ca/~USER_ID (as long as you don't put the index.html file inside of a folder). If you do put your experiment into a folder, you'll need to add that folder into the URL (e.g., http:<i></i>//home.cc.umanitoba.ca/~USER_ID/my_experiment/index.html)
 
 #### Collecting the Data Remotely
 
 Fortunately, jsPsych has functions in order to save data onto a web server that has PHP installed (see their instructions [here](https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file)). Essentially it boils down to this:
-- Include the write_data.php file in the directory/folder that you are hosting this experiment (index.html file) on (see line 4 to select the folder you want data to be saved to)
+- Include the write_data.php file in the directory/folder that you are hosting this experiment (the index.html file) on (see line 4 to select the folder you want data to be saved to)
 - Include the functions tagged with #UMANITOBA_SERVER in the index.html file of this folder (uManitoba_Server)
 - Set the permissions for the directory appropriately
 
 Reading the data at this point is a bit trickier than a locally run experiment:
 - By default, this example experiment saves .csv data to the data folder, and in the individual_data folder
-- By default, FileZilla will filter the .csv files so they will not appear in the program unless you change the filters (I'll leave it to you to Google it)
+- By default, FileZilla will filter the .csv files so they will not appear in the program unless you change the filters (I'll leave it to you to Google how to do that)
 - If you do change the FileZilla filters then you should be able to transfer the data files to your local computer. Alternatively:
   - Open the R folder, the analysis folder, and the pull_serverdata.R file
   - Change the folderURL to the correct URL (where you're hosting it)
