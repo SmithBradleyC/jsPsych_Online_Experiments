@@ -2,6 +2,8 @@
 
 This will be a shorter and much less thourough explanation of one method of conducting online experiments than the one presented in the [Parent Directory (jsPsych Online Experiments)](https://github.com/SmithBradleyC/jsPsych_Online_Experiments). I will be referencing and copying text from those instructions liberally so understanding them may make this process easier. This will be a bit more technical for the time being as I'll assume understanding of hosting files on the uManitoba Server as described [here](https://github.com/SmithBradleyC/jsPsych_Online_Experiments/tree/master/uManitoba_Server). In fact that should be your first reference.
 
+The example experiment can be tested [here](http://home.cc.umanitoba.ca/~smithb21/PsychoPy_ExampleExperiment/?participant=12345).
+
 ## Broad Overview 
 
 At this point, it may be advantageous to skip down to [General Concerns](#general-concerns) to check if any of them are concerning enough to stop you from continuing on in this process.
@@ -64,7 +66,7 @@ Before I get into how to make edits to the example experiment, I'll start by des
 >  - *html*: This is the folder containing the html code exported by the PsychoPy builder and my adapted PsychoPy HTML library
 >     - *data*: a data folder that hold all the data collected from the html experiment (while hosted on a server)
 >     - *Example_Experiment-legacy-browsers.js*: This is javascript code that runs the experiment if the participant is using an old internet browser. Created when exporting the HTML code from the builder.
->     - *Example_Experiment.js*: This is javascript code that runs the experiment if the participant is using a current internet browser. Created when exporting the HTML code from the builder.
+>     - *Example_Experiment.js*: This is javascript code that runs the experiment if the participant is using a current internet browser. Created when exporting the HTML code from the builder and then one line of code added to load in file correctly.
 >     - *index.html*: this is the file that actually runs the experiment. It calls the appropriate files (like Example_Experiment.js). Created when exporting the HTML code from the builder.
 >     - *lib*: this folder contains the javascript library used to run experiments created by PsychoPy "locally". A few files have been adapted. I both point out changes and provide a "clean" copy
 >       - *bcs*: This folder contains a completely new javascript file. It contains a function that saves the data onto a server as described below
