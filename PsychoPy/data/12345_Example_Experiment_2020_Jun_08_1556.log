@@ -1,0 +1,308 @@
+4.8282 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'pyo', 'pygame'] (in that order).
+26.5661 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000026E64BF1748>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000026E649DE160>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+26.5662 	EXP 	window1: recordFrameIntervals = False
+26.8824 	EXP 	window1: recordFrameIntervals = True
+27.2504 	EXP 	window1: recordFrameIntervals = False
+29.4348 	EXP 	Created textWelcome = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textWelcome', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+29.4371 	EXP 	Created textBlank500 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textBlank500', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='', units='norm', win=Window(...), wrapWidth=1)
+29.4622 	EXP 	Created textStudyWord = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textStudyWord', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='default text', units='norm', win=Window(...), wrapWidth=1)
+29.4641 	EXP 	Created textBlank500 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textBlank500', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='', units='norm', win=Window(...), wrapWidth=1)
+29.4659 	EXP 	Created textBlank500 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textBlank500', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='', units='norm', win=Window(...), wrapWidth=1)
+29.5888 	EXP 	Created textWaitScreen = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textWaitScreen', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1)
+29.5919 	EXP 	Created textBlank500 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textBlank500', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='', units='norm', win=Window(...), wrapWidth=1)
+29.6071 	EXP 	Created textTestWord = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textTestWord', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='default text', units='norm', win=Window(...), wrapWidth=1)
+29.6098 	EXP 	Created textBlank500 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textBlank500', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='', units='norm', win=Window(...), wrapWidth=1)
+29.6342 	EXP 	Created textEnd = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='textEnd', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Press Space to end the experiment.', units='norm', win=Window(...), wrapWidth=1)
+29.7169 	EXP 	textWelcome: autoDraw = True
+33.4620 	DATA 	Mouse: Left button down, pos=(1166,672)
+33.5278 	DATA 	Mouse:  Left button up, pos=(1166,672)
+34.6637 	DATA 	Keypress: e
+34.6894 	EXP 	textWelcome: autoDraw = False
+34.6894 	EXP 	textBlank500: autoDraw = True
+35.8344 	EXP 	Imported Example_Experiment_words.xlsx as conditions, 12 conditions, 3 params
+35.8574 	EXP 	Created sequence: random, trialTypes=12, nReps=1, seed=None
+35.8583 	EXP 	New trial (rep=0, index=0): OrderedDict([('WordItem', 'PROFESSOR'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+35.8926 	EXP 	textBlank500: autoDraw = False
+35.8926 	EXP 	textBlank500: autoDraw = False
+35.8926 	EXP 	textStudyWord: text = 'PROFESSOR'
+35.8926 	EXP 	textStudyWord: autoDraw = True
+37.2261 	EXP 	textStudyWord: autoDraw = False
+37.2261 	EXP 	textBlank500: autoDraw = True
+37.6944 	EXP 	New trial (rep=0, index=1): OrderedDict([('WordItem', 'ENGINEER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+37.7259 	EXP 	textBlank500: autoDraw = False
+37.7259 	EXP 	textStudyWord: text = 'ENGINEER'
+37.7259 	EXP 	textStudyWord: autoDraw = True
+39.6949 	EXP 	textStudyWord: autoDraw = False
+39.6949 	EXP 	textBlank500: autoDraw = True
+40.1640 	EXP 	New trial (rep=0, index=2): OrderedDict([('WordItem', 'LAWYER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+40.1951 	EXP 	textBlank500: autoDraw = False
+40.1951 	EXP 	textStudyWord: text = 'LAWYER'
+40.1951 	EXP 	textStudyWord: autoDraw = True
+42.1978 	EXP 	textStudyWord: autoDraw = False
+42.1978 	EXP 	textBlank500: autoDraw = True
+42.6666 	EXP 	New trial (rep=0, index=3): OrderedDict([('WordItem', 'COURIER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+42.7154 	EXP 	textBlank500: autoDraw = False
+42.7154 	EXP 	textStudyWord: text = 'COURIER'
+42.7154 	EXP 	textStudyWord: autoDraw = True
+44.6996 	EXP 	textStudyWord: autoDraw = False
+44.6996 	EXP 	textBlank500: autoDraw = True
+45.1684 	EXP 	New trial (rep=0, index=4): OrderedDict([('WordItem', 'PLUMBER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+45.2014 	EXP 	textBlank500: autoDraw = False
+45.2014 	EXP 	textStudyWord: text = 'PLUMBER'
+45.2014 	EXP 	textStudyWord: autoDraw = True
+47.2024 	EXP 	textStudyWord: autoDraw = False
+47.2024 	EXP 	textBlank500: autoDraw = True
+47.6712 	EXP 	New trial (rep=0, index=5): OrderedDict([('WordItem', 'NURSE'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+47.7028 	EXP 	textBlank500: autoDraw = False
+47.7028 	EXP 	textStudyWord: text = 'NURSE'
+47.7028 	EXP 	textStudyWord: autoDraw = True
+49.7138 	EXP 	textStudyWord: autoDraw = False
+49.7138 	EXP 	textBlank500: autoDraw = True
+50.1731 	EXP 	New trial (rep=0, index=6): OrderedDict([('WordItem', 'CARPENTER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+50.2052 	EXP 	textBlank500: autoDraw = False
+50.2052 	EXP 	textStudyWord: text = 'CARPENTER'
+50.2052 	EXP 	textStudyWord: autoDraw = True
+52.2074 	EXP 	textStudyWord: autoDraw = False
+52.2074 	EXP 	textBlank500: autoDraw = True
+52.6757 	EXP 	New trial (rep=0, index=7): OrderedDict([('WordItem', 'TEACHER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+52.7075 	EXP 	textBlank500: autoDraw = False
+52.7075 	EXP 	textStudyWord: text = 'TEACHER'
+52.7075 	EXP 	textStudyWord: autoDraw = True
+54.7104 	EXP 	textStudyWord: autoDraw = False
+54.7104 	EXP 	textBlank500: autoDraw = True
+55.1779 	EXP 	New trial (rep=0, index=8): OrderedDict([('WordItem', 'JANITOR'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+55.2104 	EXP 	textBlank500: autoDraw = False
+55.2104 	EXP 	textStudyWord: text = 'JANITOR'
+55.2104 	EXP 	textStudyWord: autoDraw = True
+57.2120 	EXP 	textStudyWord: autoDraw = False
+57.2120 	EXP 	textBlank500: autoDraw = True
+57.6812 	EXP 	New trial (rep=0, index=9): OrderedDict([('WordItem', 'REVEREND'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+57.7138 	EXP 	textBlank500: autoDraw = False
+57.7138 	EXP 	textStudyWord: text = 'REVEREND'
+57.7138 	EXP 	textStudyWord: autoDraw = True
+59.7155 	EXP 	textStudyWord: autoDraw = False
+59.7155 	EXP 	textBlank500: autoDraw = True
+60.1830 	EXP 	New trial (rep=0, index=10): OrderedDict([('WordItem', 'COBRA'), ('OldNew', 'Old'), ('ItemType', 'CW')])
+60.2156 	EXP 	textBlank500: autoDraw = False
+60.2156 	EXP 	textStudyWord: text = 'COBRA'
+60.2156 	EXP 	textStudyWord: autoDraw = True
+62.2175 	EXP 	textStudyWord: autoDraw = False
+62.2175 	EXP 	textBlank500: autoDraw = True
+62.6856 	EXP 	New trial (rep=0, index=11): OrderedDict([('WordItem', 'SALESMAN'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+62.7182 	EXP 	textBlank500: autoDraw = False
+62.7182 	EXP 	textStudyWord: text = 'SALESMAN'
+62.7182 	EXP 	textStudyWord: autoDraw = True
+64.7201 	EXP 	textStudyWord: autoDraw = False
+64.7201 	EXP 	textBlank500: autoDraw = True
+65.2207 	EXP 	textBlank500: autoDraw = False
+65.2207 	EXP 	textBlank500: autoDraw = True
+65.7210 	EXP 	textBlank500: autoDraw = False
+65.7210 	EXP 	textWaitScreen: autoDraw = True
+67.4641 	DATA 	Keypress: i
+67.4897 	EXP 	textWaitScreen: autoDraw = False
+67.4897 	EXP 	textBlank500: autoDraw = True
+67.9863 	EXP 	Imported Example_Experiment_words.xlsx as conditions, 24 conditions, 3 params
+67.9877 	EXP 	Created sequence: random, trialTypes=24, nReps=1, seed=None
+67.9886 	EXP 	New trial (rep=0, index=0): OrderedDict([('WordItem', 'REVEREND'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+68.0054 	EXP 	textBlank500: autoDraw = False
+68.0054 	EXP 	textBlank500: autoDraw = False
+68.0054 	EXP 	textTestWord: text = 'REVEREND'
+68.0054 	EXP 	textTestWord: autoDraw = True
+69.6032 	DATA 	Keypress: y
+69.6253 	EXP 	textTestWord: autoDraw = False
+69.6253 	EXP 	textBlank500: autoDraw = True
+70.0948 	EXP 	New trial (rep=0, index=1): OrderedDict([('WordItem', 'JANITOR'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+70.1249 	EXP 	textBlank500: autoDraw = False
+70.1249 	EXP 	textBlank500: autoDraw = False
+70.1249 	EXP 	textTestWord: text = 'JANITOR'
+70.1249 	EXP 	textTestWord: autoDraw = True
+70.3671 	DATA 	Keypress: n
+70.3920 	EXP 	textTestWord: autoDraw = False
+70.3920 	EXP 	textBlank500: autoDraw = True
+70.8617 	EXP 	New trial (rep=0, index=2): OrderedDict([('WordItem', 'PYTHON'), ('OldNew', 'New'), ('ItemType', 'CWLure')])
+70.8923 	EXP 	textBlank500: autoDraw = False
+70.8923 	EXP 	textBlank500: autoDraw = False
+70.8923 	EXP 	textTestWord: text = 'PYTHON'
+70.8923 	EXP 	textTestWord: autoDraw = True
+70.9689 	DATA 	Keypress: y
+70.9928 	EXP 	textTestWord: autoDraw = False
+70.9928 	EXP 	textBlank500: autoDraw = True
+71.4646 	EXP 	New trial (rep=0, index=3): OrderedDict([('WordItem', 'COURIER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+71.4935 	EXP 	textBlank500: autoDraw = False
+71.4935 	EXP 	textBlank500: autoDraw = False
+71.4935 	EXP 	textTestWord: text = 'COURIER'
+71.4935 	EXP 	textTestWord: autoDraw = True
+71.5355 	DATA 	Keypress: n
+71.5598 	EXP 	textTestWord: autoDraw = False
+71.5598 	EXP 	textBlank500: autoDraw = True
+72.0301 	EXP 	New trial (rep=0, index=4): OrderedDict([('WordItem', 'PLANK'), ('OldNew', 'New'), ('ItemType', 'UnrelLure')])
+72.0604 	EXP 	textBlank500: autoDraw = False
+72.0604 	EXP 	textBlank500: autoDraw = False
+72.0604 	EXP 	textTestWord: text = 'PLANK'
+72.0604 	EXP 	textTestWord: autoDraw = True
+72.1361 	DATA 	Keypress: y
+72.1605 	EXP 	textTestWord: autoDraw = False
+72.1605 	EXP 	textBlank500: autoDraw = True
+72.6310 	EXP 	New trial (rep=0, index=5): OrderedDict([('WordItem', 'PROPAGANDA'), ('OldNew', 'New'), ('ItemType', 'UnrelLure')])
+72.6635 	EXP 	textBlank500: autoDraw = False
+72.6635 	EXP 	textBlank500: autoDraw = False
+72.6635 	EXP 	textTestWord: text = 'PROPAGANDA'
+72.6635 	EXP 	textTestWord: autoDraw = True
+72.6715 	DATA 	Keypress: n
+73.1701 	DATA 	Keypress: n
+73.1948 	EXP 	textTestWord: autoDraw = False
+73.1948 	EXP 	textBlank500: autoDraw = True
+73.6645 	EXP 	New trial (rep=0, index=6): OrderedDict([('WordItem', 'ACCOUNTANT'), ('OldNew', 'New'), ('ItemType', 'RelLure')])
+73.6953 	EXP 	textBlank500: autoDraw = False
+73.6953 	EXP 	textBlank500: autoDraw = False
+73.6953 	EXP 	textTestWord: text = 'ACCOUNTANT'
+73.6953 	EXP 	textTestWord: autoDraw = True
+73.7724 	DATA 	Keypress: y
+73.7961 	EXP 	textTestWord: autoDraw = False
+73.7961 	EXP 	textBlank500: autoDraw = True
+74.2664 	EXP 	New trial (rep=0, index=7): OrderedDict([('WordItem', 'SALESMAN'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+74.2955 	EXP 	textBlank500: autoDraw = False
+74.2955 	EXP 	textBlank500: autoDraw = False
+74.2955 	EXP 	textTestWord: text = 'SALESMAN'
+74.2955 	EXP 	textTestWord: autoDraw = True
+74.3029 	DATA 	Keypress: n
+74.6724 	DATA 	Keypress: n
+74.6970 	EXP 	textTestWord: autoDraw = False
+74.6970 	EXP 	textBlank500: autoDraw = True
+75.1671 	EXP 	New trial (rep=0, index=8): OrderedDict([('WordItem', 'ELECTRICIAN'), ('OldNew', 'New'), ('ItemType', 'RelLure')])
+75.1975 	EXP 	textBlank500: autoDraw = False
+75.1975 	EXP 	textBlank500: autoDraw = False
+75.1975 	EXP 	textTestWord: text = 'ELECTRICIAN'
+75.1975 	EXP 	textTestWord: autoDraw = True
+75.2420 	DATA 	Keypress: y
+75.2639 	EXP 	textTestWord: autoDraw = False
+75.2639 	EXP 	textBlank500: autoDraw = True
+75.7342 	EXP 	New trial (rep=0, index=9): OrderedDict([('WordItem', 'COBRA'), ('OldNew', 'Old'), ('ItemType', 'CW')])
+75.7644 	EXP 	textBlank500: autoDraw = False
+75.7644 	EXP 	textBlank500: autoDraw = False
+75.7644 	EXP 	textTestWord: text = 'COBRA'
+75.7644 	EXP 	textTestWord: autoDraw = True
+75.8400 	DATA 	Keypress: n
+75.8644 	EXP 	textTestWord: autoDraw = False
+75.8644 	EXP 	textBlank500: autoDraw = True
+76.3343 	EXP 	New trial (rep=0, index=10): OrderedDict([('WordItem', 'ENGINEER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+76.3647 	EXP 	textBlank500: autoDraw = False
+76.3647 	EXP 	textBlank500: autoDraw = False
+76.3647 	EXP 	textTestWord: text = 'ENGINEER'
+76.3647 	EXP 	textTestWord: autoDraw = True
+76.4745 	DATA 	Keypress: y
+76.4984 	EXP 	textTestWord: autoDraw = False
+76.4984 	EXP 	textBlank500: autoDraw = True
+76.9690 	EXP 	New trial (rep=0, index=11): OrderedDict([('WordItem', 'RATTLESNAKE'), ('OldNew', 'New'), ('ItemType', 'CWLure')])
+76.9992 	EXP 	textBlank500: autoDraw = False
+76.9992 	EXP 	textBlank500: autoDraw = False
+76.9992 	EXP 	textTestWord: text = 'RATTLESNAKE'
+76.9992 	EXP 	textTestWord: autoDraw = True
+77.1041 	DATA 	Keypress: n
+77.1654 	EXP 	textTestWord: autoDraw = False
+77.1654 	EXP 	textBlank500: autoDraw = True
+77.6360 	EXP 	New trial (rep=0, index=12): OrderedDict([('WordItem', 'LAWYER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+77.6659 	EXP 	textBlank500: autoDraw = False
+77.6659 	EXP 	textBlank500: autoDraw = False
+77.6659 	EXP 	textTestWord: text = 'LAWYER'
+77.6659 	EXP 	textTestWord: autoDraw = True
+77.7778 	DATA 	Keypress: y
+77.7995 	EXP 	textTestWord: autoDraw = False
+77.7995 	EXP 	textBlank500: autoDraw = True
+78.2698 	EXP 	New trial (rep=0, index=13): OrderedDict([('WordItem', 'PROFESSOR'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+78.2999 	EXP 	textBlank500: autoDraw = False
+78.2999 	EXP 	textBlank500: autoDraw = False
+78.2999 	EXP 	textTestWord: text = 'PROFESSOR'
+78.2999 	EXP 	textTestWord: autoDraw = True
+78.4433 	DATA 	Keypress: n
+78.4672 	EXP 	textTestWord: autoDraw = False
+78.4672 	EXP 	textBlank500: autoDraw = True
+78.9370 	EXP 	New trial (rep=0, index=14): OrderedDict([('WordItem', 'NURSE'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+78.9674 	EXP 	textBlank500: autoDraw = False
+78.9674 	EXP 	textBlank500: autoDraw = False
+78.9674 	EXP 	textTestWord: text = 'NURSE'
+78.9674 	EXP 	textTestWord: autoDraw = True
+79.0740 	DATA 	Keypress: y
+79.1344 	EXP 	textTestWord: autoDraw = False
+79.1344 	EXP 	textBlank500: autoDraw = True
+79.6049 	EXP 	New trial (rep=0, index=15): OrderedDict([('WordItem', 'TEACHER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+79.6345 	EXP 	textBlank500: autoDraw = False
+79.6345 	EXP 	textBlank500: autoDraw = False
+79.6345 	EXP 	textTestWord: text = 'TEACHER'
+79.6345 	EXP 	textTestWord: autoDraw = True
+79.7442 	DATA 	Keypress: n
+79.7688 	EXP 	textTestWord: autoDraw = False
+79.7688 	EXP 	textBlank500: autoDraw = True
+80.2388 	EXP 	New trial (rep=0, index=16): OrderedDict([('WordItem', 'DENTIST'), ('OldNew', 'New'), ('ItemType', 'RelLure')])
+80.2682 	EXP 	textBlank500: autoDraw = False
+80.2682 	EXP 	textBlank500: autoDraw = False
+80.2682 	EXP 	textTestWord: text = 'DENTIST'
+80.2682 	EXP 	textTestWord: autoDraw = True
+80.4464 	DATA 	Keypress: y
+80.4693 	EXP 	textTestWord: autoDraw = False
+80.4693 	EXP 	textBlank500: autoDraw = True
+80.9392 	EXP 	New trial (rep=0, index=17): OrderedDict([('WordItem', 'REDDEN'), ('OldNew', 'New'), ('ItemType', 'UnrelLure')])
+80.9693 	EXP 	textBlank500: autoDraw = False
+80.9693 	EXP 	textBlank500: autoDraw = False
+80.9693 	EXP 	textTestWord: text = 'REDDEN'
+80.9693 	EXP 	textTestWord: autoDraw = True
+81.0451 	DATA 	Keypress: n
+81.0691 	EXP 	textTestWord: autoDraw = False
+81.0691 	EXP 	textBlank500: autoDraw = True
+81.5392 	EXP 	New trial (rep=0, index=18): OrderedDict([('WordItem', 'CARPENTER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+81.5697 	EXP 	textBlank500: autoDraw = False
+81.5697 	EXP 	textBlank500: autoDraw = False
+81.5697 	EXP 	textTestWord: text = 'CARPENTER'
+81.5697 	EXP 	textTestWord: autoDraw = True
+81.7114 	DATA 	Keypress: y
+81.7373 	EXP 	textTestWord: autoDraw = False
+81.7373 	EXP 	textBlank500: autoDraw = True
+82.2071 	EXP 	New trial (rep=0, index=19): OrderedDict([('WordItem', 'DETECTIVE'), ('OldNew', 'New'), ('ItemType', 'RelLure')])
+82.2374 	EXP 	textBlank500: autoDraw = False
+82.2374 	EXP 	textBlank500: autoDraw = False
+82.2374 	EXP 	textTestWord: text = 'DETECTIVE'
+82.2374 	EXP 	textTestWord: autoDraw = True
+82.3138 	DATA 	Keypress: n
+82.3375 	EXP 	textTestWord: autoDraw = False
+82.3375 	EXP 	textBlank500: autoDraw = True
+82.8075 	EXP 	New trial (rep=0, index=20): OrderedDict([('WordItem', 'ANACONDA'), ('OldNew', 'New'), ('ItemType', 'CWLure')])
+82.8378 	EXP 	textBlank500: autoDraw = False
+82.8378 	EXP 	textBlank500: autoDraw = False
+82.8378 	EXP 	textTestWord: text = 'ANACONDA'
+82.8378 	EXP 	textTestWord: autoDraw = True
+82.9477 	DATA 	Keypress: y
+82.9716 	EXP 	textTestWord: autoDraw = False
+82.9716 	EXP 	textBlank500: autoDraw = True
+83.4418 	EXP 	New trial (rep=0, index=21): OrderedDict([('WordItem', 'THUT'), ('OldNew', 'New'), ('ItemType', 'UnrelLure')])
+83.4723 	EXP 	textBlank500: autoDraw = False
+83.4723 	EXP 	textBlank500: autoDraw = False
+83.4723 	EXP 	textTestWord: text = 'THUT'
+83.4723 	EXP 	textTestWord: autoDraw = True
+83.5815 	DATA 	Keypress: n
+83.6052 	EXP 	textTestWord: autoDraw = False
+83.6052 	EXP 	textBlank500: autoDraw = True
+84.0751 	EXP 	New trial (rep=0, index=22): OrderedDict([('WordItem', 'BOA'), ('OldNew', 'New'), ('ItemType', 'CWLure')])
+84.1055 	EXP 	textBlank500: autoDraw = False
+84.1055 	EXP 	textBlank500: autoDraw = False
+84.1055 	EXP 	textTestWord: text = 'BOA'
+84.1055 	EXP 	textTestWord: autoDraw = True
+84.1780 	DATA 	Keypress: y
+84.2398 	EXP 	textTestWord: autoDraw = False
+84.2398 	EXP 	textBlank500: autoDraw = True
+84.7096 	EXP 	New trial (rep=0, index=23): OrderedDict([('WordItem', 'PLUMBER'), ('OldNew', 'Old'), ('ItemType', 'Occupations')])
+84.7402 	EXP 	textBlank500: autoDraw = False
+84.7402 	EXP 	textBlank500: autoDraw = False
+84.7402 	EXP 	textTestWord: text = 'PLUMBER'
+84.7402 	EXP 	textTestWord: autoDraw = True
+84.8155 	DATA 	Keypress: n
+84.8403 	EXP 	textTestWord: autoDraw = False
+84.8403 	EXP 	textBlank500: autoDraw = True
+85.3403 	EXP 	textBlank500: autoDraw = False
+85.3403 	EXP 	textBlank500: autoDraw = False
+85.3403 	EXP 	textEnd: autoDraw = True
+85.4468 	DATA 	Keypress: y
+86.6150 	DATA 	Keypress: y
+86.7814 	DATA 	Keypress: n
+87.1796 	DATA 	Keypress: space
+87.2088 	EXP 	textEnd: autoDraw = False
+87.4264 	EXP 	window1: mouseVisible = True
