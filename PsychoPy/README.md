@@ -89,7 +89,7 @@ So, to make changes to the HTML experiment:
 Some specific edits you can make to your experiments:
 - At the beginning of your experiment, by default it will ask for the participant and session numbers To change this:
   - Click on the experiment settings button (image with a gear in the buttons menu)
-  - Add or subtract from the "Experiment info" fields (WARNING: DO NOT delete all experiment info fields. It will make it more difficult to pass info into the experiment and will make it impossible to open the experiment settings again)
+  - Add or subtract from the "Experiment info" fields (WARNING: DO NOT delete all experiment info fields. It will make it more difficult to pass info into the experiment and will make it impossible to open the experiment settings again; actually can be fixed [this way](https://discourse.psychopy.org/t/experiment-settings-query/8054) but still not fun)
   - I suggest keeping a "participant" field with a default because the rest of these instructions use that to credit sona participants and create data files. If you change it then you will need to change the label elsewhere too
   - If a "participant" (or other included value) is included in the URL redirect then this option will not appear for the participant
   - However, even if all options have values included in the redirect, the experiment will still need the participant to press OK to continue
@@ -115,6 +115,7 @@ PsychoPy experiments are designed to be hosted on Pavlovia. This is an excellent
       - resources:[{name: "Example_Experiment_words.csv", path: "./resources/Example_Experiment_words.csv"}, {name: "other_needed_file.csv", path: "./resources/other_needed_file.csv"}, ...]
       - See line 77 of the Example_Experiment.js file for a concrete example
       - YOU WILL NEED TO DO THIS EVERYTIME YOU EXPORT THE HTML EXPERIMENT!
+      - Idea came from [here](https://discourse.psychopy.org/t/unknown-resource-file-error-when-testing-locally/11947)
 - Data won't save properly unless you do the following:
   - Include the write_data.php file in the same directory as the index.html file and a data folder (or change the php file to point to the folder you want it to)
   - Include the bcs folder (and the file inside that folder) found in the lib folder in this repository
@@ -127,6 +128,8 @@ PsychoPy experiments are designed to be hosted on Pavlovia. This is an excellent
 The adaptations I've made to the JavaScript library are to allow the code to save the data through the php code provided. You'll need to include the write_data.php file in the directory/folder that you are hosting this experiment (the index.html file) on (see line 4 to select the folder you want data to be saved to). You'll also need to set all permissions for the directories appropriately on the server you're using. See [here](https://github.com/SmithBradleyC/jsPsych_Online_Experiments/tree/master/uManitoba_Server#finding=your-umanitoba-server-account).
 
 #### Crediting SONA Participants
+
+[Official page from PsychoPy](https://www.psychopy.org/online/onlineParticipants.html) but it doesn't get to specifics yet.
 
 The University of Manitoba uses the SONA system to credit participants with course credit. SONA allows online experiments and automatic crediting for those experiments. To do this:
 - Set up a SONA online experiment
